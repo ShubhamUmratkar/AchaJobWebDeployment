@@ -1,0 +1,119 @@
+/* Full-screen background image */
+.background-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('/assets/images/user registration.jpg') no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Register container with blur effect and scrollable content */
+.register-container {
+  width: 100%;
+  max-width: 500px;
+  padding: 30px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0); /* Semi-transparent white background */
+  backdrop-filter: blur(20px); /* Blur effect */
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  color: #686f70; /* Dark text for better contrast */
+  max-height: 80vh; /* Limit the height of the container */
+  overflow-y: scroll; /* Enable vertical scrolling */
+
+}
+
+/* Adjust text size for h2 */
+.register-container h2 {
+  text-align: center;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: #000000; /* Dark text color */
+}
+
+/* Form Labels and Inputs */
+.register-container label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #000000; /* Dark text color */
+}
+
+.register-container input,
+.register-container select {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  border-radius: 5px;
+  border: 1px solid #cccccc05;
+  font-size: 0.8rem;
+  transition: all 0.3s ease;
+}
+
+.register-container input:focus,
+.register-container select:focus {
+  border-color: #007bff00;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0);
+  outline: none;
+}
+
+/* Button Styling */
+.register-container button {
+  width: 100%;
+  padding: 12px;
+  background-color: #006eb3fe;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.register-container button:hover {
+  background-color: #0b56f9;
+}
+
+/* Error Message Styling */
+.error {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+/* Link Styling */
+.register-container a {
+  color: #00c8ff89;
+  text-decoration: none;
+}
+
+.register-container a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .register-container {
+    padding: 20px;
+    width: 90%;
+  }
+}
+
+/* Custom scrollbar for Webkit browsers (Chrome, Safari, Edge) */
+.register-container::-webkit-scrollbar {
+  width: 6px; /* Thin scrollbar */
+}
+
+.register-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.register-container::-webkit-scrollbar-thumb {
+  background-color: #000000;
+  border-radius: 10px;
+}

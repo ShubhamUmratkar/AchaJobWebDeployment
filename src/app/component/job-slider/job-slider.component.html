@@ -1,0 +1,33 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+<div class="job-slider">
+  <h2>Latest Jobs</h2>
+  <div class="slider-container">
+    <button class="arrow-btn" (click)="prev()">&#10094;</button>
+
+    <div class="job-cards-wrapper">
+      <div class="job-cards">
+        <div
+          *ngFor="let job of getVisibleJobs(); let i = index"
+          [ngClass]="{'job-card': true, 'active': isActive(i), 'prev': isPrev(i), 'next': isNext(i)}"
+        >
+          <h3>{{ job?.title }}</h3>
+          <p class="location">
+            <i class="fas fa-map-marker-alt"></i> <!-- Font Awesome Icon -->
+            {{ job?.location }}
+          </p>
+          <p class="salary">&#8377; {{ job?.salary | number }}</p>
+          <p class="employmentType">{{ job?.employmentType }}</p>
+          <p class="workModel">{{ job?.workModel }}</p>
+          <a [routerLink]="['/view-job', job?.id]" class="details-btn">View Details</a>
+        </div>
+      </div>
+    </div>
+    &nbsp; &nbsp; &nbsp;
+    <a [routerLink]="'/view-all-jobs'" class="read-more">
+      View More <button>&#10095;</button>
+    </a> 
+    <button class="arrow-btn" (click)="next()">&#10095;</button>
+    
+  </div>
+ 
+</div>

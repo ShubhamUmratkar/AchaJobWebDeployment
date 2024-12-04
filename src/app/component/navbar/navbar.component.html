@@ -1,0 +1,59 @@
+<nav class="navbar">
+  <a routerLink="/" class="navbar-logo">
+    <img src="../../../assets/AchaJobs.png" alt="Company Logo" />
+  </a>
+
+  <!-- Hamburger Icon for Mobile View -->
+  <button
+    class="hamburger-icon"
+    (click)="toggleNavbar()"
+    aria-label="Toggle navigation"
+  >
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+
+  <!-- Navigation Items -->
+  <ul class="nav-items" [class.open]="isNavbarOpen">
+    <li
+      *ngFor="let item of navItems"
+      class="nav-item"
+      (mouseenter)="toggleDropdown(item, $event)"
+      (mouseleave)="toggleDropdown(null)"
+    >
+      <a>{{ item.label }}</a>
+      <div
+        class="dropdown"
+        *ngIf="item.categories"
+        [class.show]="dropdownOpen === item"
+      >
+        <div
+          class="dropdown-category"
+          *ngFor="let category of item.categories"
+          (mouseenter)="toggleCategory(category)"
+          (mouseleave)="toggleCategory(category)"
+        >
+          <h3>{{ category.title }}</h3>
+          <div
+            class="secondary-dropdown"
+            *ngIf="category.isOpen"
+            [class.open]="category.isOpen"
+          >
+            <a *ngFor="let subItem of category.items" routerLink="/">{{
+              subItem
+            }}</a>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+
+  <!-- Login/Logout Button -->
+  <button *ngIf="!isLoggedIn" routerLink="/login" class="login-button">
+    Login
+  </button>
+  <button *ngIf="isLoggedIn" (click)="logout()" class="logout-button">
+    Logout
+  </button>
+</nav>

@@ -1,0 +1,53 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+<div class="internship-container">
+  <div class="internship-header">
+    <h1>{{ internshipTitle || 'Loading...' }}</h1>
+    <p class="company-name">{{ companyName || 'Loading...' }}</p>
+    <p class="location"><i class="fa fa-home"></i> {{ location || 'Loading...' }}</p>
+  </div>
+
+  <div class="internship-details">
+    <div class="detail-item header">
+      <div><i class="fa fa-calendar-alt"></i> <strong>Duration:</strong></div>
+      <div><i class="fa fa-money-bill-wave"></i> <strong>Stipend:</strong></div>
+      <div><i class="fa fa-graduation-cap"></i> <strong>Qualifications:</strong></div>
+    </div>
+    <div class="detail-item details">
+      <span>{{ duration || 'Loading...' }}</span>
+      <span>{{ stipend || 'Loading...' }}</span>
+      <span>{{ qualifications || 'Loading...' }}</span>
+    </div>
+  </div>
+
+  <div class="posted-info-container">
+    <p><i class="fa fa-calendar"></i> Posted on {{ activity.started || 'Loading...' }} · 
+      <span class="internship-highlight">Internship</span><br> 
+      <span class="applicant-count"><i class="fas fa-users applicant-count-icon"></i> {{ applicants || '0' }} applicants</span>
+    </p>
+    <div class="icon-container">
+      <div class="icon" (click)="sharePage()">
+        <i class="fas fa-share-alt"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="internship-description">
+    <h2>About the internship</h2>
+    <p>{{ description || 'Loading...' }}</p>
+  </div>
+
+  <div class="additional-info">
+    <h3>Posted since</h3>
+    <p>{{ activity.started || 'Loading...' }}</p>
+
+    <h3>Number of openings</h3>
+    <p>{{ activity.opportunities || 'Loading...' }}</p>
+
+    <h3>Hiring history</h3>
+    <p>{{ activity.hired || '0' }} candidates hired</p>
+
+    <button class="apply-button" (click)="onApplyNow()">Apply now</button>
+  </div>
+</div>

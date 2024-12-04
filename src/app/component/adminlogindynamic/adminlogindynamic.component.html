@@ -1,0 +1,51 @@
+<div class="full-container">
+  <!-- Right Section - Form Section -->
+  <div class="right-section">
+    <!-- Close Button Styling (top-right of the form) -->
+    <div class="close-btn" (click)="navigateToHome()">&#x2715;</div>
+
+    <!-- Form Heading -->
+    <h2>Admin Login</h2>
+
+    <!-- Form Container -->
+    <form (ngSubmit)="onLogin()" [formGroup]="loginForm">
+      <!-- Username Field -->
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input
+          type="text"
+          id="username"
+          formControlName="username"
+          placeholder="Enter your username"
+          required
+        />
+      </div>
+
+      <!-- Password Field -->
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          formControlName="password"
+          placeholder="Enter your password"
+          required
+        />
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" [disabled]="loginForm.invalid">Login</button>
+
+      <!-- Error Message (Optional) -->
+      <div class="error" *ngIf="loginError">{{ errorMessage }}</div>
+
+      <!-- Forgot Password Link -->
+      <div class="login-link">
+        <a href="/adminregister">Register Now?</a>
+      </div>
+      <div class="login-link">
+        <a href="/superadminlogin">Super Admin login</a>
+      </div>
+    </form>
+  </div>
+</div>

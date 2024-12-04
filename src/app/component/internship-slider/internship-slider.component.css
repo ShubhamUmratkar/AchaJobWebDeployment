@@ -1,0 +1,234 @@
+/* Reset and layout */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f4f4;
+  font-family: Arial, sans-serif;
+}
+
+.internship-slider {
+  margin-top: 10px;
+  text-align: center;
+  width: 98vw;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-size: 2.0rem;
+  color: #333;
+}
+
+.slider-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Background image */
+.slider-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.3;
+}
+
+.internship-cards-wrapper {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+}
+
+.internship-cards {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 150px; /* Consistent gap between each card */
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.internship-card {
+  background: linear-gradient(135deg, #84e5eb, #78d2e4, #66b5d9, #579dcf, #559acf, #4d8dc9, #4682c6, #427cc3);
+  border-radius: 10px;
+  padding: 2rem; /* Increased padding */
+  width: 300px; /* Increased width */
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease;
+  opacity: 1; /* No opacity change for non-active states */
+  transform: scale(1); /* No scaling change for non-active states */
+  text-align: left;
+  height: 400px; /* Increased height */
+  /* Consistent text styling */
+  font-size: 1.2rem;
+  font-weight: normal;
+}
+
+.internship-card.active {
+  opacity: 1;
+  transform: scale(1.11); /* Only active card will scale up */
+}
+
+.company {
+  font-weight: bold;
+}
+
+.location, .salary, .duration {
+  font-size: 0.9rem;
+  margin: 5px 0;
+}
+
+.details-btn {
+  position: absolute;
+  bottom: 20px; /* Ensure it's not covering content */
+  left: 50%; /* Horizontally center the button */
+  transform: translateX(-50%); /* Center the button precisely */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  color: #333;
+  font-size: 1.1rem; /* Slightly larger button text */
+  cursor: pointer;
+  padding: 0.5rem 3rem; /* Adjusted padding */
+  border: none;
+  border-radius: 20px;
+  transition: background 0.3s ease;
+  z-index: 1; /* Ensures the button stays above content */
+  text-decoration: none; /* No underline */
+  white-space: nowrap; /* Prevent text wrapping */
+  text-overflow: ellipsis; /* Add ellipsis if text overflows */
+  overflow: hidden; /* Hide overflowing text */
+}
+
+.details-btn:hover {
+  background: #ddd;
+}
+
+.details-btn::after {
+  content: '';
+  position: absolute;
+  right: 7px; /* Position circle to the right of the text */
+  width: 24px;
+  height: 24px;
+  background-color: black;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.details-btn::before {
+  content: '→'; /* Right-facing arrow */
+  position: absolute;
+  right: 12px; /* Position arrow within the circle */
+  color: white;
+  font-size: 0.8rem;
+  z-index: 1;
+}
+
+.arrow-btn {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #333;
+  cursor: pointer;
+  padding: 0 20px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.arrow-btn:first-child {
+  left: 10px;
+}
+
+.arrow-btn:last-child {
+  right: 10px;
+}
+
+.read-more {
+  position: absolute;
+  text-decoration: none; /* Ensure no underline on the button */
+  right: 30px;
+  bottom: 10px;
+  font-size: 16px;
+  color: #062547;
+}
+
+.read-more a {
+  color: black;
+  display: inline-flex;
+  align-items: center;
+}
+
+.read-more button {
+  border: none;
+  background: none;
+  color: black;
+  font: inherit;
+  padding: 0;
+  cursor: pointer;
+  margin-left: 5px; /* Optional: space between text and button */
+}
+
+/* Media Query: Mobile screens */
+@media (max-width: 480px) {
+  /* Adjust the overall internship slider size for mobile */
+  .internship-slider {
+    width: 95vw; /* Increased width to 95% of the viewport width */
+    height: 85vh; /* Increased height to 85% of the viewport height */
+  }
+
+  /* Adjust the intern cards container for mobile */
+  .internship-cards {
+    gap: 20px; /* Reduced gap between cards for smaller screens */
+  }
+
+  /* Adjust card dimensions */
+  .internship-card {
+    width: 220px; /* Increased width for mobile */
+    height: 350px; /* Adjusted height for better fit */
+    padding: 1.6rem; /* Slightly increased padding */
+    font-size: 1rem; /* Adjust font size for better readability */
+  }
+
+  /* Increase the "View Details" button size */
+  .details-btn {
+    padding: 0.5rem 2.0rem; /* Slightly adjusted padding for mobile */
+    font-size: 1.1rem; /* Slightly increased font size */
+    border-radius: 20px;
+    bottom: 20px; /* Move it a bit higher */
+    margin-left: 1px    ;
+  }
+
+  /* Adjust arrow buttons size */
+  .arrow-btn {
+    font-size: 1.6rem; /* Slightly larger size for mobile */
+  }
+
+  /* Adjust the read more button for mobile view */
+  .read-more {
+    font-size: 13px; /* Slightly increased font size for better fit */
+  }
+}

@@ -1,0 +1,633 @@
+
+/* 500+ Hiring Partners Section */
+.hiring-partners-container {
+  background-color: #ffffff;
+  margin: 5px 0;
+  padding: 5px;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-height: max-content;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hiring-partners-container:hover {
+  transform: translateY(-5px);
+}
+
+.hiring-partners-container h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+  transition: transform 0.3s ease-in-out;
+  text-align: center;
+}
+
+.hiring-partners-container h2:hover {
+  transform: scale(1.01);
+}
+
+.partners-logos {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.partner-logo-1 img {
+  width: 250px;
+  height: 120px;
+  padding: 5px;
+  background-color: #fff;
+  border-radius: 70px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.341); /* Soft shadow */
+  position: relative;
+  animation: float 2s ease-in-out infinite;
+}
+.partner-logo-2 img {
+  width: 250px;
+  height: 120px;
+  padding: 5px;
+  background-color: #fff;
+  border-radius: 70px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.341); /* Soft shadow */
+  position: relative;
+  animation: float 2.5s ease-in-out infinite;
+}
+.partner-logo-3 img {
+  width: 250px;
+  height: 120px;
+  padding: 5px;
+  background-color: #fff;
+  border-radius: 70px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.341); /* Soft shadow */
+  position: relative;
+  animation: float 3s ease-in-out infinite;
+}
+.partner-logo-4 img {
+  width: 250px;
+  height: 120px;
+  padding: 5px;
+  background-color: #fff;
+  border-radius: 70px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.341); /* Soft shadow */
+  position: relative;
+  animation: float 3.5s ease-in-out infinite;
+}
+.partner-logo-5 img {
+  width: 250px;
+  height: 120px;
+  padding: 5px;
+  background-color: #fff;
+  border-radius: 70px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.341); /* Soft shadow */
+  position: relative;
+  animation: float 4s ease-in-out infinite;
+}
+.partner-logo-6 img {
+  width: 250px;
+  height: 120px;
+  padding: 5px;
+  background-color: #fff;
+  border-radius: 70px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.341); /* Soft shadow */
+  position: relative;
+  animation: float 4.5s ease-in-out infinite;
+}
+.partner-logo-7 img {
+  width: 250px;
+  height: 120px;
+  padding: 5px;
+  background-color: #fff;
+  border-radius: 70px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.341); /* Soft shadow */
+  position: relative;
+  animation: float 5s ease-in-out infinite;
+}
+.partner-logo-8 img {
+  width: 250px;
+  height: 120px;
+  padding: 5px;
+  background-color: #fff;
+  border-radius: 70px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.341); /* Soft shadow */
+  position: relative;
+  animation: float 5.5s ease-in-out infinite;
+}
+.partner-logo-9 img {
+  width: 250px;
+  height: 120px;
+  padding: 5px;
+  background-color: #fff;
+  border-radius: 70px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.341); /* Soft shadow */
+  position: relative;
+  animation: float 2s ease-in-out infinite;
+}
+.partner-logo-10 img {
+  width: 250px;
+  height: 120px;
+  padding: 5px;
+  background-color: #fff;
+  border-radius: 70px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.341); /* Soft shadow */
+  position: relative;
+  animation: float 2.5s ease-in-out infinite;
+}
+.partner-logo-11 img {
+  width: 250px;
+  height: 120px;
+  padding: 5px;
+  background-color: #fff;
+  border-radius: 70px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.341); /* Soft shadow */
+  position: relative;
+  animation: float 3s ease-in-out infinite;
+}
+.partner-logo-1 img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(255, 33, 33, 0.61);
+}
+.partner-logo-2 img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px #f13ab1;
+}
+.partner-logo-3 img:hover{
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(21, 233, 116, 0.753);
+}
+.partner-logo-4 img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px #004890b4;
+}
+.partner-logo-5 img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(33, 122, 255, 0.705);
+}
+.partner-logo-6 img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.712);
+}
+.partner-logo-7 img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(42, 134, 255, 0.712);
+}
+.partner-logo-8 img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 74, 170, 0.712);
+}
+.partner-logo-9 img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 43, 100, 0.712);
+}
+.partner-logo-10 img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.712);
+}
+.partner-logo-11 img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(255, 225, 0, 0.912);
+}
+
+/* About Tech Brilliance Academy Section */
+.academy-container {
+  position: relative;
+  overflow: hidden;
+  background-color: #ffffff;
+  margin: 10px 0;
+  padding: 5px;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-height: max-content;
+  animation: slideUp 1.2s ease-in-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.academy-container:hover {
+  transform: translateY(-5px);
+}
+
+.academy-container h3 {
+  font-family: 'arial', sans-serif;
+  font-size: 42px;
+  color: #000;
+  margin-top: 50px;
+  letter-spacing: 1.5px;
+  transition: transform 0.3s ease-in-out;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align:center;
+  max-width: 800px;
+}
+
+.academy-container h2 {
+  font-family: 'arial', sans-serif;
+  font-size: 20px;
+  color: #000;
+  margin-top: 25px;
+  letter-spacing: 1.5px;
+  transition: transform 0.3s ease-in-out;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align:left;
+}
+
+.academy-container h1 {
+  font-family: 'arial', sans-serif;
+  font-size: 50px;
+  color: #000;
+  transition: transform 0.3s ease-in-out;
+  font-weight: bold;
+  text-align:left;
+}
+
+.academy-container h1:hover,
+.academy-container h2:hover,
+.academy-container h3:hover {
+  transform: scale(1.01);
+}
+
+.academy-container p {
+  font-family: 'arial', sans-serif;
+  display: flex;
+  font-size: 1.5rem;
+  color: #333;
+  line-height: 1.3;
+  margin-top: 30px;
+  text-align:justify;
+  margin-left: 50px;
+  max-width: 1000px;
+}
+@media (max-width: 768px) {
+  .academy-container h1 {
+    font-size: 2rem;
+  }
+
+  .academy-container h2 {
+    font-size: 1.3rem;
+  }
+
+  .academy-container p {
+    font-size: 1rem;
+    margin-left: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .academy-container h1 {
+    font-size: 1.8rem;
+  }
+
+  .academy-container h2 {
+    font-size: 1.2rem;
+  }
+
+  .academy-container p {
+    font-size: 0.9rem;
+    margin-left: 0;
+  }
+}
+
+
+video {
+  cursor: pointer;
+  max-width: 600px;
+  height: auto;
+  border: 2px ;
+  border-radius: 8px;
+  margin-left: 80px;
+  margin-bottom: 50px;
+  margin-top: -100px;
+}
+
+/* Adjust margins and sizes for smaller screens */
+@media (max-width: 768px) {
+  video {
+    margin-left: auto; /* Override left margin */
+    margin-right: auto; /* Center the video */
+    margin-top: 20px; /* Adjust top margin */
+    margin-bottom: 30px; /* Adjust bottom margin */
+    max-width: 90%; /* Reduce max width on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  video {
+    max-width: 100%; /* Make the video full width */
+    margin-top: 10px; /* Further adjust top margin */
+    margin-bottom: 20px; /* Further adjust bottom margin */
+  }
+}
+
+/* Responsive design adjustments */
+@media screen and (max-width: 768px) {
+
+  video {
+    max-width: 95%; /* Allow some padding on smaller screens */
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .video-container {
+    padding: 5px;
+  }
+
+  button {
+    padding: 15px;
+    font-size: 16px; /* Larger button text on smaller screens */
+  }
+}
+@media screen and (max-width: 768px) {
+  video {
+    margin-left: 0;
+    max-width: 95%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  video {
+    max-width: 90%;
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  position: relative; /* Ensure footer stays at the bottom of the content */
+  width: 100%;
+}
+
+.footer a {
+  font-size: 20px;
+  font-weight: bold;
+  color: #4a4aff;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+.footer a:hover {
+  color: #007acc;
+  transform: scale(1.01);
+}
+
+.footer a span {
+  font-size: 1.3rem;
+  color: #007acc;
+  font-weight: bold;
+  text-align: center;
+  padding: 0 10px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer a span:hover {
+  color: #333; /* Change the color on hover */
+  transform: scale(1.01); /* Add hover effect */
+}
+
+@media (max-width: 768px) {
+  .footer a {
+    font-size: 18px;
+  }
+
+  .footer a span {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer a {
+    font-size: 16px;
+  }
+
+  .footer a span {
+    font-size: 1rem;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .academy-container {
+    padding: 40px 20px;
+  }
+
+  .academy-container h1 {
+    font-size: 2.8rem;
+  }
+
+  .academy-container p {
+    font-size: 1.1rem;
+  }
+
+  .features {
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hiring-partners-container h2 {
+    font-size: 2rem;
+  }
+
+  .academy-container h1 {
+    font-size: 2.5rem;
+  }
+
+  .academy-container p {
+    font-size: 1rem;
+  }
+
+  .partners-logos img {
+    width: 80px;  /* Adjust width for smaller screens */
+    height: 80px; /* Adjust height for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .hiring-partners-container h2 {
+    font-size: 1.8rem;
+  }
+
+  .academy-container h1 {
+    font-size: 2rem;
+  }
+
+  .academy-container p {
+    font-size: 0.9rem;
+  }
+
+  .play-video-btn {
+    font-size: 1rem;
+    padding: 8px 16px;
+  }
+
+  .features {
+    gap: 20px;
+  }
+  .partners-logos img {
+    width: 60px;  /* Further adjust width for smaller screens */
+    height: 60px; /* Further adjust height for smaller screens */
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+/* Responsive Header Font */
+@media (max-width: 768px) {
+  .header h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header h2 {
+    font-size: 1.2rem;
+  }
+}
+
+/* Responsive 500+ Hiring Partners Section */
+@media (max-width: 768px) {
+  .hiring-partners-container h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+
+  .partners-logos img {
+    width: 200px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hiring-partners-container h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  .partners-logos img {
+    width: 150px;
+    height: 80px;
+  }
+}
+
+/* Responsive About Tech Brilliance Academy Section */
+@media (max-width: 768px) {
+  .academy-container h1 {
+    font-size: 2rem;
+  }
+
+  .academy-container h2 {
+    font-size: 1.3rem;
+  }
+
+  .academy-container p {
+    font-size: 1rem;
+    margin-left: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .academy-container h1 {
+    font-size: 1.8rem;
+  }
+
+  .academy-container h2 {
+    font-size: 1.2rem;
+  }
+
+  .academy-container p {
+    font-size: 0.9rem;
+    margin-left: 0;
+  }
+}
+
+/* Responsive Video Element */
+@media (max-width: 768px) {
+  video {
+    max-width: 100%;
+    height: auto;
+    margin-left: auto; /* Center the video */
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  video {
+    max-width: 100%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1025px) {
+  video {
+    max-width: 80%; /* Adjusts the width to 80% of the container */
+    height: auto;
+    margin-left: auto; /* Center the video horizontally */
+    margin-right: auto; /* Center the video horizontally */
+    margin-top: 20px; /* Adjusts the top margin for better spacing */
+    margin-bottom: 20px; /* Adjusts the bottom margin for better spacing */
+    border-radius: 8px;
+  }
+}

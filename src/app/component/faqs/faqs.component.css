@@ -1,0 +1,101 @@
+/* Enhanced FAQ Container Styling */
+.faq-container {
+  font-family: 'Roboto', sans-serif;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  max-width: 800px;
+  margin: 40px auto;
+  border: 1px solid #e0e0e0;
+}
+
+/* Header for the FAQ Section */
+.faq-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.faq-header h1 {
+  font-size: 28px;
+  color: #0073e6;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.faq-header p {
+  font-size: 16px;
+  color: #666;
+  margin: 0;
+}
+
+/* Main FAQ List Styling */
+.faq-container ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Styling for each question */
+.faq-container li {
+  margin-bottom: 20px;
+}
+
+.faq-container li > strong {
+  font-size: 20px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.faq-container li > strong:hover {
+  color: #0073e6;
+  transform: translateX(5px);
+}
+
+.faq-container li > strong:before {
+  content: '➔';
+  font-size: 16px;
+  color: #0073e6;
+  margin-right: 10px;
+  transition: transform 0.3s ease;
+}
+
+/* Sub-list (Answers) */
+.faq-container ul ul {
+  margin-left: 25px;
+  padding-left: 0;
+  list-style-type: disc;
+  color: #555;
+}
+
+.faq-container ul ul li {
+  font-size: 16px;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.faq-container ul ul li strong {
+  color: #0073e6;
+  font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .faq-container {
+    padding: 20px;
+  }
+
+  .faq-header h1 {
+    font-size: 24px;
+  }
+
+  .faq-container li > strong {
+    font-size: 18px;
+  }
+
+  .faq-container ul ul li {
+    font-size: 14px;
+  }
+}

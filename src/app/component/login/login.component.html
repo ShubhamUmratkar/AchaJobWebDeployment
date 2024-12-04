@@ -1,0 +1,43 @@
+<div class="background-image">
+  <div class="login-container">
+    <div class="close-btn" (click)="navigateToHome()">&#x2715;</div>
+    <h2>Login</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      
+      <!-- Username Field -->
+      <label for="username">Username</label>
+      <input
+        type="text"
+        id="username"
+        formControlName="username"
+        placeholder="Enter your username"
+      />
+      <div *ngIf="submitted && f['username'].errors" class="error">
+        <div *ngIf="f['username'].errors['required']">Username is required</div>
+      </div>
+      
+      <!-- Password Field -->
+      <label for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        formControlName="password"
+        placeholder="Enter your password"
+      />
+      <div *ngIf="submitted && f['password'].errors" class="error">
+        <div *ngIf="f['password'].errors['required']">Password is required</div>
+      </div>
+      
+      <!-- Incorrect username/password message -->
+      <div *ngIf="loginFailed" class="error">
+        Incorrect username or password. Please try again.
+      </div>
+      
+      <!-- Login Button -->
+      <button type="submit">Login</button>
+
+      <!-- Forgot Password Link -->
+      <button type="button" class="forgot-password" (click)="navigateToAdminLogin() ">Admin Login?</button>
+    </form>
+  </div>
+</div>

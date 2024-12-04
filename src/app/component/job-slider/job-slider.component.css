@@ -1,0 +1,258 @@
+/* Reset and layout */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f4f4;
+  font-family: Arial, sans-serif;
+}
+
+.job-slider {
+  text-align: center;
+  width: 98vw;  /* Set width to 98% of the viewport width */
+  height: 80vh;  /* Set height to 80% of the viewport height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  border-radius: 20px; /* Curved edges for the slider */
+  overflow: hidden; /* Prevent content from overflowing */
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-size: 2.0rem;  /* Increased font size for the title */
+  color: #000000;
+}
+
+.slider-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.job-cards-wrapper {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.job-cards {
+  display: flex;
+  justify-content: center;
+  gap: 150px; /* Consistent gap between each card */
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.job-card {
+  background: linear-gradient(135deg, #84e5eb, #78d2e4, #66b5d9, #579dcf, #559acf, #4d8dc9, #4682c6, #427cc3);
+  border-radius: 10px;
+  padding: 3rem; /* Increased padding */
+  width: 300px; /* Increased width */
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease;
+  opacity: 1;
+  transform: scale(1);
+  text-align: left;
+  height: 390px; /* Increased height */
+  font-size: 1rem;
+  font-weight: normal;
+  position: relative; /* Ensures positioning of the button inside the card */
+}
+
+.job-card.active {
+  opacity: 1;
+  transform: scale(1.11); /* Only active card will scale up */
+}
+
+.company {
+  font-weight: bold;
+  font-size: 1.2rem; /* Increased font size for company name */
+}
+
+.location, .salary, .employmentType, .workModel {
+  font-size: 1.2rem;  /* Increased font size for these text items */
+  margin: 5px 0;
+}
+
+.details-btn {
+  position: absolute;
+  bottom: 20px; /* Ensure it's not covering content */
+  left: 50%; /* Horizontally center the button */
+  transform: translateX(-50%); /* Center the button precisely */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  color: #333;
+  font-size: 1.1rem; /* Slightly larger button text */
+  cursor: pointer;
+  padding: 0.5rem 3rem; /* Adjusted padding */
+  border: none;
+  border-radius: 20px;
+  transition: background 0.3s ease;
+  z-index: 1; /* Ensures the button stays above content */
+  text-decoration: none; /* No underline */
+  white-space: nowrap; /* Prevent text wrapping */
+  text-overflow: ellipsis; /* Add ellipsis if text overflows */
+  overflow: hidden; /* Hide overflowing text */
+} 
+
+.details-btn:hover {
+  background: #ddd;
+}
+
+.details-btn::after {
+  content: '';
+  position: absolute;
+  right: 7px;
+  width: 24px;
+  height: 24px;
+  background-color: black;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.details-btn::before {
+  content: '→';
+  position: absolute;
+  right: 12px;
+  color: white;
+  font-size: 0.8rem;
+  z-index: 1;
+}
+
+.arrow-btn {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #333;
+  cursor: pointer;
+  padding: 0 15px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.arrow-btn:first-child {
+  left: 10px;
+}
+
+.arrow-btn:last-child {
+  right: 10px;
+}
+
+.read-more {
+  margin-top: 20px;
+  position: absolute;
+  text-decoration: none; /* Ensure no underline on the button */
+  right: 50px;
+  bottom: 0px;
+  font-size: 16px;
+  color: #062547;
+}
+
+.read-more a {
+  color: black;
+  display: inline-flex;
+  align-items: center;
+}
+
+.read-more button {
+  border: none;
+  background: none;
+  color: black;
+  font: inherit;
+  padding: 0;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+
+/* Media Query for Mobile screens */
+@media (max-width: 480px) {
+
+  /* Adjust the overall job slider size for mobile */
+  .job-slider {
+    width: 100vw;  /* Set width to 90% of the viewport width */
+    height: 50vh;  /* Set height to 60% of the viewport height */
+    border-radius: 15px; /* More pronounced curve on mobile */
+  }
+
+  /* Adjust the "read more" button */
+  .read-more {
+    position: absolute;
+    text-decoration: none;
+    right: 0px;
+    bottom: 0px;
+    font-size: 16px;
+    padding: 0.5rem 1.5rem;
+    border-radius: 30px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Ensure "Read More" button doesn't overlap */
+  .read-more a {
+    color: black;
+    display: inline-flex;
+    align-items: center;
+    font-size: 16px;
+  }
+
+  .read-more button {
+    border: none;
+    background: none;
+    color: black;
+    font: inherit;
+    padding: 0;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 1.2rem;  /* Increased font size for the arrow */
+  }
+
+  /* Adjust the job-cards wrapper */
+  .job-cards-wrapper {
+    padding: 10px 0;  /* Reduced padding to fit better on mobile */
+  }
+
+  /* Adjust the job-cards */
+  .job-cards {
+    gap: 20px;  /* Reduced gap between cards */
+  }
+
+  /* Adjust card size */
+  .job-card {
+    width: 230px;  /* Reduced width of each card */
+    height: 320px;  /* Reduced height of each card */
+    padding: 1.5rem;  /* Adjusted padding */
+    font-size: 0.9rem;  /* Reduced font size for mobile */
+  }
+
+  /* Adjust button size inside job card */
+  .details-btn {
+    padding: 0.5rem 2.0rem;  /* Adjusted button padding */
+    font-size: 1rem;  /* Reduced font size */
+    bottom: 15px;  /* Slightly moved up the button */
+  }
+
+  /* Adjust arrow buttons size */
+  .arrow-btn {
+    font-size: 1.5rem;  /* Reduced size for mobile */
+  }
+}

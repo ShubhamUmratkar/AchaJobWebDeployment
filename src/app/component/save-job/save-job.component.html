@@ -1,0 +1,264 @@
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <nav class="col-4 col-md-4 col-lg-2 sidebar sticky-top">
+      <div class="text-center my-3">
+        <img src="../../../assets/AchaJobs.png" width="150" alt="" />
+        <h5 class="text-black">Admin</h5>
+      </div>
+      <hr />
+      <ul class="nav flex-column mx-0">
+        <!-- Other items -->
+        <li class="nav-item mb-2">
+          <a
+            class="nav-link"
+            [routerLink]="['/save-job']"
+            routerLinkActive="router-link-active"
+          >
+            <i class="fa fa-briefcase text-warning"></i> Job's
+          </a>
+        </li>
+        <li class="nav-item mb-1">
+          <a class="nav-link" [routerLink]="['/internship']">
+            <i class="fa-brands fa-wpforms"></i> Internship
+          </a>
+        </li>
+        <li class="nav-item mb-2">
+          <a class="nav-link" [routerLink]="['/userslist']">
+            <i class="fas fa-envelope text-info"></i> UserList
+          </a>
+        </li>
+        <!-- View All Forms -->
+        <li class="nav-item mb-2">
+          <a class="nav-link" [routerLink]="['/view-all-forms-admin']">
+            <i class="fa fa-eye text-info"></i> View Forms
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="col-8 col-md-8 col-lg-10 p-0">
+      <!-- topbar start -->
+      <div class="d-flex justify-content-between align-items-center topbar">
+        <div class="d-flex gap-2 align-items-center">
+          <i class="fa-solid fa-bars fa-xl"></i>
+        </div>
+        <div>
+          <span
+            class="dropdown-toggle p-2"
+            type="button"
+            id="dropdownMenuButton"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <img
+              src="../../../assets/userimage.png"
+              class="rounded-circle img-fluid"
+              alt="User"
+              style="width: 40px; height: 40px"
+            />
+            Admin
+          </span>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li><a class="dropdown-item" href="#">Log Out</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="form-container">
+        <!-- Success Message
+        <div *ngIf="successMessage" class="alert alert-success">
+          {{ successMessage }}
+        </div>
+
+
+        <div *ngIf="errorMessage" class="alert alert-danger">
+          {{ errorMessage }}
+        </div> -->
+
+        <form #jobForm="ngForm" (ngSubmit)="saveJob(jobForm)">
+          <!-- Existing fields -->
+
+          <label for="title">Title:</label>
+          <input
+            id="title"
+            type="text"
+            [(ngModel)]="job.title"
+            name="title"
+            required
+          />
+
+          <label for="category">Category:</label>
+          <input
+            id="category"
+            type="text"
+            [(ngModel)]="job.category"
+            name="category"
+            required
+          />
+
+          <label for="location">Location:</label>
+          <input
+            id="location"
+            type="text"
+            [(ngModel)]="job.location"
+            name="location"
+            required
+          />
+
+          <label for="employmentType">Employment Type:</label>
+          <select
+            id="employmentType"
+            [(ngModel)]="job.employmentType"
+            name="employmentType"
+            required
+          >
+            <option value="Full Time">Full Time</option>
+            <option value="Part Time">Part Time</option>
+          </select>
+
+          <label for="workModel">Work Model:</label>
+          <select
+            id="workModel"
+            [(ngModel)]="job.workModel"
+            name="workModel"
+            required
+          >
+            <option value="WFO">WFO (Work From Office)</option>
+            <option value="WFH">WFH (Work From Home)</option>
+            <option value="Hybrid">Hybrid</option>
+            <option value="Remote">Remote</option>
+          </select>
+
+          <label for="experience">Experience:</label>
+          <input
+            id="experience"
+            type="text"
+            [(ngModel)]="job.experience"
+            name="experience"
+            required
+          />
+
+          <label for="salary">Salary:</label>
+          <input
+            id="salary"
+            type="number"
+            [(ngModel)]="job.salary"
+            name="salary"
+            required
+          />
+
+          <label for="status">Status:</label>
+          <select id="status" [(ngModel)]="job.status" name="status" required>
+            <option value="Active">Active</option>
+            <option value="Deactive">Deactive</option>
+          </select>
+
+          <label for="jobDescription">Job Description:</label>
+          <textarea
+            id="jobDescription"
+            [(ngModel)]="job.jobDescription"
+            name="jobDescription"
+            rows="4"
+            required
+          ></textarea>
+
+          <label for="skills">Skills:</label>
+          <input
+            id="skills"
+            type="text"
+            [(ngModel)]="job.skills"
+            name="skills"
+            placeholder="Comma-separated skills"
+            required
+          />
+
+          <label for="company">Company:</label>
+          <input
+            id="company"
+            type="text"
+            [(ngModel)]="job.company"
+            name="company"
+            required
+          />
+
+          <!-- New fields -->
+          <label for="openingStartDate">Opening Start Date:</label>
+          <input
+            id="openingStartDate"
+            type="date"
+            [(ngModel)]="job.openingStartDate"
+            name="openingStartDate"
+            required
+          />
+
+          <label for="lastApplyDate">Last Apply Date:</label>
+          <input
+            id="lastApplyDate"
+            type="date"
+            [(ngModel)]="job.lastApplyDate"
+            name="lastApplyDate"
+            required
+          />
+
+          <label for="numberOfOpenings">Number of Openings:</label>
+          <input
+            id="numberOfOpenings"
+            type="number"
+            [(ngModel)]="job.numberOfOpenings"
+            name="numberOfOpenings"
+            required
+          />
+
+          <label for="perks">Perks:</label>
+          <textarea
+            id="perks"
+            [(ngModel)]="job.perks"
+            name="perks"
+            rows="2"
+          ></textarea>
+
+          <label for="companyDescription">Company Description:</label>
+          <textarea
+            id="companyDescription"
+            [(ngModel)]="job.companyDescription"
+            name="companyDescription"
+            rows="4"
+          ></textarea>
+
+          <button type="submit" [disabled]="!jobForm.valid">Save Job</button>
+          <button type="button" (click)="updateJob()" [disabled]="!job.id">
+            Update Job
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr />
+
+<div class="jobs-list">
+  <h3>Saved Jobs</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let job of jobs">
+        <td>{{ job.id }}</td>
+        <td>{{ job.title }}</td>
+        <td>{{ job.category }}</td>
+        <td>
+          <button (click)="editJob(job)">Edit</button>
+          <button (click)="deleteJob(job.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

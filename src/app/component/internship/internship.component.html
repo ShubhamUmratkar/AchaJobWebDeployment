@@ -1,0 +1,172 @@
+<!-- Bootstrap CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+
+
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <nav class="col-4 col-md-4 col-lg-2 sidebar sticky-top">
+      <div class="text-center my-3">
+        <img src="../../../assets/AchaJobs.png" width="150" alt="" />
+        <h5 class="text-black">Admin</h5>
+      </div>
+      <hr />
+      <ul class="nav flex-column mx-0 ">
+        <li class="nav-item mb-2">
+          <a class="nav-link" [routerLink]="['/save-job']" routerLinkActive="router-link-active">
+            <i class="fa fa-briefcase text-warning"></i> Job's
+          </a>
+        </li>
+
+        <li class="nav-item mb-2">
+          <a class="nav-link  " [routerLink]="['/internship']">
+            <i class="fa-brands fa-wpforms"></i> Internship
+          </a>
+        </li>
+
+        <li class="nav-item mb-2">
+          <a class="nav-link" [routerLink]="['/userslist']">
+            <i class="fas fa-envelope text-info"></i> UserList
+          </a>
+        </li>
+
+        <li class="nav-item mb-2">
+          <a class="nav-link" [routerLink]="['/view-all-forms-admin']">
+            <i class="fas fa-envelope text-info"></i> View Forms
+          </a>
+        </li>
+   
+
+        <!-- <li class="nav-item mb-2">
+          <a class="nav-link" [routerLink]="['/admin-blogs']">
+            <i class="fas fa-folder-open text-danger"></i> Blogs
+          </a>
+        </li> -->
+      </ul>
+    </nav>
+
+    <!-- Main content -->
+    <div class="col-8 col-md-8 col-lg-10 p-0">
+      <!-- topbar start -->
+      <div class="d-flex justify-content-between align-items-center topbar">
+        <div class="d-flex gap-2 align-items-center">
+          <i class="fa-solid fa-bars fa-xl"></i>
+          <!-- <img src="https://openfuturetechnologies.com/images/logoimg.png" width="150" alt="" /> -->
+        </div>
+        <div>
+          <!-- <i class="fas fa-bell me-3"></i> -->
+          <span class="dropdown-toggle p-2" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <img
+              src="../../../assets/userimage.png"
+              class="rounded-circle img-fluid" alt="User" style="width: 40px; height: 40px" />
+            Admin
+          </span>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <!-- <li><a class="dropdown-item" href="#">My Profile</a></li> -->
+            <li><a class="dropdown-item" href="#">Log Out</a></li>
+          </ul>
+        </div>
+      </div>
+
+
+   <!-- internship.component.html -->
+
+   <div class="container">
+    <h2>Manage Internships</h2>
+    <form
+      [formGroup]="internshipForm"
+      (ngSubmit)="
+        selectedInternship ? updateInternship() : createInternship()
+      "
+    >
+      <div>
+        <label>Title</label>
+        <input type="text" formControlName="title" />
+      </div>
+      <div>
+        <label>Company</label>
+        <input type="text" formControlName="company" />
+      </div>
+      <div>
+        <label>Location</label>
+        <input type="text" formControlName="location" />
+      </div>
+      <div>
+        <label>Duration</label>
+        <input type="text" formControlName="duration" />
+      </div>
+      <div>
+        <label>Stipend</label>
+        <input type="text" formControlName="stipend" />
+      </div>
+      <div>
+        <label>Qualifications</label>
+        <input type="text" formControlName="qualifications" />
+      </div>
+      <div>
+        <label>Skills</label>
+        <input type="text" formControlName="skills" />
+      </div>
+      <div>
+        <label>Description</label>
+        <textarea formControlName="description"></textarea>
+      </div>
+      <div>
+        <label>Status</label>
+        <input type="text" formControlName="status" />
+      </div>
+      <div>
+        <label>Opening Start Date</label>
+        <input type="date" formControlName="openingStartDate" />
+      </div>
+      <div>
+        <label>Last Apply Date</label>
+        <input type="date" formControlName="lastApplyDate" />
+      </div>
+      <div>
+        <label>Number of Openings</label>
+        <input type="number" formControlName="numberOfOpenings" />
+      </div>
+      <div>
+        <label>Perks</label>
+        <textarea formControlName="perks"></textarea>
+      </div>
+      <div>
+        <label>Company Description</label>
+        <textarea formControlName="companyDescription"></textarea>
+      </div>
+      <button type="submit">
+        {{ selectedInternship ? "Update" : "Create" }}
+      </button>
+      <button type="button" (click)="resetForm()">Reset</button>
+    </form>
+
+    <h3>Internships</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Company</th>
+          <th>Location</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let internship of internships">
+          <td>{{ internship.title }}</td>
+          <td>{{ internship.company }}</td>
+          <td>{{ internship.location }}</td>
+          <td>
+            <button (click)="selectInternship(internship)">Edit</button>
+            <button (click)="deleteInternship(internship.id)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+</div>

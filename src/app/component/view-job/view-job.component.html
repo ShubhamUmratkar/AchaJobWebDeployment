@@ -1,0 +1,87 @@
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+
+<div class="job-container">
+  <div class="job-header">
+    <h1>{{ jobTitle || 'Loading...' }}</h1>
+    <p class="company-name">{{ companyName || 'Loading...' }}</p>
+    <p class="location"><i class="fa fa-home"></i> {{ location || 'Loading...' }}</p>
+  </div>
+
+  <div class="job-details">
+    <div class="detail-item header">
+      <div><i class="fa fa-calendar-alt"></i> <strong>Start Date:</strong></div>
+      <div><i class="fa fa-money-bill-wave"></i> <strong>CTC (Annual):</strong></div>
+      <div><i class="fa fa-briefcase"></i> <strong>Experience:</strong></div>
+      <div><i class="fa fa-calendar-check"></i> <strong>Apply By:</strong></div>
+    </div>
+    <div class="detail-item details">
+      <span>{{ startDate || 'Loading...' }}</span>
+      <span>{{ ctc || 'Loading...' }}</span>
+      <span>{{ experience || 'Loading...' }}</span>
+      <span>{{ applyBy || 'Loading...' }}</span>
+    </div>
+  </div>
+
+  <div class="posted-info-container">
+    <p><i class="fa fa-calendar"></i>  {{ activity.opportunities }} opportunities posted · 
+      <span class="job-highlight">Job</span><br> 
+      <span class="applicant-count"><i class="fas fa-users applicant-count-icon"></i> {{ applicants || '0' }} applicants</span>
+    </p>
+    <!-- Share Icon -->
+<div class="icon-container">
+  <div class="icon" (click)="sharePage()">
+    <i class="fas fa-share-alt"></i>
+  </div>
+</div>
+
+  </div>
+
+  <div class="job-description">
+    <h2>About the job</h2>
+    <p>Key responsibilities:</p>
+    <ul>
+      <li *ngFor="let responsibility of responsibilities">{{ responsibility }}</li>
+    </ul>
+  </div>
+
+  <div class="skills-section">
+    <h2>Skill(s) required</h2>
+    <span *ngFor="let skill of skills" class="skill-badge">{{ skill }}</span>
+  </div>
+
+  <div class="additional-info">
+    <!-- <div class="skills-container">
+      <p>Earn certifications in these skills</p>
+      <div class="skills-list">
+        <a href="#">Learn Python</a>
+        <a href="#">Learn Voice App Development</a>
+        <a href="#">Learn Data Analytics</a>
+        <a href="#">Learn Machine Learning</a>
+        <a href="#">Learn Data Science</a>
+        <a href="#">Learn Deep Learning</a>
+      </div>
+    </div> -->
+
+    <h3>Salary</h3>
+    <p>Annual CTC: {{ ctc || 'Loading...' }}</p>
+
+    <h3>Perks</h3>
+    <p>{{ perks || 'Loading...' }}</p>
+
+    <h3>Number of openings</h3>
+    <p>{{ openings || 'Loading...' }}</p>
+
+    <h3>About {{ companyName || 'Loading...' }}</h3>  <!-- Dynamically display company name -->
+    <p>{{ companyDescription || 'Loading...' }}</p>  <!-- Dynamically display company description -->
+
+    <div class="activity-info">
+      <p>Activity on Internshala</p>
+      <p><i class="fa fa-calendar"></i>   {{ activity.opportunities }} opportunities posted · {{ activity.hired }} candidates hired</p>
+    </div>
+    <button class="apply-button" (click)="onApplyNow()">Apply now</button>
+  </div>
+</div>

@@ -1,0 +1,88 @@
+
+/* Body Background with Gradient */
+body {
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); /* Gradient background */
+  color: white; /* Text color for default styling */
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Container Styling */
+.terms-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.95); /* Slightly transparent white background */
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); /* Deeper shadow for a floating effect */
+  color: #333; /* Text color for readability */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation for hover effect */
+}
+
+/* Hover Effect on Container */
+.terms-container:hover {
+  transform: scale(1.02); /* Slight zoom effect */
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
+}
+
+/* Header Styling */
+.terms-container h1 {
+  color: #222; /* Darker header text */
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle text shadow */
+}
+
+/* Subheading Styling */
+.terms-container h2 {
+  color: #444; /* Slightly lighter for differentiation */
+  font-size: 20px;
+  margin-top: 20px;
+  text-transform: uppercase; /* Transform to uppercase for emphasis */
+  border-bottom: 2px solid #007bff; /* Underline effect for headings */
+  padding-bottom: 5px;
+}
+
+/* Paragraph and List Styling */
+.terms-container p,
+.terms-container ul {
+  color: #555; /* Darker paragraph color */
+  font-size: 16px;
+  margin-bottom: 15px;
+  line-height: 1.6; /* Increased spacing for readability */
+}
+
+.terms-container ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+/* Link Styling */
+.terms-container a {
+  color: #0056b3; /* Dark blue for links */
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease, text-shadow 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.terms-container a:hover {
+  color: #ff5722; /* Change color on hover */
+  text-shadow: 0px 2px 4px rgba(255, 87, 34, 0.5); /* Add a glowing effect on hover */
+}
+
+/* Add Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.terms-container {
+  animation: fadeIn 1s ease-in-out; /* Apply fade-in animation */
+}

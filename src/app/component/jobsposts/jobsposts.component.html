@@ -1,0 +1,78 @@
+<!-- src/app/components/jobs/jobs.component.html -->
+<div class="jobs-container">
+  <!-- Left Sidebar for Filters -->
+  <div class="filter-sidebar">
+    <h2>Filters</h2>
+
+    <!-- Location Filter -->
+    <div class="filter-group">
+      <label for="location">Location</label>
+      <input type="text" id="location" [(ngModel)]="filters.location" placeholder="Enter Location" />
+    </div>
+
+    <!-- Salary Range Filter -->
+    <div class="filter-group">
+      <label for="minSalary">Salary Range</label>
+      <input type="number" id="minSalary" [(ngModel)]="filters.minSalary" placeholder="Min Salary" />
+      <input type="number" id="maxSalary" [(ngModel)]="filters.maxSalary" placeholder="Max Salary" />
+    </div>
+
+    <!-- Work Mode Filter -->
+    <div class="filter-group">
+      <label for="workMode">Work Mode</label>
+      <select id="workMode" [(ngModel)]="filters.workMode">
+        <option value="">Select Work Mode</option>
+        <option value="Remote">Remote</option>
+        <option value="On-site">On-site</option>
+        <option value="Hybrid">Hybrid</option>
+      </select>
+    </div>
+
+    <!-- Experience Filter -->
+    <div class="filter-group">
+      <label for="experience">Experience</label>
+      <select id="experience" [(ngModel)]="filters.experience">
+        <option value="">Select Experience</option>
+        <option value="0-2 years">0-2 years</option>
+        <option value="3-5 years">3-5 years</option>
+        <option value="5+ years">5+ years</option>
+      </select>
+    </div>
+
+    <!-- Apply Filters Button -->
+    <button class="filter-button" (click)="applyFilters()">Apply Filters</button>
+<br>
+    <!-- Clear Filters Button -->
+    <button class="filter-button" (click)="clearFilters()">Clear Filters</button>
+  </div>
+
+  <!-- Job List Section -->
+  <div class="job-list-container">
+    <h1>All Jobs</h1>
+    <div *ngIf="loading" class="loading">
+      <p>Loading jobs...</p>
+    </div>
+    <div *ngIf="error" class="error">
+      <p>{{ error }}</p>
+    </div>
+    <div *ngIf="!loading && !error">
+      <!-- Job Cards Grid -->
+      <div class="job-cards-grid">
+        <div *ngFor="let job of filteredJobs" class="job-card">
+          <div class="job-card-header">
+            <h3>{{ job.title }}</h3>
+            <span class="job-category">{{ job.category }}</span>
+          </div>
+          <p><strong>Company:</strong> {{ job.company }}</p>
+          <p><strong>Location:</strong> {{ job.location }}</p>
+          <p><strong>Salary:</strong> ₹{{ job.salary }}</p>
+          <p><strong>Experience:</strong> {{ job.experience }}</p>
+          <p><strong>Work Mode:</strong> {{ job.workModel }}</p>
+          <p><strong>Job Description:</strong> {{ job.jobDescription }}</p>
+          <!-- Apply Now Button -->
+          <button class="apply-button" (click)="job.id ? onApplyNow(job.id) : null">Apply Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

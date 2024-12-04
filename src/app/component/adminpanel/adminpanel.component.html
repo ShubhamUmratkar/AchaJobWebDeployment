@@ -1,0 +1,73 @@
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <nav class="col-4 col-md-4 col-lg-2 sidebar sticky-top">
+      <div class="text-center my-3">
+        <img src="../../../assets/Job Website logo.jpeg" width="150" alt="" />
+        <h5 class="text-black">Admin</h5>
+      </div>
+      <hr />
+      <ul class="nav flex-column mx-5">
+        <!-- Other items -->
+        <li class="nav-item mb-1">
+          <a
+            class="nav-link"
+            [routerLink]="['/save-job']"
+            routerLinkActive="router-link-active"
+          >
+            <i class="fa fa-briefcase text-warning"></i> Job's
+          </a>
+        </li>
+
+        <li class="nav-item mb-1">
+          <a class="nav-link" [routerLink]="['/internship']">
+            <i class="fa-brands fa-wpforms"></i> Internship
+          </a>
+        </li>
+
+        <li class="nav-item mb-1">
+          <a class="nav-link" [routerLink]="['/userslist']">
+            <i class="fas fa-envelope text-info"></i> UserList
+          </a>
+        </li>
+
+        <!-- View All Forms -->
+        <li class="nav-item mb-1">
+          <a class="nav-link" (click)="fetchForms()">
+            <i class="fa fa-eye text-info"></i> View Forms
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Main content -->
+    <div class="col-8 col-md-8 col-lg-10 p-0">
+      <div *ngIf="forms.length > 0" class="forms-list">
+        <h3>All Submitted Forms</h3>
+        <div *ngFor="let form of forms" class="form-item">
+          <div (click)="viewFormDetails(form)" class="form-card">
+            <p>
+              <strong>Name:</strong> {{ form.firstName }} {{ form.lastName }}
+            </p>
+            <p><strong>Email:</strong> {{ form.email }}</p>
+            <p><strong>Country:</strong> {{ form.country }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="selectedForm">
+        <h4>Form Details</h4>
+        <p><strong>First Name:</strong> {{ selectedForm.firstName }}</p>
+        <p><strong>Last Name:</strong> {{ selectedForm.lastName }}</p>
+        <p><strong>Email:</strong> {{ selectedForm.email }}</p>
+        <p><strong>Country:</strong> {{ selectedForm.country }}</p>
+        <p><strong>Location:</strong> {{ selectedForm.location }}</p>
+        <p><strong>Mobile Number:</strong> {{ selectedForm.mobileNumber }}</p>
+        <!-- Display CV (if needed, you can show it as a downloadable link or preview) -->
+        <a href="data:application/pdf;base64,{{ selectedForm.cv }}" download
+          >Download CV</a
+        >
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,226 @@
+ /* General styles */
+ body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #e3f2fd, #ffccbc);
+    color: #2c3e50;
+    overflow-x: hidden;
+  }
+
+  /* Container styles */
+  .container-fluid {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+  }
+
+/* Sidebar styles */
+.sidebar {
+  background-color: #ffffff;
+  padding-top: 20px;
+  padding-left: 20px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  color: #fff;
+}
+
+.sidebar .text-center {
+  text-align: center;
+}
+
+.sidebar .text-center img {
+  max-width: 150px;
+  border-radius: 50%;
+}
+
+.sidebar .text-center h5 {
+  margin-top: 5px;
+  font-size: 1.5rem; /* Increase heading font size */
+}
+
+.sidebar hr {
+  border-top: 1px solid #fff;
+  margin: 10px ;
+}
+
+/* Make nav items horizontal */
+.sidebar .nav {
+  display: flex;
+  flex-wrap: nowrap; /* Prevent wrapping */
+  justify-content: space-between; /* Space out items evenly */
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.sidebar .nav-item {
+  margin-bottom: 0; /* Remove vertical margin */
+  margin-right: 15px; /* Add horizontal space between items */
+}
+
+.sidebar .nav-link {
+  text-decoration: none;
+  color: #2c3e50;
+  padding: 1rem; /* Increase padding for larger clickable area */
+  font-size: 1.25rem; /* Increased font size for nav links */
+  transition: all 0.3s ease;
+}
+
+.sidebar .nav-link:hover {
+  color: #007bff;
+  background: #f0f4f8;
+}
+
+.sidebar .nav-link i {
+  font-size: 1.3rem; /* Increase the size of icons */
+  margin-right: 10px; /* Add space between icon and text */
+}
+
+.sidebar .text-warning {
+  color: #ffc107;
+}
+
+.sidebar .text-info {
+  color: #17a2b8;
+}
+
+
+  /* Main content styles */
+  .col-8 {
+    padding: 0;
+  }
+
+  /* Success message styling */
+  .success-message {
+    margin-top: 20px;
+    padding: 15px;
+    text-align: center;
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    border-radius: 8px;
+    font-size: 1rem;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  .forms-list {
+    margin: 20px;
+  }
+
+  .form-item {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .form-item:hover {
+    transform: scale(1.02);
+    background: linear-gradient(135deg, #e3f2fd, #ffccbc);
+  }
+
+  /* Table styles */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    animation: fadeInUp 1.2s ease-in-out;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  thead {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: #fff;
+  }
+
+  th,
+  td {
+    padding: 12px 20px;
+    text-align: left;
+    border-bottom: 1px solid #dee2e6;
+    font-size: 0.9rem;
+  }
+
+  tbody tr {
+    transition: all 0.3s ease-in-out;
+  }
+
+  tbody tr:hover {
+    background: linear-gradient(135deg, #e3f2fd, #ffccbc);
+    cursor: pointer;
+    transform: scale(1.02);
+  }
+
+  td button {
+    padding: 8px 15px;
+    font-size: 0.875rem;
+    margin-right: 5px;
+    border-radius: 6px;
+  }
+
+  td button:nth-child(1) {
+    background: linear-gradient(135deg, #ffc107, #ffca28);
+  }
+
+  td button:nth-child(2) {
+    background: linear-gradient(135deg, #dc3545, #e53935);
+  }
+
+  td button:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Animations */
+  @keyframes zoomIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .form-item {
+      font-size: 0.875rem;
+    }
+  }

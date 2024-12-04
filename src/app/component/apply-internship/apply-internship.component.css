@@ -1,0 +1,145 @@
+/* Full-screen background image */
+.background-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../../../assets/images/apply for internship.jpg') no-repeat center center/cover;
+  z-index: -1; /* Ensures it's behind the content */
+  overflow-y: auto; /* Adds scrolling if content overflows */
+}
+ 
+/* Apply Job Container */
+.apply-job-container {
+  position: relative; /* Ensures form stays above background */
+  width: 90%;
+  max-width: 600px;
+  max-height: 150vh; /* Limits height to 90% of the viewport */
+  margin: 30px auto;
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.753); /* Transparent white background for readability */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  justify-content: center;
+}
+ 
+.apply-job-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+ 
+ 
+/* Heading */
+.apply-job-container h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+ 
+/* Input Group */
+.apply-job-container div {
+  margin-bottom: 20px;
+}
+ 
+.apply-job-container label {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+ 
+.apply-job-container input {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+ 
+.apply-job-container input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+ 
+/* Button */
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background-color 0.3s, transform 0.3s ease;
+}
+ 
+button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+ 
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+ 
+/* Responsive Design */
+@media (max-width: 768px) {
+  .apply-job-container {
+      width: 90%;
+      padding: 20px;
+  }
+ 
+  .apply-job-container h2 {
+      font-size: 1.8rem;
+  }
+ 
+  .apply-job-container input {
+      font-size: 1rem;
+      padding: 10px;
+  }
+ 
+  button {
+      font-size: 1rem;
+      padding: 10px;
+  }
+}
+ 
+@media (max-width: 480px) {
+  .apply-job-container {
+      width: 90%;
+      padding: 15px;
+  }
+ 
+  .apply-job-container h2 {
+      font-size: 1.6rem;
+  }
+ 
+  .apply-job-container input {
+      font-size: 0.9rem;
+      padding: 8px;
+  }
+ 
+  button {
+      font-size: 1rem;
+      padding: 10px;
+  }
+}
+/* Responsive Design */
+@media (max-height: 600px) {
+  .apply-job-container {
+      padding: 20px;
+      max-height: 80vh;
+  }
+}

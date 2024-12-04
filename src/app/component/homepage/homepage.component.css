@@ -1,0 +1,281 @@
+/* Main Container */
+.homepage-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  transition: all 0.3s ease-in-out;
+}
+ 
+/* Left Section: Content */
+.content-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+}
+ 
+/* Title Section */
+.main-title {
+  font-size: 2.8rem;
+  color: #000;
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 10px;
+}
+ 
+/* Search Bar Section */
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #e0f0ff;
+  border-radius: 50px;
+  padding: 10px 20px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+ 
+.search-input {
+  flex-grow: 1;
+  padding: 12px;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  background-color: #f5faff;
+  transition: box-shadow 0.3s ease;
+}
+ 
+.search-input::placeholder {
+  color: #888;
+}
+ 
+/* Search Button with Animation */
+.search-button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background: linear-gradient(45deg, #0077ff, #00d4ff);
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+ 
+.search-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(0, 119, 255, 0.5);
+}
+ 
+.search-button .arrow {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+ 
+.search-button:hover .arrow {
+  transform: translateX(8px);
+}
+ 
+/* Job Count Text */
+.job-count-text {
+  font-size: 1.5rem;
+  color: #333;
+  margin: 10px 0 20px;
+  font-weight: bold;
+}
+ 
+.bold-text {
+  font-weight: bold;
+  color: #000;
+}
+ 
+/* CTA Section */
+.cta-section {
+  display: flex;
+  width: 202%;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 30px;
+  background: linear-gradient(135deg, #84e5eb,#78d2e4, #66b5d9, #579dcf, #559acf, #4d8dc9, #4682c6, #427cc3);
+  border-radius: 10px;
+  
+}
+ 
+.cta-title {
+  font-size: 2.5rem;
+  color: #000;
+  font-weight: bold;
+  margin: 0;
+  text-align: left;
+}
+ 
+.register-button {
+  background-color: #f5faff;
+  border: none;
+  border-radius: 25px; /* Rounded corners */
+  padding: 12px 24px; /* Button padding */
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+}
+
+.register-button:hover {
+  transform: scale(1.1); /* Pop-up effect */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Deep shadow on hover */
+}
+ 
+.register-button a {
+  text-decoration: none;
+  color: rgb(0, 0, 0); /* Text color */
+  font-weight: bold;
+  font-size: 16px; /* Slightly larger font */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+ 
+.register-button .arrow {
+  margin-left: 8px;
+  font-size: 18px; /* Slightly larger arrow */
+  transition: transform 0.3s ease; /* Smooth arrow movement */
+  
+  /* Create the circular background around the arrow */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px; /* Set the size of the circle */
+  height: 30px; /* Set the size of the circle */
+  background-color: #000000; /* Dark background for the circle */
+  color: white; /* Arrow color */
+  border-radius: 50%; /* Make the background circular */
+  padding: 5px; /* Adjust padding for better centering of the arrow */
+  margin-left: 8px;
+}
+
+.register-button .arrow:hover {
+  transform: scale(1.1); /* Optional: Add hover effect for better interactivity */
+}
+ 
+.register-button:hover .arrow {
+  transform: translateX(5px); /* Arrow slides forward */
+}
+ 
+/* Right Section: Image Overlay */
+.image-overlay {
+  position: relative;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 10px solid #ffffff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+ 
+.team-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+  .homepage-container {
+    grid-template-columns: 1fr;
+    padding: 10px;
+  }
+ 
+  .main-title {
+    font-size: 2.4rem;
+    text-align: center;
+  }
+ 
+  .cta-section {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  }
+ 
+  .cta-title {
+    font-size: 2rem;
+  }
+ 
+  .image-overlay {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .homepage-container {
+    grid-template-columns: 1fr;
+  }
+ 
+  .main-title {
+    font-size: 2rem;
+  }
+ 
+  .search-container {
+    flex-direction: column;
+    width: 100%;
+  }
+ 
+  .cta-section {
+    flex-direction: column;
+    padding: 15px;
+  }
+ 
+  .cta-title {
+    font-size: 1.8rem;
+  }
+ 
+  .image-overlay {
+    width: 250px;
+    height: 250px;
+  }
+}
+ 
+@media (max-width: 480px) {
+  .main-title {
+    font-size: 1.6rem;
+  }
+ 
+  .cta-title {
+    font-size: 1.4rem;
+  }
+ 
+  .job-count-text {
+    font-size: 1rem;
+  }
+ 
+  .search-container {
+    width: 100%;
+    padding: 10px;
+  }
+ 
+  .cta-section {
+    padding: 10px;
+    width: auto;
+  }
+ 
+  .image-overlay {
+    width: 200px;
+    height: 200px;
+  }
+}

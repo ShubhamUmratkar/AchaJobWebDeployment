@@ -1,0 +1,110 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="logo-container">
+      <img
+        src="../../../assets/AchaJobs.png"
+        alt="Company Logo"
+        class="company-logo"
+      />
+      <h1></h1>
+    </div>
+    <div class="col-md-12">
+      <div class="d-flex justify-content-start">
+        <button
+          class="btn btn-primary me-2"  
+          (click)="selectedTab = 'admin'"
+        >
+          Admin Management
+        </button>
+        <button
+          class="btn btn-secondary"  
+          (click)="selectedTab = 'post'; loadPendingPosts()"
+        >
+          Post Management
+        </button>
+      </div>
+    </div>
+    
+    <div class="col-md-10">
+      <div *ngIf="selectedTab === 'admin'">
+        <h2>Admin Management</h2>
+        <!-- Existing Admin Management Table -->
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover">
+            <thead class="thead-dark">
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let admin of admins">
+                <td>{{ admin.id }}</td>
+                <td>{{ admin.name }}</td>
+                <td>{{ admin.email }}</td>
+                <td>
+                  <button
+                    class="btn btn-success btn-sm"
+                    (click)="approveAdmin(admin.id)"
+                    [disabled]="admin.status === 'Approved'"
+                  >
+                    {{ admin.status === "Approved" ? "Approved" : "Approve" }}
+                  </button>
+                  <button
+                    class="btn btn-danger btn-sm"
+                    (click)="disableAdmin(admin.id)"
+                    [disabled]="admin.status === 'Disabled'"
+                  >
+                    Disable
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div *ngIf="selectedTab === 'post'">
+        <h2>Post Management</h2>
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover">
+            <thead class="thead-dark">
+              <tr>
+                <th>ID</th>
+                <th>Type</th>
+                <th>Content</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let post of pendingPosts">
+                <td>{{ post.id }}</td>
+                <td>{{ post.type }}</td>
+                <td>{{ post.content }}</td>
+                <td>
+                  <button
+                    class="btn btn-success btn-sm"
+                    (click)="approvePost(post.id, true)"
+                  >
+                    Approve
+                  </button>
+                  <button
+                    class="btn btn-danger btn-sm"
+                    (click)="disapprovePost(post.id)"
+                  >
+                    Disapprove
+                  </button>
+                </td>
+              </tr>
+              <tr *ngIf="pendingPosts.length === 0">
+                <td colspan="4" class="text-center">No pending posts found.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

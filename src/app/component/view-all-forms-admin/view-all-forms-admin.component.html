@@ -1,0 +1,113 @@
+<!-- Bootstrap CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+
+
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <nav class="col-4 col-md-4 col-lg-2 sidebar sticky-top">
+      <div class="text-center my-3">
+        <img src="../../../assets/AchaJobs.png" width="150" alt="" />
+        <h5 class="text-black">Admin</h5>
+      </div>
+      <hr />
+      <ul class="nav flex-column mx-0 ">
+        <li class="nav-item mb-2">
+          <a class="nav-link" [routerLink]="['/save-job']" routerLinkActive="router-link-active">
+            <i class="fa fa-briefcase text-warning"></i> Job's
+          </a>
+        </li>
+
+        <li class="nav-item mb-2">
+          <a class="nav-link  " [routerLink]="['/internship']">
+            <i class="fa-brands fa-wpforms"></i> Internship
+          </a>
+        </li>
+
+        <li class="nav-item mb-2">
+          <a class="nav-link" [routerLink]="['/userslist']">
+            <i class="fas fa-envelope text-info"></i> UserList
+          </a>
+        </li>
+
+        <li class="nav-item mb-2">
+          <a class="nav-link" [routerLink]="['/view-all-forms-admin']">
+            <i class="fas fa-envelope text-info"></i> View Forms
+          </a>
+        </li>
+   
+
+        <!-- <li class="nav-item mb-2">
+          <a class="nav-link" [routerLink]="['/admin-blogs']">
+            <i class="fas fa-folder-open text-danger"></i> Blogs
+          </a>
+        </li> -->
+      </ul>
+    </nav>
+
+    <!-- Main content -->
+    <div class="col-8 col-md-8 col-lg-10 p-0">
+      <!-- topbar start -->
+      <div class="d-flex justify-content-between align-items-center topbar">
+        <div class="d-flex gap-2 align-items-center">
+          <i class="fa-solid fa-bars fa-xl"></i>
+          <!-- <img src="https://openfuturetechnologies.com/images/logoimg.png" width="150" alt="" /> -->
+        </div>
+        <div>
+          <!-- <i class="fas fa-bell me-3"></i> -->
+          <span class="dropdown-toggle p-2" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <img
+              src="../../../assets/userimage.png"
+              class="rounded-circle img-fluid" alt="User" style="width: 40px; height: 40px" />
+            Admin
+          </span>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <!-- <li><a class="dropdown-item" href="#">My Profile</a></li> -->
+            <li><a class="dropdown-item" href="#">Log Out</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Buttons for viewing jobs and internships -->
+      <div class="my-3 d-flex gap-3">
+        <button class="btn btn-primary" (click)="fetchJobs()">
+          View All Jobs
+        </button>
+        <button class="btn btn-secondary" (click)="fetchInternships()">
+          View All Internships
+        </button>
+      </div>
+
+      <!-- Display Jobs -->
+      <div *ngIf="jobs.length > 0">
+        <h3>All Jobs</h3>
+        <div class="job-grid">
+          <div *ngFor="let job of jobs" class="job-item">
+            <div class="job-card">
+              <p><strong>Title:</strong> {{ job.title }}</p>
+              <p><strong>Description:</strong> {{ job.jobDescription }}</p>
+              <p><strong>Location:</strong> {{ job.location }}</p>
+              <p><strong>Salary:</strong> {{ job.salary }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Display Internships -->
+      <div *ngIf="internships.length > 0">
+        <h3>All Internships</h3>
+        <div class="internship-grid">
+          <div *ngFor="let internship of internships" class="internship-item">
+            <div class="internship-card">
+              <p><strong>Title:</strong> {{ internship.title }}</p>
+              <p><strong>Description:</strong> {{ internship.description }}</p>
+              <p><strong>Duration:</strong> {{ internship.duration }}</p>
+              <p><strong>Stipend:</strong> {{ internship.stipend }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

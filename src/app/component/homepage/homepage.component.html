@@ -1,0 +1,52 @@
+<app-navbar></app-navbar>
+<div class="homepage-container">
+  <div class="content-section">
+    <!-- Main Title Section -->
+    <h1 class="main-title">Find your dream job now</h1>
+
+    <!-- Search Bar Section -->
+    <div class="search-container">
+      <input
+        type="text"
+        class="search-input"
+        placeholder="Enter skills/designations | Enter location | Enter Experience"
+        [(ngModel)]="searchText" 
+        (input)="onSearchInput()"
+      />
+      <button
+        class="search-button"
+        [disabled]="!searchText"
+        (click)="searchJobs()"
+      >
+        Search<span class="arrow">→</span>
+      </button>
+    </div>
+
+    <!-- Job Count Text -->
+    <p class="job-count-text">
+      <span class="bold-text">15 lakh+</span> jobs for you to explore
+    </p>
+
+    <!-- CTA Section -->
+    <div class="cta-section">
+      <button class="register-button">
+        <a routerLink="/register">Register Now <span class="arrow">→</span></a>
+      </button>
+ 
+      <h2 class="cta-title">Turn your dream career into reality</h2>
+    </div>
+  </div>
+
+  <!-- Image Section with Overlay -->
+  <div class="image-overlay">
+    <img
+      src="https://media.istockphoto.com/id/1346944001/photo/close-up-of-co-workers-stacking-their-hands-together.jpg?s=612x612&w=0&k=20&c=lidJcFUSR3rkMt4B0yoNwH55lz3sth9o2280keqBXGE="
+      alt="Team Collaboration"
+      class="team-image"
+    />
+  </div>
+</div>
+
+<app-job-slider></app-job-slider>
+<app-internship-slider></app-internship-slider>
+<app-footer></app-footer>
