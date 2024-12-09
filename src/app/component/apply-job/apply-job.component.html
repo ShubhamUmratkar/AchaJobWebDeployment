@@ -6,6 +6,7 @@
       (ngSubmit)="onSubmit()"
       enctype="multipart/form-data"
     >
+      <!-- First Name -->
       <div>
         <label for="firstName">First Name:</label>
         <input
@@ -14,19 +15,61 @@
           formControlName="firstName"
           required
         />
+        <div
+          *ngIf="applyForm.get('firstName')?.invalid && applyForm.get('firstName')?.touched"
+          class="error"
+        >
+          First Name is required.
+        </div>
       </div>
+
+      <!-- Last Name -->
       <div>
         <label for="lastName">Last Name:</label>
         <input type="text" id="lastName" formControlName="lastName" required />
+        <div
+          *ngIf="applyForm.get('lastName')?.invalid && applyForm.get('lastName')?.touched"
+          class="error"
+        >
+          Last Name is required.
+        </div>
       </div>
+
+      <!-- Email -->
       <div>
         <label for="email">Email:</label>
         <input type="email" id="email" formControlName="email" required />
+        <div
+          *ngIf="applyForm.get('email')?.invalid && applyForm.get('email')?.touched"
+          class="error"
+        >
+          <small *ngIf="applyForm.get('email')?.errors?.['required']">
+            Email is required.
+          </small>
+          <small *ngIf="applyForm.get('email')?.errors?.['email']">
+            Invalid email format.
+          </small>
+        </div>
       </div>
+
+      <!-- Country -->
       <div>
         <label for="country">Country:</label>
         <input type="text" id="country" formControlName="country" required />
+        <div
+          *ngIf="applyForm.get('country')?.invalid && applyForm.get('country')?.touched"
+          class="error"
+        >
+          <small *ngIf="applyForm.get('country')?.errors?.['required']">
+            Country is required.
+          </small>
+          <small *ngIf="applyForm.get('country')?.errors?.['pattern']">
+            Country must contain only alphabets.
+          </small>
+        </div>
       </div>
+
+      <!-- Mobile Number -->
       <div>
         <label for="mobileNumber">Mobile Number:</label>
         <input
@@ -35,16 +78,39 @@
           formControlName="mobileNumber"
           required
         />
+        <div
+          *ngIf="applyForm.get('mobileNumber')?.invalid && applyForm.get('mobileNumber')?.touched"
+          class="error"
+        >
+          <small *ngIf="applyForm.get('mobileNumber')?.errors?.['required']">
+            Mobile number is required.
+          </small>
+          <small *ngIf="applyForm.get('mobileNumber')?.errors?.['pattern']">
+            Mobile number must be 10 digits.
+          </small>
+        </div>
       </div>
+
+      <!-- Location -->
       <div>
         <label for="location">Location:</label>
         <input type="text" id="location" formControlName="location" required />
+        <div
+          *ngIf="applyForm.get('location')?.invalid && applyForm.get('location')?.touched"
+          class="error"
+        >
+          Location is required.
+        </div>
       </div>
+
+      <!-- CV Upload -->
       <div>
         <label for="cv">Upload CV:</label>
         <input type="file" id="cv" (change)="onFileChange($event)" />
         <small *ngIf="fileError" class="error">{{ fileError }}</small>
       </div>
+
+      <!-- Submit Button -->
       <button type="submit" [disabled]="applyForm.invalid">
         Submit Application
       </button>

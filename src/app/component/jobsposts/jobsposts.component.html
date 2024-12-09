@@ -10,12 +10,23 @@
       <input type="text" id="location" [(ngModel)]="filters.location" placeholder="Enter Location" />
     </div>
 
-    <!-- Salary Range Filter -->
-    <div class="filter-group">
-      <label for="minSalary">Salary Range</label>
-      <input type="number" id="minSalary" [(ngModel)]="filters.minSalary" placeholder="Min Salary" />
-      <input type="number" id="maxSalary" [(ngModel)]="filters.maxSalary" placeholder="Max Salary" />
-    </div>
+  <!-- Salary Range Filter -->
+<div class="filter-group">
+  <label for="minSalary">Salary Range</label>
+  <div class="salary-inputs">
+    <input
+      type="number"
+      id="minSalary"
+      [(ngModel)]="filters.minSalary"
+      placeholder="Min Salary" min="0" oninput="this.value = Math.abs(this.value)"/>
+    <input
+      type="number"
+      id="maxSalary"
+      [(ngModel)]="filters.maxSalary"
+      placeholder="Max Salary" min="0" oninput="this.value = Math.abs(this.value)"
+    />
+  </div>
+</div>
 
     <!-- Work Mode Filter -->
     <div class="filter-group">
@@ -25,6 +36,8 @@
         <option value="Remote">Remote</option>
         <option value="On-site">On-site</option>
         <option value="Hybrid">Hybrid</option>
+        <option value="WFH">WFH</option>
+        <option value="WFO">WFO</option>
       </select>
     </div>
 

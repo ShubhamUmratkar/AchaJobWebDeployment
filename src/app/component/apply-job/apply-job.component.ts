@@ -25,8 +25,8 @@ export class ApplyJobComponent implements OnInit {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      country: ['', Validators.required],
-      mobileNumber: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
+      country: ['', [Validators.required, Validators.pattern('^[A-Za-z ]+$')]], // Accepts only alphabets and spaces
+      mobileNumber: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]], // Only 10-digit numbers
       location: ['', Validators.required]
     });
   }

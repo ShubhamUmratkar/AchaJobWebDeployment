@@ -71,6 +71,14 @@
   width: 48%;
 }
 
+
+/* Hide spinner arrows in number input fields */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .filter-button {
   width: 100%;
   padding: 12px;
@@ -365,3 +373,5 @@
     padding: 10px;  /* Reduce padding on buttons */
   }
 }
+
+

@@ -92,12 +92,13 @@ export class SaveJobComponent {
       return;
     }
 
+    alert('Waiting for Super-Admin Approvel');
     // Post job data to backend using JobService
     this.adminService.postJob(this.adminId, this.job).subscribe({
       next: (response) => {
         this.successMessage = 'Job posted successfully!';
         console.log('Job posted:', response);
-        alert('Job posted successfully!');
+
       },
       error: (error) => {
         console.error('Error posting job:', error);

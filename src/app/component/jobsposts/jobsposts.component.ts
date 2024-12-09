@@ -46,16 +46,15 @@ export class JobspostsComponent {
     );
   }
 
-  // Method to apply filters to the jobs list
   applyFilters(): void {
     this.filteredJobs = this.jobs.filter(job => {
       let matches = true;
-
+  
       // Location Filter
       if (this.filters.location && !job.location.toLowerCase().includes(this.filters.location.toLowerCase())) {
         matches = false;
       }
-
+  
       // Salary Range Filter
       if (this.filters.minSalary && job.salary < this.filters.minSalary) {
         matches = false;
@@ -63,40 +62,44 @@ export class JobspostsComponent {
       if (this.filters.maxSalary && job.salary > this.filters.maxSalary) {
         matches = false;
       }
-
+  
       // Work Mode Filter
-      if (this.filters.workMode && job.workModel !== this.filters.workMode) {
-        matches = false;
+      if (this.filters.workMode) {
+        // Ensure the filter handles all work modes, including "WFH" and "WFO"
+        const validWorkModes = ["Remote", "On-site", "Hybrid", "WFH", "WFO"];
+        if (validWorkModes.includes(this.filters.workMode)) {
+          if (job.workModel !== this.filters.workMode) {
+            matches = false;
+          }
+        } else {
+          matches = false; // Invalid work mode
+        }
       }
-
+  
       // Experience Filter
       if (this.filters.experience) {
         if (this.filters.experience === '5+ years') {
-          // Check if job experience is 5 years or more
           const jobExperience = this.getExperienceInYears(job.experience);
           if (jobExperience < 5) {
             matches = false;
           }
         } else {
-          // Parse the experience range (e.g., "0-2 years")
           const experienceRange = this.filters.experience.split('-').map(val => parseInt(val.trim()));
-
           if (experienceRange.length === 2) {
             const minExperience = experienceRange[0];
             const maxExperience = experienceRange[1];
-            const jobExperience = this.getExperienceInYears(job.experience);  // Assuming job.experience is a string like "2 years"
-
-            // Check if the job experience is within the selected range
+            const jobExperience = this.getExperienceInYears(job.experience);
             if (jobExperience < minExperience || jobExperience > maxExperience) {
               matches = false;
             }
           }
         }
       }
-
+  
       return matches;
     });
   }
+  
 
   // Helper method to extract years of experience from the job's experience string (e.g., "2 years")
   getExperienceInYears(experience: string): number {

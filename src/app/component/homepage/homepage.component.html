@@ -10,9 +10,18 @@
         type="text"
         class="search-input"
         placeholder="Enter skills/designations | Enter location | Enter Experience"
-        [(ngModel)]="searchText" 
+        [(ngModel)]="searchText"
         (input)="onSearchInput()"
+        (keydown)="onEnter($event)"
       />
+      <ul class="suggestions-list" *ngIf="suggestions.length > 0">
+        <li
+          *ngFor="let suggestion of suggestions"
+          (click)="onSuggestionClick(suggestion)"
+        >
+          {{ suggestion }}
+        </li>
+      </ul>
       <button
         class="search-button"
         [disabled]="!searchText"
@@ -20,6 +29,16 @@
       >
         Search<span class="arrow">→</span>
       </button>
+    </div>
+
+    <!-- Display the Jobs -->
+    <div *ngIf="jobs.length > 0">
+      <h2>Job Results</h2>
+      <ul>
+        <li *ngFor="let job of jobs">
+          {{ job.title }} - {{ job.location }} - {{ job.category }}
+        </li>
+      </ul>
     </div>
 
     <!-- Job Count Text -->
@@ -32,7 +51,7 @@
       <button class="register-button">
         <a routerLink="/register">Register Now <span class="arrow">→</span></a>
       </button>
- 
+
       <h2 class="cta-title">Turn your dream career into reality</h2>
     </div>
   </div>

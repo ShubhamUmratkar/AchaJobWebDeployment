@@ -43,8 +43,8 @@ export class NavbarComponent implements OnInit, AfterViewInit{
         categories: [
           { title: 'By Skills', items: ['Programing', 'Data Science', 'Digital Markating', 'Business Communication',],isOpen: false },
           { title: 'Placement Preparation', items: ['Placement Preparation','Interview Preparation'],isOpen: false },
-          { title: 'Free Cources', items: ['Beginner Cources','Advance Topics','Skills Development','Certification Paths','Practice Exercises'],isOpen: false },
-          { title: 'All Cources', items: ['Software Development','Software Testing','Website Development','Business Analyst','Cyber Security','Data Analyst','Data Engineering','Data Science','E-commerce Development','Full Stack Development','Google Cloud','Linux','POwerBI','Python','SAP','UI/UX','AWS Cloud','Azure'],isOpen: false },
+          { title: 'Free Courses', items: ['Beginner Cources','Advance Topics','Skills Development','Certification Paths','Practice Exercises'],isOpen: false },
+          { title: 'All Courses', items: ['Software Development','Software Testing','Website Development','Business Analyst','Cyber Security','Data Analyst','Data Engineering','Data Science','E-commerce Development','Full Stack Development','Google Cloud','Linux','POwerBI','Python','SAP','UI/UX','AWS Cloud','Azure'],isOpen: false },
         ]
       },
       {
