@@ -102,7 +102,9 @@ button[disabled] {
 }
  
 .jobs-list {
-
+  max-width: calc(100% - 13rem); /* Dynamic width based on the left margin */
+  margin-left: 13rem; /* Push from the left */
+  margin-right: 0; /* Ensure it extends to the right */
   padding: 2rem;
   background: white;
   border-radius: 15px;
@@ -158,7 +160,6 @@ table button:hover {
 @media (max-width: 768px) {
   .form-container {
     padding: 1rem;
-    margin-top: 30%;
   }
  
   input, textarea, button {
@@ -307,8 +308,6 @@ table button:last-child:hover {
 .nav-item:last-child {
   margin-right: 0; /* Remove margin from the last item */
 }
-
-
 
 
 

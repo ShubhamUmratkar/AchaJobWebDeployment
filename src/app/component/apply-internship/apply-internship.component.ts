@@ -14,6 +14,7 @@ export class ApplyInternshipComponent {
   applyForm: FormGroup;
   cvFile: File | null = null;
   internshipId: number | null = null;  // Initialize internshipId
+  fileError: string | null = null;
 
   constructor(
     private fb: FormBuilder,
@@ -43,9 +44,18 @@ export class ApplyInternshipComponent {
   onFileChange(event: Event): void {
     const input = event.target as HTMLInputElement;
     if (input?.files?.length) {
-      this.cvFile = input.files[0];  // Assign selected file to cvFile
+      const file = input.files[0];
+      const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+
+      if (allowedTypes.includes(file.type)) {
+        this.cvFile = file;
+        this.fileError = null;
+      } else {
+        this.cvFile = null;
+        this.fileError = 'Only DOC, DOCX, and PDF files are allowed.';
     }
   }
+}
 
   // Submit the application form
   onSubmit(): void {
@@ -60,13 +70,14 @@ export class ApplyInternshipComponent {
 
       // Call the ApplyInternshipService to submit the internship application
       this.applyInternshipService.applyForInternship(this.internshipId, formData).subscribe(
+        (error) => {
+          alert('Failed to submit application. Please try again.');
+          console.error(error);
+        },
         (response) => {
+          console.log('Application Submitted Successfully', response);
           alert('Application submitted successfully!');
           this.router.navigate(['/']);  // Redirect to homepage or a success page
-        },
-        (error) => {
-          alert('Application not submitted.');
-          console.error(error);
         }
       );
     } else {

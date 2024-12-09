@@ -33,6 +33,7 @@ export class SaveJobComponent {
   successMessage: string | null = null;
   errorMessage: string | null = null;
   adminId: number | null = null; // Initially null
+  today:string = '';
 
   jobs: Job[] = [];
 
@@ -43,6 +44,7 @@ export class SaveJobComponent {
   ) {}
 
   ngOnInit(): void {
+    this.today= new Date().toISOString().split('T')[0];
     // Retrieve adminId from localStorage after login
     const storedAdminId = localStorage.getItem('adminId');
     if (storedAdminId) {

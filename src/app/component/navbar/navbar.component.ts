@@ -12,22 +12,23 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class NavbarComponent implements OnInit, AfterViewInit{
 
+  isResponsiveMode = false; // Tracks if the current mode is responsive
   isNavbarOpen = false;
-  // userData: any = null;
+  userData: any = null;
   isLoggedIn = true;  // Track login status
-  dropdownOpen: any = null;
-  isMobile: boolean = false;
 
 
     navItems = [
       {
         label: 'Home',
+        isOpen: false,
         categories: [
-          { title: 'About US', items: ['We help you `Prepare` & `Find your Dream Job`'],isOpen: false },
+          { title: 'About US', items: ['We help you Prepare & Find your Dream Job'],isOpen: false },
         ]
       },
       {
         label: 'Internships',
+        isOpen: false,
         categories: [
           { title: 'By Category', items: ['Engineering', 'Marketing', 'Sales', 'Content Writing', 'Design', 'Media', 'Law'],isOpen: false },
           { title: 'By Location', items: ['Mumbai', 'Delhi', 'Bangalore', 'Pune'],isOpen: false },
@@ -38,6 +39,7 @@ export class NavbarComponent implements OnInit, AfterViewInit{
       },
       {
         label: 'Online Traning',
+        isOpen: false,
         categories: [
           { title: 'By Skills', items: ['Programing', 'Data Science', 'Digital Markating', 'Business Communication',],isOpen: false },
           { title: 'Placement Preparation', items: ['Placement Preparation','Interview Preparation'],isOpen: false },
@@ -47,6 +49,7 @@ export class NavbarComponent implements OnInit, AfterViewInit{
       },
       {
         label: 'Fresher Jobs',
+        isOpen: false,
         categories: [
           { title: 'By Industry', items: ['IT', 'Designing', 'Content Writing', 'Sales', 'Operations','Engineering'],isOpen: false },
           { title: 'By Location', items: ['Mumbai', 'Delhi', 'Bangalore', 'Pune', 'Nagpur', 'Hyderabad'],isOpen: false },
@@ -56,6 +59,7 @@ export class NavbarComponent implements OnInit, AfterViewInit{
       },
       {
         label: 'For Employers',
+        isOpen: false,
         categories: [
           { title: 'Job Postings', items: ['Full-Time Opportunities','Project Extensions','Part-Time Roles'],isOpen: false },
           // { title: 'Pricing', items: [],isOpen: false },
@@ -65,15 +69,17 @@ export class NavbarComponent implements OnInit, AfterViewInit{
       },
       {
         label: 'Resources',
+        isOpen: false,
         categories: [
-          { title: 'Blog', items: ['Internship Tips', 'Skilles Development', 'Industry Trends', 'Success Stories'],isOpen: false },
+          { title: 'Blog', items: ['Internship Tips', 'Skills Development', 'Industry Trends', 'Success Stories'],isOpen: false },
           { title: 'Resume Generator', items: ['Create Resume', 'Edit Resume'],isOpen: false },
-          { title: 'Careeer Guide', items: ['Career Advice', 'Guidance Articles'],isOpen: false },
+          { title: 'Career Guide', items: ['Career Advice', 'Guidance Articles'],isOpen: false },
           { title: 'Interview Preparations', items: ['Tips','Mock Interviews'],isOpen: false },
         ]
       },
       {
         label: 'Help',
+        isOpen: false,
         categories: [
           { title: 'FAQs', items: ['Frequently Asked Questions'],isOpen: false },
           { title: 'Contact Us', items: ['Email', 'Telecom Number'],isOpen: false },
@@ -86,64 +92,69 @@ export class NavbarComponent implements OnInit, AfterViewInit{
 
     constructor(private router: Router, private userservice: UserService) {}
 
-    ngOnInit(): void {
-      this.userservice.isLoggedIn$.subscribe((status) => {
-        this.isLoggedIn = status;
-      });
+  ngOnInit(): void {
+    // Subscribe to authentication status changes
+    this.userservice.isLoggedIn$.subscribe((isLoggedIn: boolean) => {
+      this.isLoggedIn = isLoggedIn;
+    });
+  }
 
-      // Initial check for mobile mode
-      this.checkMobileMode();
+  ngAfterViewInit(): void {
+    // Initialize Bootstrap dropdowns if needed
+    const dropdownElement = document.getElementById('navbarDropdown');
+    if (dropdownElement) {
+      new bootstrap.Dropdown(dropdownElement);
     }
+  }
 
-    ngAfterViewInit(): void {
-      const dropdownElement = document.getElementById('navbarDropdown');
-      if (dropdownElement) {
-        new bootstrap.Dropdown(dropdownElement);
-      }
+   // Detect screen resize
+   @HostListener('window:resize', [])
+   onResize(): void {
+     this.checkResponsiveMode();
+   }
+
+   // Check if the screen width is within the responsive range
+   checkResponsiveMode(): void {
+     const screenWidth = window.innerWidth;
+     this.isResponsiveMode = screenWidth <= 768; // Adjust width threshold as needed
+     if (!this.isResponsiveMode) {
+       this.isNavbarOpen = false; // Close the navbar in non-responsive mode
+     }
+   }
+
+   // Functionality for "hamburger-icon"
+   toggleNavbar(): void {
+     if (this.isResponsiveMode) {
+       this.isNavbarOpen = !this.isNavbarOpen;
+       console.log(`Navbar is now ${this.isNavbarOpen ? 'open' : 'closed'}`);
+     }
+   }
+
+   toggleItem(item: any): void {
+    if (this.isResponsiveMode) {
+      item.isOpen = !item.isOpen;
+      console.log(`${item.label} is now ${item.isOpen ? 'expanded' : 'collapsed'}`);
     }
+  }
+   // Functionality for "nav-items"
+   toggleCategory(category: any): void {
+     if (this.isResponsiveMode) {
+       category.isOpen = !category.isOpen;
+       console.log(`${category.title} is now ${category.isOpen ? 'expanded' : 'collapsed'}`);
+     }
+   }
 
-    // Toggle mobile navbar on button click
-    toggleNavbar() {
-      if (this.isMobile) {
-        this.isNavbarOpen = !this.isNavbarOpen;
-      }
-    }
+   // Functionality for "dropdown-category" and "secondary-dropdown"
+   handleSubItemClick(subItem: string): void {
+     if (this.isResponsiveMode) {
+       console.log(`Sub-item clicked: ${subItem}`);
+       // Add any desired functionality here
+     }
+   }
 
-    @HostListener('window:resize', ['$event'])
-    onResize(event: any) {
-      this.checkMobileMode();
-    }
-
-    checkMobileMode() {
-      this.isMobile = window.innerWidth <= 768;
-    }
-
-    toggleDropdown(item: any, event: MouseEvent | null = null) {
-      if (event) {
-        event.stopPropagation();
-      }
-      if (this.dropdownOpen === item) {
-        this.dropdownOpen = null;
-      } else {
-        this.dropdownOpen = item;
-      }
-
-      this.navItems.forEach(navItem => {
-        if (navItem !== item) {
-          navItem.categories.forEach(category => {
-            category.isOpen = false;
-          });
-        }
-      });
-    }
-
-    toggleCategory(category: any) {
-      category.isOpen = !category.isOpen;
-    }
-  // toggleCategory(category: any) {
-  //   category.isOpen = !category.isOpen;
-  // }
-
+  onSubItemClick(subItem: any): void {
+    console.log('Sub-item clicked:', subItem.label);
+  }
 
   loginUser(userName: string, password: string): void {
     // Call the login method from the UserService

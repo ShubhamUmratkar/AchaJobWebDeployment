@@ -1,4 +1,4 @@
-/* General Navbar Styles */
+A/* General Navbar Styles */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -85,10 +85,10 @@
   flex-direction: column;
 }
 
-.nav-items.open {
+/* .nav-items.open {
   display: flex;
   flex-direction: column;
-}
+} */
 
 /* Navigation Item Style */
 .nav-item {
@@ -216,7 +216,7 @@
 
   .dropdown-category h3:hover {
     background-color: #e0e0e0;
-    color: #007bff;
+    color: #0a2b4e;
     border-radius: 0.25rem;
   }
 
@@ -231,7 +231,7 @@
   }
 
   .nav-item a:hover {
-    background-color: #007bff;
+    background-color: #0a2b4e;
     color: #fff;
     transform: scale(1.05);
   }
@@ -264,7 +264,7 @@
   }
 
   .nav-item a:hover {
-    background-color: #0056b3;
+    background-color: #0a2b4e;
     transform: scale(1.1);
   }
 }
@@ -301,7 +301,7 @@
   border-radius: 0.25rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  width: 130px;
+  width: 137px;
 }
 
 .secondary-dropdown a:hover {
@@ -510,4 +510,32 @@
   .nav-item a {
     font-size: 0.9rem;
   }
+}
+
+.scrollable {
+  overflow-y: auto;
+  max-height: 300px; /* Adjust the height as needed */
+  padding-right: 10px; /* Add padding to prevent content overlap with the scrollbar */
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: #007bff #f1f1f1; /* Customize scrollbar colors */
+}
+
+/* Custom scrollbar for WebKit-based browsers */
+.scrollable::-webkit-scrollbar {
+  width: 8px; /* Set scrollbar width */
+}
+
+.scrollable::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Track color */
+  border-radius: 10px;
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+  background-color: #007bff; /* Thumb color */
+  border-radius: 10px;
+  border: 2px solid #f1f1f1; /* Optional border for better visibility */
+}
+
+.scrollable::-webkit-scrollbar-thumb:hover {
+  background-color: #0056b3; /* Darker color on hover */
 }

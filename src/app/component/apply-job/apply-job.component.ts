@@ -13,6 +13,7 @@ export class ApplyJobComponent implements OnInit {
   applyForm: FormGroup;
   cvFile: File | null = null;
   jobId: number | null = null;  // Initialize jobId
+  fileError: string | null = null;
 
   constructor(
     private fb: FormBuilder,
@@ -43,12 +44,22 @@ export class ApplyJobComponent implements OnInit {
   }
 
 
+  // Handle CV file selection
   onFileChange(event: Event): void {
     const input = event.target as HTMLInputElement;
     if (input?.files?.length) {
-      this.cvFile = input.files[0];
+      const file = input.files[0];
+      const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+
+      if (allowedTypes.includes(file.type)) {
+        this.cvFile = file;
+        this.fileError = null;
+      } else {
+        this.cvFile = null;
+        this.fileError = 'Only DOC, DOCX, and PDF files are allowed.';
     }
   }
+}
 
   onSubmit(): void {
     if (this.applyForm.valid && this.jobId) {
@@ -60,15 +71,14 @@ export class ApplyJobComponent implements OnInit {
       }
 
       this.applyJobService.submitApplication(this.jobId, formData).subscribe(
-        () => {
-
-          alert('Failed to submit application. Please try again.');
-          this.router.navigate(['/']);
-        },
         (error) => {
-          alert('Application submitted successfully!');
-          this.router.navigate(['/']);
+          alert('Failed to submit application. Please try again.');
           console.error(error);
+        },
+        (response) => {
+          console.log('Application Submitted Successfully', response);
+          alert('Application submitted successfully!');
+          this.router.navigate(['/']);  // Redirect to homepage or a success page
         }
       );
     } else {

@@ -30,33 +30,6 @@
   color: #555;
 }
 
-
-
-.subscribe {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.subscribe input {
-  padding: 10px;
-  border: none;
-  border-radius: 20px 0 0 20px;
-  outline: none;
-  font-size: 1rem;
-  width: 70%;
-}
-
-.subscribe button {
-  padding: 10px 15px;
-  background-color: #000;
-  color: #fff;
-  border: none;
-  border-radius: 0 20px 20px 0;
-  cursor: pointer;
-}
-
-
 /* Footer section */
 .footer {
   display: flex;
@@ -70,21 +43,20 @@
 
 .footer-left {
   flex: 1;
-  min-width: 250px;
-  max-width: 450px;
+  min-width: 150px;
+  max-width: 250px;
 }
 
 .footer-left h2 {
   font-weight: bold;
-  font-size: 1.8rem; /* Increased font size */
+  font-size: 1.1rem; /* Increased font size */
   margin-bottom: 10px;
 }
 
 .footer-left p {
-  font-size: 1.5rem; /* Increased font size */
+  font-size: 1.1rem; /* Increased font size */
   margin-bottom: 20px;
 }
-
 
 .footer-right {
   display: flex;
@@ -92,7 +64,6 @@
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 40px;
-
 }
 
 .footer-column {
@@ -125,17 +96,16 @@
 /* Remove link specific styles for 'Contact' list item */
 .footer-column ul li a {
   text-decoration: none; /* No underline */
-  color: inherit; /* Inherit color from the parent (like other li items) */
+  color: inherit; /* Inherit color from the parent */
   cursor: pointer; /* Make it behave like other items */
-  transition: color 0.3s; /* Ensure smooth color transition on hover */
+  transition: color 0.3s; /* Smooth transition on hover */
 }
 
-/* Apply same hover effect as other li items */
+/* Hover effect */
 .footer-column ul li a:hover,
 .footer-column ul li:hover {
   color: #0b0b0b; /* Change color on hover to match other items */
 }
-
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -222,16 +192,17 @@
   }
 }
 
-
-/* Style for the download link to make it look like the rest of the list items */
+/* Style for the download link */
 .download-link {
   text-decoration: none; /* Removes the underline */
-  color: inherit; /* Inherits the color from the parent, so it matches the normal text */
+  color: inherit; /* Inherits the color from the parent */
   cursor: pointer;
   transition: color 0.3s;
 }
 
-/* Optional: Style on hover to indicate interactivity (if desired) */
+/* Hover effect for download link */
 .download-link:hover {
-  color: #0b0b0b; /* Change the color on hover if you want a visual effect */
+  color: #0b0b0b; /* Change the color on hover */
 }
+
+

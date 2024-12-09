@@ -96,26 +96,27 @@ export class ViewJobComponent implements OnInit {
     const shareText = `Check out this amazing job opportunity at ${this.companyName}`;
     const shareUrl = window.location.href;  // Get the current page URL
 
-    console.log('Share button clicked');  // Debugging: confirm the method is being triggered
-    console.log('Share URL:', shareUrl);  // Debugging: confirm the URL
+    console.log('Attempting to share:', { title: this.jobTitle, text: shareText, url:shareUrl });
 
     if (navigator.share) {
-      navigator.share({
-        title: this.jobTitle,         // Job title
+      navigator
+      .share({
+        title: this.jobTitle || 'Job Opportunity',         // Job title
         text: shareText,              // The text content to share
-        url: shareUrl                 // The current page URL
-      }).then(() => {
+        url: shareUrl,                 // The current page URL
+      })
+      .then(() => {
         console.log('Job details shared successfully!');
-      }).catch((error) => {
+      })
+      .catch((error) => {
         console.error('Error sharing the job:', error);
-        alert('Something went wrong while sharing the job!');
+        alert('An error occurred while sharing. Please try again later.');
       });
     } else {
       // Fallback: Log and alert if Web Share API is not supported
-      console.log('Web Share API is not supported');
-      alert('Sharing is not supported on this browser.');
+      console.log('Web Share API is not supported on this browser.');
+      alert('Sharing is not supported on your device. Please use a supported browser.');
     }
   }
 
 }
-

@@ -9,7 +9,7 @@
       <hr />
       <ul class="nav flex-column mx-0">
         <!-- Other items -->
-        <li class="nav-item mb-2">
+        <li class="nav-item mb-1">
           <a
             class="nav-link"
             [routerLink]="['/save-job']"
@@ -18,7 +18,7 @@
             <i class="fa fa-briefcase text-warning"></i> Job's
           </a>
         </li>
-        <li class="nav-item mb-1">
+        <li class="nav-item mb-2">
           <a class="nav-link" [routerLink]="['/internship']">
             <i class="fa-brands fa-wpforms"></i> Internship
           </a>
@@ -32,6 +32,12 @@
         <li class="nav-item mb-2">
           <a class="nav-link" [routerLink]="['/view-all-forms-admin']">
             <i class="fa fa-eye text-info"></i> View Forms
+          </a>
+        </li>
+
+        <li class="nav-item mb-2">
+          <a class="nav-link" [routerLink]="['/adminpanel']">
+            <i class="fas fa-folder-open text-danger"></i> Submitted Forms
           </a>
         </li>
       </ul>
@@ -190,6 +196,7 @@
             [(ngModel)]="job.openingStartDate"
             name="openingStartDate"
             required
+            [min]="today"
           />
 
           <label for="lastApplyDate">Last Apply Date:</label>
@@ -199,6 +206,7 @@
             [(ngModel)]="job.lastApplyDate"
             name="lastApplyDate"
             required
+            [min]="today"
           />
 
           <label for="numberOfOpenings">Number of Openings:</label>

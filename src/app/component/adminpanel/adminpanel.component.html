@@ -7,9 +7,9 @@
         <h5 class="text-black">Admin</h5>
       </div>
       <hr />
-      <ul class="nav flex-column mx-5">
+      <ul class="nav flex-column mx-0">
         <!-- Other items -->
-        <li class="nav-item mb-1">
+        <li class="nav-item mb-2">
           <a
             class="nav-link"
             [routerLink]="['/save-job']"
@@ -25,16 +25,21 @@
           </a>
         </li>
 
-        <li class="nav-item mb-1">
+        <li class="nav-item mb-2">
           <a class="nav-link" [routerLink]="['/userslist']">
             <i class="fas fa-envelope text-info"></i> UserList
           </a>
         </li>
 
+        <li class="nav-item mb-2">
+          <a class="nav-link" [routerLink]="['/view-all-forms-admin']">
+            <i class="fas fa-envelope text-info"></i> View Forms
+          </a>
+        </li>
         <!-- View All Forms -->
-        <li class="nav-item mb-1">
+        <li class="nav-item mb-2">
           <a class="nav-link" (click)="fetchForms()">
-            <i class="fa fa-eye text-info"></i> View Forms
+            <i class="fa fa-eye text-info"></i> Submitted  Forms
           </a>
         </li>
       </ul>

@@ -12,7 +12,9 @@ export class AdminpanelComponent {
 
   constructor(private formService: FormService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.fetchForms();
+  }
 
   // Method to fetch all forms from the backend
   fetchForms(): void {

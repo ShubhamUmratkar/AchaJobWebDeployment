@@ -16,10 +16,12 @@ export class InternshipComponent implements OnInit {
   selectedInternship: any = null;
   adminId: number = 0; // Initially null
   errorMessage: string | null = null;
+  today: string = ''; // Declare the 'today' property
 
   constructor(private fb: FormBuilder, private internshipService: InternshipService, private adminService: AdminService) {}
 
   ngOnInit(): void {
+    this.today = new Date().toISOString().split('T')[0]; // Format the date as YYYY-MM-DD
     this.internshipForm = this.fb.group({
       id:[''],
       title: ['', Validators.required],
