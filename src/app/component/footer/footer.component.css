@@ -4,205 +4,161 @@
   padding: 0;
   box-sizing: border-box;
 }
-
-/* Stats section */
+ 
+/* Stats Section */
 .stats {
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
   padding: 20px;
   background-color: #f5f5f5;
   flex-wrap: wrap;
+  gap: 20px;
 }
-
+ 
 .stat-item {
   text-align: center;
-  flex: 1 1 150px;
+  flex: 1 1 100px; /* Adjusts dynamically based on screen size */
   margin: 10px;
 }
-
+ 
 .stat-item h2 {
-  font-size: 2.5rem; /* Increased font size */
+  font-size: clamp(1.8rem, 2.5vw, 2.5rem); /* Scales with screen size */
   color: #0073e6;
 }
-
+ 
 .stat-item p {
-  font-size: 1.1rem; /* Increased font size */
+  font-size: clamp(1rem, 1.5vw, 1.2rem); /* Scales with screen size */
   color: #555;
 }
-
-/* Footer section */
+ 
+/* Footer Section */
 .footer {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 40px;
-  background: linear-gradient(135deg, #57c1eb, #7d4ee2);
+  align-items: flex-start;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #275669, #7d4ee2);
   color: #fff;
-  gap: 40px;
+  gap: 20px;
 }
-
+ 
 .footer-left {
-  flex: 1;
-  min-width: 150px;
-  max-width: 250px;
+  display: flex;
+  flex-direction: column; /* Stack the logo and paragraph vertically */
+  align-items: flex-start; /* Align items to the left */
 }
-
-.footer-left h2 {
-  font-weight: bold;
-  font-size: 1.1rem; /* Increased font size */
+ 
+.footer-logo {
+  width: 120px; /* Adjust logo size */
+  height: auto;
+  margin-bottom: 5px;
+}
+ 
+.footer-left p {
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
   margin-bottom: 10px;
 }
-
-.footer-left p {
-  font-size: 1.1rem; /* Increased font size */
-  margin-bottom: 20px;
-}
-
+ 
 .footer-right {
   display: flex;
-  flex: 2;
+  flex: 2 1 auto;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 40px;
+  gap: 20px;
 }
-
+ 
 .footer-column {
-  flex: 1;
+  flex: 1 1 200px;
   min-width: 150px;
 }
-
+ 
 .footer-column h3 {
-  font-weight: bold;
-  font-size: 2.0rem; /* Increased font size */
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
   margin-bottom: 10px;
 }
-
+ 
 .footer-column ul {
   list-style: none;
   padding: 0;
 }
-
+ 
 .footer-column ul li {
-  font-size: 1.5rem; /* Increased font size */
+  font-size: clamp(0.9rem, 1.2vw, 1.2rem);
   margin-bottom: 8px;
   cursor: pointer;
   transition: color 0.3s;
 }
-
-.footer-column ul li:hover {
+ 
+.footer-column ul li a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+ 
+.footer-column ul li:hover,
+.footer-column ul li a:hover {
   color: #0b0b0b;
 }
-
-/* Remove link specific styles for 'Contact' list item */
-.footer-column ul li a {
-  text-decoration: none; /* No underline */
-  color: inherit; /* Inherit color from the parent */
-  cursor: pointer; /* Make it behave like other items */
-  transition: color 0.3s; /* Smooth transition on hover */
+ 
+/* Download link styling */
+.download-link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: color 0.3s;
 }
-
-/* Hover effect */
-.footer-column ul li a:hover,
-.footer-column ul li:hover {
-  color: #0b0b0b; /* Change color on hover to match other items */
+ 
+.download-link:hover {
+  color: #0b0b0b;
 }
-
+ 
 /* Responsive Design */
 @media (max-width: 768px) {
   .stats {
     flex-direction: column;
     align-items: center;
-    padding: 20px;
   }
-
+ 
   .footer {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 20px;  /* Adjust padding for smaller screens */
+    gap: 30px;
   }
-
+ 
   .footer-right {
     flex-direction: column;
     align-items: center;
-    gap: 20px;
   }
-
-  .footer-left, .footer-column {
+ 
+  .footer-column {
     max-width: 100%;
   }
-
-  .footer-left h2 {
-    font-size: 1.6rem; /* Slightly smaller on smaller screens */
-  }
-
-  .footer-left p {
-    font-size: 1.3rem; /* Slightly smaller on smaller screens */
-  }
-
-  .footer-column h3 {
-    font-size: 1.4rem; /* Slightly smaller on smaller screens */
-  }
-
+ 
+  .footer-left h2,
+  .footer-left p,
+  .footer-column h3,
   .footer-column ul li {
-    font-size: 1.0rem; /* Adjusted font size */
-  }
-
-  .subscribe input {
-    width: 60%; /* Adjust width for smaller screens */
-  }
-
-  .subscribe button {
-    font-size: 1rem; /* Slightly smaller button text */
+    font-size: clamp(1rem, 1.5vw, 1.3rem);
   }
 }
-
+ 
 @media (max-width: 480px) {
   .stat-item h2 {
-    font-size: 1.8rem; /* Adjusted font size for smaller screens */
+    font-size: 1.5rem;
   }
-
+ 
   .stat-item p {
-    font-size: 1rem; /* Adjusted font size for smaller screens */
+    font-size: 1rem;
   }
-
-  .footer-left h2 {
-    font-size: 1.5rem; /* Adjusted font size for smaller screens */
-  }
-
+ 
+  .footer-left h2,
   .footer-left p,
+  .footer-column h3,
   .footer-column ul li {
-    font-size: 1rem; /* Adjusted font size for smaller screens */
-  }
-
-  .footer-column h3 {
-    font-size: 1.3rem; /* Adjusted font size for smaller screens */
-  }
-
-  .footer-column ul li {
-    font-size: 1rem; /* Adjusted font size for smaller screens */
-  }
-
-  .subscribe input {
-    width: 70%; /* Slight adjustment for smaller screens */
-  }
-
-  .subscribe button {
-    font-size: 1rem; /* Slight adjustment for smaller screens */
+    font-size: 1rem;
   }
 }
-
-/* Style for the download link */
-.download-link {
-  text-decoration: none; /* Removes the underline */
-  color: inherit; /* Inherits the color from the parent */
-  cursor: pointer;
-  transition: color 0.3s;
-}
-
-/* Hover effect for download link */
-.download-link:hover {
-  color: #0b0b0b; /* Change the color on hover */
-}
-
-

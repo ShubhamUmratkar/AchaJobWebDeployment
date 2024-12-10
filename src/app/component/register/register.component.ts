@@ -15,12 +15,18 @@ import { UserService } from 'src/app/service/user.service';
 export class RegisterComponent {
   registerForm: FormGroup;
   submitted = false;
+  passwordFieldType: string = 'password'; // Default type for password field
+  confirmPasswordFieldType: string = 'password'; // For the confirm password field
 
   constructor(private formBuilder: FormBuilder, private userService: UserService,
     private router: Router
   ) {
     this.registerForm = this.formBuilder.group({
-      fullName: ['', Validators.required],
+      fullName: ['',  [ Validators.required, // Field is required
+        Validators.pattern("^[A-Za-z ]+$"), // Only alphabets and spaces allowed
+        Validators.minLength(3) // Minimum length of 3 characters
+      ]
+    ],
         userName: ['', Validators.required],
         emailId: ['', [Validators.required, Validators.email]],
         gender: ['', Validators.required],
@@ -63,6 +69,19 @@ export class RegisterComponent {
   }
 
   errorMessage = ''; // Define this variable in your component
+
+  // Toggle password visibility
+  togglePasswordVisibility() {
+    this.passwordFieldType =
+      this.passwordFieldType === 'password' ? 'text' : 'password';
+  }
+
+ 
+  // Toggle confirm password visibility
+  toggleConfirmPasswordVisibility() {
+    this.confirmPasswordFieldType =
+      this.confirmPasswordFieldType === 'password' ? 'text' : 'password';
+  }
 
 onSubmit() {
   this.submitted = true;

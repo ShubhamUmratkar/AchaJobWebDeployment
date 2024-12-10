@@ -14,6 +14,7 @@ export class HomepageComponent {
   jobs: Array<any> = []; // Holds the fetched jobs from the backend
   noResults: boolean = false; // Tracks if no results are found
   isSearching: boolean = false; // Loading state for search
+  showErrorMessage: boolean = false;
 
   // Predefined job suggestions list
   jobTitles: Array<string> = [
@@ -123,10 +124,12 @@ export class HomepageComponent {
       ]
 
 
+
   constructor(private router: Router, private http: HttpClient) {}
 
   // Filter suggestions based on user input
   onSearchInput(): void {
+    this.showErrorMessage = false; // Hide error message on input
     clearTimeout(this.debounceTimeout);
     const query = this.searchText.trim().toLowerCase();
     if (query.length > 0) {
@@ -147,21 +150,24 @@ export class HomepageComponent {
     this.searchJobs(); // Trigger the search when a suggestion is clicked
   }
 
-  // Search jobs based on the input
   searchJobs(): void {
-    if (!this.searchText.trim()) {
-      this.jobs = [];
+    const trimmedSearchText = this.searchText.trim();
+  
+    if (!trimmedSearchText) {
+      this.showErrorMessage = true; // Show error message
+      this.jobs = []; // Clear previous results
       return;
     }
-
-    const params = new HttpParams().set('title', this.searchText);
+  
+    this.showErrorMessage = false; // Hide error message if input is valid
+  
+    const params = new HttpParams().set('title', trimmedSearchText);
     this.isSearching = true; // Show loader
-
+  
     this.http.get<any[]>('/api/searchJobs', { params }).subscribe(
       (response) => {
-        // Show jobs fetched from backend
         this.jobs = response.filter((job) =>
-          job.title.toLowerCase().includes(this.searchText.toLowerCase())
+          job.title.toLowerCase().includes(trimmedSearchText.toLowerCase())
         );
         this.isSearching = false; // Hide loader
       },
@@ -171,10 +177,10 @@ export class HomepageComponent {
         this.isSearching = false; // Hide loader
       }
     );
-
-      // Navigate to job posts with the search text
-    this.router.navigate(['/job-posts'], { queryParams: { search: this.searchText } });
+  
+    this.router.navigate(['/job-posts'], { queryParams: { search: trimmedSearchText } });
   }
+  
 
   // Handle the Enter key press to trigger search
   onEnter(event: KeyboardEvent): void {

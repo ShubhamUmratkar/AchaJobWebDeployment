@@ -16,6 +16,7 @@ export class AdminlogindynamicComponent {
   username: string = '';
   password: string = '';
   showPassword: boolean = false;
+  passwordFieldType: string = 'password'; // Default type for password field
 
   constructor(
     private fb: FormBuilder,
@@ -30,6 +31,12 @@ export class AdminlogindynamicComponent {
 
   ngOnInit(): void {
     // Initialization logic, if any
+  }
+
+  // Toggle password visibility
+  togglePasswordVisibility() {
+    this.passwordFieldType =
+      this.passwordFieldType === 'password' ? 'text' : 'password';
   }
 
   onLogin() {

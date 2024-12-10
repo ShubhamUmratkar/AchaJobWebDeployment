@@ -1,11 +1,13 @@
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+/>
+ 
 <div class="internship-slider" *ngIf="internships && internships.length > 0">
   <h2>Latest Internships</h2>
   <div class="slider-container">
     <button class="arrow-btn" (click)="prevSlide()">&#10094;</button>
-
+ 
     <div class="internship-cards-wrapper">
       <div class="internship-cards">
         <div
@@ -20,31 +22,30 @@
           <h3>{{ internship.title }}</h3>
           <p class="company">{{ internship.company }}</p>
           <p class="location">
-            <i class="fas fa-map-marker-alt"></i> <!-- Font Awesome Icon -->
+            <i class="fas fa-map-marker-alt"></i>
+            <!-- Font Awesome Icon -->
             {{ internship.location }}
           </p>
           <p class="stipend">&#8377; {{ internship.stipend }} / Month</p>
-          <p class="duration"> <i class='far fa-calendar'> &nbsp;</i>{{ internship.duration }} </p>
-          
+          <p class="duration">
+            <i class="far fa-calendar"> &nbsp;</i>{{ internship.duration }}
+          </p>
+ 
           <button
-          class="details-btn"
-          *ngIf="internship.id !== undefined"
-          (click)="viewInternshipDetails(internship.id)">
-          View Details
-        </button>
+            class="details-btn"
+            *ngIf="internship.id !== undefined"
+            (click)="viewInternshipDetails(internship.id)"
+          >
+            View Details
+          </button>
         </div>
       </div>
       <button class="arrow-btn" (click)="nextSlide()">&#10095;</button>
     </div>
-
-    
-
-    <div>
-      <a [routerLink]="['/view-all-internship']" class="read-more">
-        View More <button>&#10095;</button>
-      </a>
-    </div>
-    
   </div>
-  
+  <div>
+    <a [routerLink]="['/view-all-internship']" class="read-more"
+      >View More <button>&#10095;</button>
+    </a>
+  </div>
 </div>

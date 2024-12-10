@@ -146,14 +146,14 @@
           />
 
           <label for="salary">Salary:</label>
-          <!-- <input
+          <input
             id="salary"
             type="number"
             [(ngModel)]="job.salary"
             name="salary"
             required
-          /> -->
-          <input type="number" name="salary" id="salary" placeholder="Enter Salary" min="0" oninput="this.value = Math.abs(this.value)"/>
+          />
+          <!-- <input type="number" name="salary" id="salary" placeholder="Enter Salary" min="0" oninput="this.value = Math.abs(this.value)"/> -->
 
           <label for="status">Status:</label>
           <select id="status" [(ngModel)]="job.status" name="status" required>

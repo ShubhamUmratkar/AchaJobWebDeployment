@@ -11,25 +11,27 @@ body, html {
   background-color: #f4f4f4;
   font-family: Arial, sans-serif;
 }
-
+ 
 .internship-slider {
-  margin-top: 10px;
   text-align: center;
-  width: 98vw;
-  height: 80vh;
+  width: 98vw; /* Set width to 98% of the viewport width */
+  height: 90vh; /* Set height to 80% of the viewport height */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
+  border-radius: 20px; /* Curved edges for the slider */
+  overflow: hidden; /* Prevent content from overflowing */
+  margin-bottom: 20px;
 }
-
+ 
 h2 {
   margin-bottom: 20px;
-  font-size: 2.0rem;
-  color: #333;
+  font-size: 2.0rem; /* Increased font size for the title */
+  color: #000000;
 }
-
+ 
 .slider-container {
   display: flex;
   align-items: center;
@@ -37,66 +39,54 @@ h2 {
   width: 100%;
   overflow: hidden;
 }
-
-/* Background image */
-.slider-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-  opacity: 0.3;
-}
-
+ 
 .internship-cards-wrapper {
   width: 100%;
   overflow: hidden;
   display: flex;
   justify-content: center;
-  padding: 40px 0;
+  padding: 20px 0;
 }
-
+ 
 .internship-cards {
   display: flex;
-  width: 100%;
   justify-content: center;
   gap: 150px; /* Consistent gap between each card */
   transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 }
-
+ 
 .internship-card {
   background: linear-gradient(135deg, #84e5eb, #78d2e4, #66b5d9, #579dcf, #559acf, #4d8dc9, #4682c6, #427cc3);
   border-radius: 10px;
-  padding: 2rem; /* Increased padding */
+  padding: 3rem; /* Increased padding */
   width: 300px; /* Increased width */
   color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease;
-  opacity: 1; /* No opacity change for non-active states */
-  transform: scale(1); /* No scaling change for non-active states */
+  opacity: 1;
+  transform: scale(1);
   text-align: left;
-  height: 400px; /* Increased height */
-  /* Consistent text styling */
-  font-size: 1.2rem;
+  height: 390px; /* Increased height */
+  font-size: 1rem;
   font-weight: normal;
+  position: relative; /* Ensures positioning of the button inside the card */
 }
-
+ 
 .internship-card.active {
   opacity: 1;
   transform: scale(1.11); /* Only active card will scale up */
 }
-
+ 
 .company {
   font-weight: bold;
+  font-size: 1.2rem; /* Increased font size for company name */
 }
-
-.location, .salary, .duration {
-  font-size: 0.9rem;
+ 
+.location, .salary, .employmentType, .workModel {
+  font-size: 1.2rem; /* Increased font size for these text items */
   margin: 5px 0;
 }
-
+ 
 .details-btn {
   position: absolute;
   bottom: 20px; /* Ensure it's not covering content */
@@ -119,15 +109,15 @@ h2 {
   text-overflow: ellipsis; /* Add ellipsis if text overflows */
   overflow: hidden; /* Hide overflowing text */
 }
-
+ 
 .details-btn:hover {
   background: #ddd;
 }
-
+ 
 .details-btn::after {
   content: '';
   position: absolute;
-  right: 7px; /* Position circle to the right of the text */
+  right: 7px;
   width: 24px;
   height: 24px;
   background-color: black;
@@ -136,52 +126,64 @@ h2 {
   align-items: center;
   justify-content: center;
 }
-
+ 
 .details-btn::before {
-  content: '→'; /* Right-facing arrow */
+  content: '→';
   position: absolute;
-  right: 12px; /* Position arrow within the circle */
+  right: 12px;
   color: white;
   font-size: 0.8rem;
   z-index: 1;
 }
-
+ 
 .arrow-btn {
   background: none;
   border: none;
   font-size: 2rem;
   color: #333;
   cursor: pointer;
-  padding: 0 20px;
+  padding: 0 15px;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   z-index: 1;
 }
-
+ 
 .arrow-btn:first-child {
   left: 10px;
 }
-
+ 
 .arrow-btn:last-child {
   right: 10px;
 }
-
+ 
+/* Ensure .internship-slider is large enough */
+.internship-slider {
+  position: relative; /* Ensure .read-more is positioned relative to this container */
+  overflow: visible; /* Allow elements outside to remain visible */
+}
+ 
+/* Read More Styling */
 .read-more {
   position: absolute;
-  text-decoration: none; /* Ensure no underline on the button */
-  right: 10px;
-  bottom: 3px;
+  margin-top: 20px; /* Add space between the slider and button */
+  right: 20px; /* Aligns the button to the right */
+  text-decoration: none;
   font-size: 16px;
-  color: #062547;
+  display: inline-flex;
+  align-items: center;
+  z-index: 10;
 }
-
+ 
+/* Ensure correct styling for the link and button */
 .read-more a {
   color: black;
   display: inline-flex;
   align-items: center;
+  font-size: inherit;
+  text-decoration: none; /* Ensure no underline */
 }
-
+ 
 .read-more button {
   border: none;
   background: none;
@@ -189,46 +191,94 @@ h2 {
   font: inherit;
   padding: 0;
   cursor: pointer;
-  margin-left: 5px; /* Optional: space between text and button */
+  margin-left: 5px;
+  font-size: 1.2rem;
 }
-
-/* Media Query: Mobile screens */
+ 
+/* Media Query for Mobile Screens */
+@media (max-width: 480px) {
+  .read-more {
+    bottom: -30px; /* Adjust position for smaller screens */
+    right: 10px; /* Adjust alignment */
+    font-size: 14px; /* Smaller font size for mobile */
+  }
+}
+ 
+/* Ensure the .internship-slider container is positioned correctly */
+.internship-slider {
+  position: relative; /* Makes the .read-more button position relative to this container */
+}
+ 
+/* Media Query for Mobile screens */
 @media (max-width: 480px) {
   /* Adjust the overall internship slider size for mobile */
   .internship-slider {
-    width: 95vw; /* Increased width to 95% of the viewport width */
-    height: 85vh; /* Increased height to 85% of the viewport height */
+    width: 100vw; /* Set width to 90% of the viewport width */
+    height: 70vh; /* Set height to 60% of the viewport height */
+    border-radius: 15px; /* More pronounced curve on mobile */
   }
-
-  /* Adjust the intern cards container for mobile */
+ 
+  /* Adjust the "read more" button */
+  .read-more {
+    position: absolute;
+    text-decoration: none;
+    right: 0px;
+    bottom: 0px;
+    font-size: 16px;
+    padding: 0.5rem 1.5rem;
+    border-radius: 30px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+ 
+  /* Ensure "Read More" button doesn't overlap */
+  .read-more a {
+    color: black;
+    display: inline-flex;
+    align-items: center;
+    font-size: 16px;
+  }
+ 
+  .read-more button {
+    border: none;
+    background: none;
+    color: black;
+    font: inherit;
+    padding: 0;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 1.2rem; /* Increased font size for the arrow */
+  }
+ 
+  /* Adjust the internship-cards wrapper */
+  .internship-cards-wrapper {
+    padding: 10px 0; /* Reduced padding to fit better on mobile */
+  }
+ 
+  /* Adjust the internship-cards */
   .internship-cards {
-    gap: 20px; /* Reduced gap between cards for smaller screens */
+    gap: 20px; /* Reduced gap between cards */
   }
-
-  /* Adjust card dimensions */
+ 
+  /* Adjust card size */
   .internship-card {
-    width: 220px; /* Increased width for mobile */
-    height: 350px; /* Adjusted height for better fit */
-    padding: 1.6rem; /* Slightly increased padding */
-    font-size: 1rem; /* Adjust font size for better readability */
+    width: 230px; /* Reduced width of each card */
+    height: 320px; /* Reduced height of each card */
+    padding: 1.5rem; /* Adjusted padding */
+    font-size: 0.9rem; /* Reduced font size for mobile */
   }
-
-  /* Increase the "View Details" button size */
+ 
+  /* Adjust button size inside internship card */
   .details-btn {
-    padding: 0.5rem 2.0rem; /* Slightly adjusted padding for mobile */
-    font-size: 1.1rem; /* Slightly increased font size */
-    border-radius: 20px;
-    bottom: 20px; /* Move it a bit higher */
-    margin-left: 1px    ;
+    padding: 0.5rem 2.0rem; /* Adjusted button padding */
+    font-size: 1rem; /* Reduced font size */
+    bottom: 15px; /* Slightly moved up the button */
   }
-
+ 
   /* Adjust arrow buttons size */
   .arrow-btn {
-    font-size: 1.6rem; /* Slightly larger size for mobile */
-  }
-
-  /* Adjust the read more button for mobile view */
-  .read-more {
-    font-size: 13px; /* Slightly increased font size for better fit */
+    font-size: 1.5rem; /* Reduced size for mobile */
   }
 }
+ 

@@ -15,7 +15,7 @@ export class ApplyInternshipComponent {
   cvFile: File | null = null;
   internshipId: number | null = null;
   fileError: string | null = null;
-
+ 
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,
@@ -23,28 +23,27 @@ export class ApplyInternshipComponent {
     private applyInternshipService: ApplyInternshipService
   ) {
     this.applyForm = this.fb.group({
-      firstName: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
-      lastName: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
+      firstName: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]+$')]],
+      lastName: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]+$')]],
       email: ['', [Validators.required, Validators.email]],
-      country: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
+      country: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]+$')]],
       mobileNumber: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
-      location: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]]
+      location: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]+$')]]
     });
   }
-
-
+ 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.internshipId = +params['id'];
     });
   }
-
+ 
   onFileChange(event: Event): void {
     const input = event.target as HTMLInputElement;
     if (input?.files?.length) {
       const file = input.files[0];
       const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
-
+ 
       if (allowedTypes.includes(file.type)) {
         this.cvFile = file;
         this.fileError = null;
@@ -54,16 +53,16 @@ export class ApplyInternshipComponent {
       }
     }
   }
-
+ 
   onSubmit(): void {
     if (this.applyForm.valid && this.internshipId) {
       const formData = new FormData();
       formData.append('formData', JSON.stringify(this.applyForm.value));
-
+ 
       if (this.cvFile) {
         formData.append('cv', this.cvFile);
       }
-
+ 
       this.applyInternshipService.applyForInternship(this.internshipId, formData).subscribe(
         () => {
           alert('Application submitted successfully!');

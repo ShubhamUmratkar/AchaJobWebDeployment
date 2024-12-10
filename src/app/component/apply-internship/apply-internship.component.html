@@ -1,77 +1,89 @@
 <div class="background-image">
   <div class="apply-job-container">
-    <h2>Apply for Internship</h2>
-    <form
-      [formGroup]="applyForm"
-      (ngSubmit)="onSubmit()"
-      enctype="multipart/form-data"
-    >
-      <div>
-        <label for="firstName">First Name:</label>
-        <input
-          type="text"
-          id="firstName"
-          formControlName="firstName"
-          required
-        />
-        <small *ngIf="applyForm.controls['firstName'].errors?.['required']">
-          First name is required.
-        </small>
-      </div>
-      <div>
-        <label for="lastName">Last Name:</label>
-        <input type="text" id="lastName" formControlName="lastName" required />
-        <small *ngIf="applyForm.controls['lastName'].errors?.['required']">
-          Last name is required.
-        </small>
-      </div>
-      <div>
-        <label for="email">Email:</label>
-        <input type="email" id="email" formControlName="email" required />
-        <small *ngIf="applyForm.controls['email'].errors?.['required']">
-          Email is required.
-        </small>
-        <small *ngIf="applyForm.controls['email'].errors?.['email']">
-          Enter a valid email address.
-        </small>
-      </div>
-      <div>
-        <label for="country">Country:</label>
-        <input type="text" id="country" formControlName="country" required />
-        <small *ngIf="applyForm.controls['country'].errors?.['required']">
-          Country is required.
-        </small>
-      </div>
-      <div>
-        <label for="mobileNumber">Mobile Number:</label>
-        <input
-          type="text"
-          id="mobileNumber"
-          formControlName="mobileNumber"
-          required
-        />
-        <small *ngIf="applyForm.controls['mobileNumber'].errors?.['required']">
-          Mobile number is required.
-        </small>
-        <small *ngIf="applyForm.controls['mobileNumber'].errors?.['pattern']">
-          Enter a valid 10-digit mobile number.
-        </small>
-      </div>
-      <div>
-        <label for="location">Location:</label>
-        <input type="text" id="location" formControlName="location" required />
-        <small *ngIf="applyForm.controls['location'].errors?.['required']">
-          Location is required.
-        </small>
-      </div>
-      <div>
-        <label for="cv">Upload CV:</label>
-        <input type="file" id="cv" (change)="onFileChange($event)" />
-        <small *ngIf="fileError" class="error">{{ fileError }}</small>
-      </div>
-      <button type="submit" [disabled]="applyForm.invalid">
-        Submit Application
-      </button>
-    </form>
+  <h2>Apply for Internship</h2>
+  <form
+        [formGroup]="applyForm"
+        (ngSubmit)="onSubmit()"
+        enctype="multipart/form-data"
+  >
+  <div>
+  <label for="firstName">First Name:</label>
+  <input
+            type="text"
+            id="firstName"
+            formControlName="firstName"
+            required
+          />
+  <small *ngIf="applyForm.controls['firstName'].errors?.['required']">
+            First name is required.
+  </small>
+  <small *ngIf="applyForm.controls['firstName'].errors?.['pattern']">
+            Only letters and spaces are allowed.
+  </small>
   </div>
-</div>
+  <div>
+  <label for="lastName">Last Name:</label>
+  <input type="text" id="lastName" formControlName="lastName" required />
+  <small *ngIf="applyForm.controls['lastName'].errors?.['required']">
+            Last name is required.
+  </small>
+  <small *ngIf="applyForm.controls['lastName'].errors?.['pattern']">
+            Only letters and spaces are allowed.
+  </small>
+  </div>
+  <div>
+  <label for="email">Email:</label>
+  <input type="email" id="email" formControlName="email" required />
+  <small *ngIf="applyForm.controls['email'].errors?.['required']">
+            Email is required.
+  </small>
+  <small *ngIf="applyForm.controls['email'].errors?.['email']">
+            Enter a valid email address.
+  </small>
+  </div>
+  <div>
+  <label for="country">Country:</label>
+  <input type="text" id="country" formControlName="country" required />
+  <small *ngIf="applyForm.controls['country'].errors?.['required']">
+            Country is required.
+  </small>
+  <small *ngIf="applyForm.controls['country'].errors?.['pattern']">
+            Only letters and spaces are allowed.
+  </small>
+  </div>
+  <div>
+  <label for="mobileNumber">Mobile Number:</label>
+  <input
+            type="text"
+            id="mobileNumber"
+            formControlName="mobileNumber"
+            required
+          />
+  <small *ngIf="applyForm.controls['mobileNumber'].errors?.['required']">
+            Mobile number is required.
+  </small>
+  <small *ngIf="applyForm.controls['mobileNumber'].errors?.['pattern']">
+            Enter a valid 10-digit mobile number.
+  </small>
+  </div>
+  <div>
+  <label for="location">Location:</label>
+  <input type="text" id="location" formControlName="location" required />
+  <small *ngIf="applyForm.controls['location'].errors?.['required']">
+            Location is required.
+  </small>
+  <small *ngIf="applyForm.controls['location'].errors?.['pattern']">
+            Only letters and spaces are allowed.
+  </small>
+  </div>
+  <div>
+  <label for="cv">Upload CV:</label>
+  <input type="file" id="cv" (change)="onFileChange($event)" />
+  <small *ngIf="fileError" class="error">{{ fileError }}</small>
+  </div>
+  <button type="submit" [disabled]="applyForm.invalid">
+          Submit Application
+  </button>
+  </form>
+  </div>
+  </div>

@@ -4,7 +4,6 @@
     <!-- Main Title Section -->
     <h1 class="main-title">Find your dream job now</h1>
 
-    <!-- Search Bar Section -->
     <div class="search-container">
       <input
         type="text"
@@ -22,15 +21,15 @@
           {{ suggestion }}
         </li>
       </ul>
-      <button
-        class="search-button"
-        [disabled]="!searchText"
-        (click)="searchJobs()"
-      >
+      <button class="search-button" (click)="searchJobs()">
         Search<span class="arrow">→</span>
       </button>
     </div>
-
+    <!-- Error message is placed below the search container -->
+    <small *ngIf="showErrorMessage" class="error-message">
+      Please enter a search term before clicking search.
+    </small>
+    
     <!-- Display the Jobs -->
     <div *ngIf="jobs.length > 0">
       <h2>Job Results</h2>

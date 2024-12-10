@@ -11,6 +11,7 @@ import { AdminService } from 'src/app/service/admin.service';
 })
 export class AdminregisterComponent implements OnInit {
   adminForm!: FormGroup;
+  passwordFieldType: string = 'password'; // Default type for password field
 
   constructor(
     private fb: FormBuilder,
@@ -34,6 +35,12 @@ export class AdminregisterComponent implements OnInit {
       ],
       email: ['', [Validators.required, Validators.email]],
     });
+  }
+
+  // Toggle password visibility
+  togglePasswordVisibility() {
+    this.passwordFieldType =
+      this.passwordFieldType === 'password' ? 'text' : 'password';
   }
 
   // Handle form submission

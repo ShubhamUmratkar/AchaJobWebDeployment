@@ -14,6 +14,7 @@ export class LoginComponent {
   submitted = false;
   loginFailed = false;
   errorMessage: string = '';
+  passwordFieldType: string = 'password'; // Default type for password field
 
   constructor(
     private formBuilder: FormBuilder, 
@@ -24,6 +25,12 @@ export class LoginComponent {
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
+  }
+
+   // Toggle password visibility
+   togglePasswordVisibility() {
+    this.passwordFieldType =
+      this.passwordFieldType === 'password' ? 'text' : 'password';
   }
 
   // On form submission

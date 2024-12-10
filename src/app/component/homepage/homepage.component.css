@@ -90,6 +90,15 @@
   transform: translateX(8px);
 }
 
+.error-message {
+  color: red; /* Make the message red */
+  font-size: 0.9rem; /* Adjust font size for better visibility */
+  margin-top: 10px; /* Add space above the message */
+  display: block; /* Ensure it spans the full width */
+  text-align: left; /* Align text to the left */
+  
+}
+
 /* Job Count Text */
 .job-count-text {
   font-size: 1.5rem;
@@ -307,7 +316,7 @@
 .suggestions-list li {
   padding: 10px 15px;
   font-size: 1rem;
-  color: #333;
+  color: #000000;
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -343,4 +352,13 @@
   .suggestions-list li {
     padding: 6px 8px; /* Tighter spacing for mobile */
   }
+}
+
+.error-message {
+  color: red; /* Highlight the message in red */
+  font-size: 0.9rem; /* Adjust font size for readability */
+  margin-top: 1px; /* Add spacing above the message */
+  display: block; /* Ensure it spans the full width */
+  text-align: left; /* Align the text to the left */
+  padding-left: 20px; /* Optional: Align with the search bar content */
 }
