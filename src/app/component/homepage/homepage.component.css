@@ -122,14 +122,14 @@
   justify-content: center;
   margin-top: 20px;
   padding: 30px;
-  background: linear-gradient(135deg, #84e5eb,#78d2e4, #66b5d9, #579dcf, #559acf, #4d8dc9, #4682c6, #427cc3);
-  border-radius: 10px;
+  background: rgb(1, 1, 1);
+  background: linear-gradient(90deg, rgba(1, 1, 1, 1) 0%, rgba(41, 41, 164, 1) 80%, rgba(54, 51, 204, 1) 100%);  color: #fff;  border-radius: 10px;
 
 }
 
 .cta-title {
   font-size: 2.5rem;
-  color: #000;
+  color: #ffffff;
   font-weight: bold;
   margin: 0;
   text-align: left;

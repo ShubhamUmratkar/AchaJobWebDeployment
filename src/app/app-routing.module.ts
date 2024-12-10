@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FooterComponent } from './component/footer/footer.component';
 import { CertificationComponent } from './component/certification/certification.component';
@@ -30,6 +30,7 @@ import { ViewAllFormsAdminComponent } from './component/view-all-forms-admin/vie
 import { UserhomepageComponent } from './component/userhomepage/userhomepage.component';
 import { AdminregisterComponent } from './component/adminregister/adminregister/adminregister.component';
 import { SuperAdminComponent } from './component/super-admin/super-admin.component';
+import { FrequentlyQuestionComponent } from './component/frequently-question/frequently-question.component';
 
 
 
@@ -65,6 +66,7 @@ const routes: Routes = [
   // { path: '**', redirectTo: '' } ,
   {path:'userhomepage',component:UserhomepageComponent},
   {path:'super-admin', component:SuperAdminComponent},
+  {path:'frequently-question',component:FrequentlyQuestionComponent},
 
 
 ];

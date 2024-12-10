@@ -34,6 +34,7 @@ import { UserhomepageComponent } from './component/userhomepage/userhomepage.com
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { AdminregisterComponent } from './component/adminregister/adminregister/adminregister.component';
 import { SuperAdminComponent } from './component/super-admin/super-admin.component';
+import { FrequentlyQuestionComponent } from './component/frequently-question/frequently-question.component';
 
 
 
@@ -69,6 +70,7 @@ import { SuperAdminComponent } from './component/super-admin/super-admin.compone
     ViewAllFormsAdminComponent,
     UserhomepageComponent,
     SuperAdminComponent,
+    FrequentlyQuestionComponent,
 
 
 

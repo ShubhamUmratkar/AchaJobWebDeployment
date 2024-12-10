@@ -1,0 +1,300 @@
+/* Global Styles */
+body {
+  font-family: 'Serif', serif; /* Change font to serif */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 100%;
+}
+
+h1.fw-bold {
+  font-size: 2.5rem;
+  color: #333;
+}
+
+p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* Accordion Styles */
+.accordion-button {
+  background-color: #ffffff03;
+  color: #000000;
+  font-weight: bold;
+  border: none;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #ffffff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.accordion-button:hover {
+  background-color: #d6f5ff;
+}
+
+.accordion-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0);
+}
+
+.accordion-header {
+  padding: 0;
+}
+
+.accordion-body {
+  background-color: #d6f5ff;
+  padding: 20px;
+  border-top: 1px solid #e7e7e7;
+  font-size: 1rem;
+  color: #333;
+  transition: max-height 0.4s ease;
+}
+
+.accordion-body p {
+  margin: 0;
+}
+
+/* Transitions for collapsing/expanding */
+.accordion-collapse {
+  transition: height 0.4s ease;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  h1.fw-bold {
+      font-size: 2rem;
+  }
+
+  p {
+      font-size: 1rem;
+  }
+
+  .accordion-button {
+      font-size: 1rem;
+      padding: 0.75rem 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+      width: 100%;
+  }
+
+  h1.fw-bold {
+      font-size: 1.8rem;
+  }
+
+  p {
+      font-size: 0.9rem;
+  }
+
+  .accordion-button {
+      font-size: 0.9rem;
+      padding: 0.5rem 0.75rem;
+  }
+
+  .accordion-body {
+      font-size: 0.9rem;
+  }
+}
+
+/* Animations and Transitions */
+.accordion-button {
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.accordion-button:hover {
+  transform: translateY(-2px);
+}
+
+.accordion-button:active {
+  transform: scale(0.98);
+}
+
+.accordion-body {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.accordion-collapse.show .accordion-body {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.enlarged-preview-img {
+  max-width: 90%;
+  max-height: 80vh;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+/* Photo Gallery Section */
+.photo-gallery-section {
+  position: relative;
+}
+
+.header-background {
+  background-color: #e0f7fa;
+  padding: 30px 0;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  margin-left: -50vw;
+  box-sizing: border-box;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+h2 {
+  font-weight: bold;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.view-all-link {
+  color: #007bff;
+  font-size: 1.125rem;
+  margin-left: 10px;
+  text-decoration: none;
+}
+
+.gallery-img {
+  border-radius: 10px;
+  width: 100%;
+  height: auto;
+  max-width: 350px;
+  object-fit: cover;
+  margin: 10px;
+}
+
+.carousel-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centering items */
+  overflow: hidden; /* Prevent overflow */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #007bff;
+  border-radius: 50%;
+  padding: 15px;
+}
+
+.carousel-item {
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Carousel Container */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 900px; /* Reduce max-width of carousel */
+  margin: auto;
+  overflow: hidden;
+}
+
+.carousel-inner {
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  white-space: nowrap;
+  justify-content: center; /* Centering carousel items */
+}
+
+.carousel-items {
+  display: flex;
+  align-items: center;
+}
+
+.carousel-item {
+  display: inline-block;
+  margin: 0 10px; /* Reduced margin */
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  max-width: 150px; /* Smaller size */
+}
+
+.carousel-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: all 0.5s ease;
+}
+
+/* Highlight Effect for Active Image */
+.carousel-item.active img {
+  width: 120%; /* Slightly enlarged */
+  transform: scale(1.1);
+  z-index: 1;
+  border: 2px solid #007bff;
+}
+
+/* Carousel Control Styling */
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  cursor: pointer;
+  font-size: 2.5rem;
+  padding: 1rem;
+  z-index: 2;
+}
+
+.carousel-control.prev {
+  left: 15px;
+}
+
+.carousel-control.next {
+  right: 15px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .carousel-item img {
+      width: 150px; /* Smaller size for mobile */
+  }
+
+  .carousel-item.active img {
+      width: 200px; /* Slightly larger active item */
+  }
+
+  .carousel-control {
+      font-size: 2rem;
+      padding: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-item img {
+      width: 120px; /* Further reduce size */
+  }
+
+  .carousel-item.active img {
+      width: 180px;
+  }
+
+  .carousel-control {
+      font-size: 1.5rem;
+      padding: 0.5rem;
+  }
+
+  .carousel-item {
+      margin: 0 5px; /* Reduced margin */
+  }
+}

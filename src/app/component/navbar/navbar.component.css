@@ -1,18 +1,21 @@
-A/* General Navbar Styles */
+/* General Navbar Styles */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: #ffffffab;
-  /* border: 2px solid #007bff; */
-  border-radius: 0.5rem;
+  background: rgb(1, 1, 1);
+  background: linear-gradient(90deg, rgba(1, 1, 1, 1) 0%, rgba(41, 41, 164, 1) 80%, rgba(54, 51, 204, 1) 100%);
+  color: #ffffff;
+  border-radius: 10px;
   position: sticky;
   top: 0;
   z-index: 1000;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
+
+
 
 .navbar:hover {
   background-color: #f8f9fa;
@@ -101,7 +104,7 @@ A/* General Navbar Styles */
 
 .nav-item a {
   text-decoration: none;
-  color: #333;
+  color: #ffffff;
   font-weight: bold;
   padding: 0.5rem 1rem;
   transition: color 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
@@ -349,8 +352,8 @@ A/* General Navbar Styles */
   padding: 0.5rem 1rem;
   margin-right: 20px;
   font-size: 1rem;
-  color: #007bff;
-  border: 2px solid #007bff;
+  color: #ffffff;
+  border: 2px solid #ffffff;
   border-radius: 0.5rem;
   background-color: transparent;
   cursor: pointer;
@@ -360,7 +363,7 @@ A/* General Navbar Styles */
 
 .login-button:hover {
   background-color: #0a2b4e;
-  color: white;
+  color: rgb(255, 255, 255);
   transform: scale(1.1);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
