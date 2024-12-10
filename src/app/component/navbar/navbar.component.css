@@ -34,13 +34,14 @@ A/* General Navbar Styles */
   border: none;
   cursor: pointer;
   transition: transform 0.3s ease;
-
+  position: absolute; /* Add this line */
+  top: 20px;  /* Adjust this value to position it from the top */
+  right: 20px; /* Adjust this value to position it from the right */
 }
 
 .hamburger-icon:hover {
   transform: rotate(-360deg);
 }
-
 
 .hamburger-icon .bar {
   width: 25px;
@@ -63,12 +64,14 @@ A/* General Navbar Styles */
 .hamburger-icon.open .bar:nth-child(3) {
   transform: rotate(-5deg) translate(5px, -5px);
 }
+
 /* Media Query for Mobile */
 @media (max-width: 768px) {
   .hamburger-icon {
     display: flex;
   }
 }
+
 
 /* Navigation Items */
 .nav-items {
@@ -173,19 +176,20 @@ A/* General Navbar Styles */
 
 
 .dropdown-category h3 {
-  padding: 1rem;
+  padding: 1.5rem;
   background-color: #ffffffe8;
   border: 1px;
   border-radius: 0.25rem;
   margin: 0;
-  font-size: 1rem;
+  font-size: 1.0rem;
   color: #007bff;
   cursor: pointer;
-
+  
 }
 
 .dropdown-category h3:hover {
   color: #0a2b4e;
+  font-size: 1.1rem;
 }
 
 /* Responsive Styles */
@@ -272,7 +276,7 @@ A/* General Navbar Styles */
 
 
 .secondary-dropdown {
-  position: relative; /* Keep relative positioning */
+  position: absolute; /* Keep relative positioning */
   margin-top: 0.2rem; /* Add margin to separate it from the parent dropdown */
   background-color: #ffffffe8;
   border-radius: 0.5rem;
@@ -343,6 +347,7 @@ A/* General Navbar Styles */
 /* Login Button */
 .login-button {
   padding: 0.5rem 1rem;
+  margin-right: 20px;
   font-size: 1rem;
   color: #007bff;
   border: 2px solid #007bff;

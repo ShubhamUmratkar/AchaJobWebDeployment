@@ -23,7 +23,7 @@ export class NavbarComponent implements OnInit, AfterViewInit{
         label: 'Home',
         isOpen: false,
         categories: [
-          { title: 'About US', items: ['We help you Prepare & Find your Dream Job'],isOpen: false },
+          { title: 'About Us', items: ['We help you prepare & find your dream job'],isOpen: false },
         ]
       },
       {
@@ -32,19 +32,19 @@ export class NavbarComponent implements OnInit, AfterViewInit{
         categories: [
           { title: 'By Category', items: ['Engineering', 'Marketing', 'Sales', 'Content Writing', 'Design', 'Media', 'Law'],isOpen: false },
           { title: 'By Location', items: ['Mumbai', 'Delhi', 'Bangalore', 'Pune'],isOpen: false },
-          { title: 'Work from Home', items: ['Remote Opportunities', 'Flexible Hours', 'Freelance Jobs', 'Full-Time Remote', 'Part-Time Remote'],isOpen: false },
-          { title: 'Part-time Internships', items: ['Internship', 'Part-Time Internship', 'Full Time Internship'],isOpen: false },
+          { title: 'Work From Home', items: ['Remote Opportunities', 'Flexible Hours', 'Freelance Jobs', 'Full-Time Remote', 'Part-Time Remote'],isOpen: false },
+          { title: 'Part-Time Internships', items: ['Internship', 'Part-Time Internship', 'Full Time Internship'],isOpen: false },
           { title: 'Browse All Internships', items: ['Internship Opportunities', 'Remote Internships', 'Skill Development', 'Flexible Hours', 'Industry Exposure'],isOpen: false }
         ]
       },
       {
-        label: 'Online Traning',
+        label: 'Online Training',
         isOpen: false,
         categories: [
           { title: 'By Skills', items: ['Programing', 'Data Science', 'Digital Markating', 'Business Communication',],isOpen: false },
           { title: 'Placement Preparation', items: ['Placement Preparation','Interview Preparation'],isOpen: false },
-          { title: 'Free Courses', items: ['Beginner Cources','Advance Topics','Skills Development','Certification Paths','Practice Exercises'],isOpen: false },
-          { title: 'All Courses', items: ['Software Development','Software Testing','Website Development','Business Analyst','Cyber Security','Data Analyst','Data Engineering','Data Science','E-commerce Development','Full Stack Development','Google Cloud','Linux','POwerBI','Python','SAP','UI/UX','AWS Cloud','Azure'],isOpen: false },
+          { title: 'Free Courses', items: ['Beginner Courses','Advance Topics','Skills Development','Certification Paths','Practice Exercises'],isOpen: false },
+          { title: 'All Courses', items: ['Software Development','Software Testing','Website Development','Business Analyst','Cyber Security','Data Analyst','Data Engineering','Data Science','E-commerce Development','Full Stack Development','Google Cloud','Linux','PowerBI','Python','SAP','UI/UX','AWS Cloud','Azure'],isOpen: false },
         ]
       },
       {

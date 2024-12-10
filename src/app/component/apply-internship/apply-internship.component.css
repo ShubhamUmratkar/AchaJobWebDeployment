@@ -143,3 +143,9 @@ button:disabled {
       max-height: 80vh;
   }
 }
+
+.error {
+  color: red;
+  font-size: 0.9em;
+  margin-top: 5px;
+}

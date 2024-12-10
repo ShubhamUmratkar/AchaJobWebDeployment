@@ -102,6 +102,8 @@ body {
   background-color: #28a745;
   color: #fff;
   transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-right: 10px; /* Add space between Approve and Disable buttons */
+
 }
 
 .btn-success:disabled {

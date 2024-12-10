@@ -13,34 +13,32 @@ import { ApplyInternshipService } from 'src/app/service/apply-internship.service
 export class ApplyInternshipComponent {
   applyForm: FormGroup;
   cvFile: File | null = null;
-  internshipId: number | null = null;  // Initialize internshipId
+  internshipId: number | null = null;
   fileError: string | null = null;
 
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private applyInternshipService: ApplyInternshipService  // Use ApplyInternshipService
+    private applyInternshipService: ApplyInternshipService
   ) {
     this.applyForm = this.fb.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
+      firstName: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
+      lastName: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
       email: ['', [Validators.required, Validators.email]],
-      country: ['', Validators.required],
+      country: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
       mobileNumber: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
-      location: ['', Validators.required]
+      location: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]]
     });
   }
+
 
   ngOnInit(): void {
-    // Capture the internshipId from the route parameter
     this.route.params.subscribe(params => {
-      this.internshipId = +params['id'];  // Convert the id parameter to a number
-      console.log("INTERNSHIP ID@@@@@@@@@@@@@@@@@@@@@@@@@", this.internshipId); // Debugging output
+      this.internshipId = +params['id'];
     });
   }
 
-  // Handle CV file selection
   onFileChange(event: Event): void {
     const input = event.target as HTMLInputElement;
     if (input?.files?.length) {
@@ -53,31 +51,27 @@ export class ApplyInternshipComponent {
       } else {
         this.cvFile = null;
         this.fileError = 'Only DOC, DOCX, and PDF files are allowed.';
+      }
     }
   }
-}
 
-  // Submit the application form
   onSubmit(): void {
     if (this.applyForm.valid && this.internshipId) {
       const formData = new FormData();
-      formData.append('formData', JSON.stringify(this.applyForm.value));  // Append form data as JSON
+      formData.append('formData', JSON.stringify(this.applyForm.value));
 
-      // If a CV file is selected, append it to the formData
       if (this.cvFile) {
         formData.append('cv', this.cvFile);
       }
 
-      // Call the ApplyInternshipService to submit the internship application
       this.applyInternshipService.applyForInternship(this.internshipId, formData).subscribe(
+        () => {
+          alert('Application submitted successfully!');
+          this.router.navigate(['/']);
+        },
         (error) => {
           alert('Failed to submit application. Please try again.');
           console.error(error);
-        },
-        (response) => {
-          console.log('Application Submitted Successfully', response);
-          alert('Application submitted successfully!');
-          this.router.navigate(['/']);  // Redirect to homepage or a success page
         }
       );
     } else {
