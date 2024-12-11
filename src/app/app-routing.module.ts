@@ -31,6 +31,7 @@ import { UserhomepageComponent } from './component/userhomepage/userhomepage.com
 import { AdminregisterComponent } from './component/adminregister/adminregister/adminregister.component';
 import { SuperAdminComponent } from './component/super-admin/super-admin.component';
 import { FrequentlyQuestionComponent } from './component/frequently-question/frequently-question.component';
+import { SliderComponent } from './component/slider/slider.component';
 
 
 
@@ -67,6 +68,7 @@ const routes: Routes = [
   {path:'userhomepage',component:UserhomepageComponent},
   {path:'super-admin', component:SuperAdminComponent},
   {path:'frequently-question',component:FrequentlyQuestionComponent},
+  {path:'slider',component:SliderComponent},
 
 
 ];

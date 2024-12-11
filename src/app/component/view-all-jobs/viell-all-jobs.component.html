@@ -1,19 +1,18 @@
-
-
-<div class="jobs-container">
-    <h1>Latest Jobs On XYZ</h1>
-    <div class="jobs-grid">
-      <div class="job-card" *ngFor="let job of jobs">
+<div class="job-list-container">
+  <h1>Latest Jobs On XYZ</h1>
+  <div class="job-cards-grid">
+    <div class="job-card" *ngFor="let job of jobs">
+      <div class="job-card-header">
         <h3>{{ job.title }}</h3>
-
-        <ul class="job-details">
-          <li>{{ job.location }}</li>
-          <li>₹{{ job.salary }}</li>
-          <li>{{ job.experience }} Year</li>
-          <li>{{ job.workModel }}</li>
-        </ul>
-        <button class="view-more-btn" *ngIf="job" [routerLink]="['/view-job', job?.id]" >View More..</button>
+        <span class="job-category">{{ job.category }}</span>
       </div>
+      <ul class="job-details">
+        <li><strong>Location:</strong> {{ job.location }}</li>
+        <li><strong>Salary:</strong> ₹{{ job.salary }}</li>
+        <li><strong>Experience:</strong> {{ job.experience }} Year</li>
+        <li><strong>Work Mode:</strong> {{ job.workModel }}</li>
+      </ul>
+      <button class="view-more-btn" [routerLink]="['/view-job', job.id]">View More..</button>
     </div>
   </div>
-   
+</div>

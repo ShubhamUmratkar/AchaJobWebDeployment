@@ -11,7 +11,7 @@
   justify-content: space-evenly;
   align-items: center;
   padding: 20px;
-  background-color: #f5f5f5;
+  background: linear-gradient(to right, #00d4ff, #a8ff8f, #fff700);
   flex-wrap: wrap;
   gap: 20px;
 }
@@ -29,7 +29,7 @@
  
 .stat-item p {
   font-size: clamp(1rem, 1.5vw, 1.2rem); /* Scales with screen size */
-  color: #555;
+  color: #262525;
 }
  
 /* Footer Section */

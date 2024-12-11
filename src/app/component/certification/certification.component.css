@@ -1,9 +1,17 @@
+
+
+ 
+
+
 .course-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Divides the page into three parts */
-    gap: 20px; /* Adds gap between each card */
-    padding: 20px;
-  }
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Divides the page into three parts */
+  gap: 30px; /* Adds gap between each card */
+  padding: 50px 20px; /* Adjusted padding for better alignment, optional */
+  background: linear-gradient(to right, #00d4ff, #a8ff8f, #fff700);
+
+}
+
   
   .course-card {
     background: linear-gradient(135deg, #84e5eb,#78d2e4, #66b5d9, #579dcf, #559acf, #4d8dc9, #4682c6, #427cc3);

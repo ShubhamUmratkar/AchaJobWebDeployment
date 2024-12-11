@@ -14,15 +14,16 @@ body, html {
  
 .job-slider {
   text-align: center;
-  width: 98vw;  /* Set width to 98% of the viewport width */
+  width: 99vw;  /* Set width to 98% of the viewport width */
   height: 90vh;  /* Set height to 80% of the viewport height */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  border-radius: 20px; /* Curved edges for the slider */
+  /* border-radius: 20px;  */
   overflow: hidden; /* Prevent content from overflowing */
+  background: linear-gradient(to right, #00d4ff, #a8ff8f, #fff700);
 }
  
 h2 {
@@ -165,18 +166,19 @@ h2 {
 /* Read More Styling */
 .read-more {
   position: absolute;
-  bottom: -20px; /* Moves the button below the slider */
+  bottom: 20px; /* Moves the button below the slider */
   right: 20px; /* Aligns the button to the right */
   text-decoration: none;
   font-size: 16px;
   display: inline-flex;
   align-items: center;
+  
  
 }
  
 /* Ensure correct styling for the link and button */
 .read-more a {
-  color: black;
+  color: rgb(0, 0, 0);
   display: inline-flex;
   align-items: center;
   font-size: inherit;
@@ -223,39 +225,37 @@ h2 {
     border-radius: 15px; /* More pronounced curve on mobile */
   }
  
-  /* Adjust the "read more" button */
-  .read-more {
-    position: absolute;
-    text-decoration: none;
-    right: 0px;
-    bottom: 0px;
-    font-size: 16px;
-    padding: 0.5rem 1.5rem;
-    border-radius: 30px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-  }
+/* Read More Styling */
+.read-more {
+  position: absolute;
+  margin-top: 20px; /* Add space between the slider and button */
+  right: 20px; /* Aligns the button to the right */
+  text-decoration: none;
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  z-index: 10;
+}
  
-  /* Ensure "Read More" button doesn't overlap */
-  .read-more a {
-    color: black;
-    display: inline-flex;
-    align-items: center;
-    font-size: 16px;
-  }
+/* Ensure correct styling for the link and button */
+.read-more a {
+  color: rgb(0, 0, 0);
+  display: inline-flex;
+  align-items: center;
+  font-size: inherit;
+  text-decoration: none; /* Ensure no underline */
+}
  
-  .read-more button {
-    border: none;
-    background: none;
-    color: black;
-    font: inherit;
-    padding: 0;
-    cursor: pointer;
-    margin-left: 10px;
-    font-size: 1.2rem;  /* Increased font size for the arrow */
-  }
- 
+.read-more button {
+  border: none;
+  background: none;
+  color: black;
+  font: inherit;
+  padding: 0;
+  cursor: pointer;
+  margin-left: 5px;
+  font-size: 1.2rem;
+}
   /* Adjust the job-cards wrapper */
   .job-cards-wrapper {
     padding: 10px 0;  /* Reduced padding to fit better on mobile */
