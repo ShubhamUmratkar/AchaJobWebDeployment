@@ -2,7 +2,7 @@
 body {
   font-family: 'Arial', sans-serif; /* Modern sans-serif font */
   box-sizing: border-box;
-  background: linear-gradient(to right, #00d4ff, #a8ff8f, #fff700);
+  background:transparent;
 }
 
 .container {
@@ -28,7 +28,8 @@ p {
 
 /* Accordion Styles */
 .accordion-button {
-  background: linear-gradient(to right, #00d4ff, #a8ff8f, #fff700);  color: #2c3e50;
+  background: linear-gradient(to right, #00d4ff, #baf7056f );
+  color: #2c3e50;
   font-weight: bold;
   border: none;
   border-radius: 5px;
@@ -38,13 +39,14 @@ p {
 }
 
 .accordion-button:not(.collapsed) {
-  background: linear-gradient(to right, #00d4ff, #a8ff8f, #fff700); 
+
    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .accordion-button:hover {
-  background: linear-gradient(to right, #00d4ff, #a8ff8f, #fff700);
-    transform: scale(1.02);
+  background: linear-gradient(to right, #00d4ff, #baf7056f );
+
+    transform: scale(1.01);
 }
 
 .accordion-button:focus {
@@ -57,7 +59,8 @@ p {
 }
 
 .accordion-body {
-  background: linear-gradient(to right, #00d4ff, #a8ff8f, #fff700);
+  background: linear-gradient(to right, #00d4ff, #baf7056f );
+
     padding: 20px;
   border-top: 1px solid #e7e7e7;
   font-size: 1rem;

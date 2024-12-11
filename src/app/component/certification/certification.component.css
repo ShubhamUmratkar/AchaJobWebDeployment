@@ -8,7 +8,8 @@
   grid-template-columns: repeat(3, 1fr); /* Divides the page into three parts */
   gap: 30px; /* Adds gap between each card */
   padding: 50px 20px; /* Adjusted padding for better alignment, optional */
-  background: linear-gradient(to right, #00d4ff, #a8ff8f, #fff700);
+  /* background: linear-gradient(to right, #00d4ff, #baf7056f ); */
+  background: transparent;
 
 }
 

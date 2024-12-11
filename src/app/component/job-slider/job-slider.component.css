@@ -23,7 +23,8 @@ body, html {
   box-sizing: border-box;
   /* border-radius: 20px;  */
   overflow: hidden; /* Prevent content from overflowing */
-  background: linear-gradient(to right, #00d4ff, #a8ff8f, #fff700);
+  /* background: linear-gradient(to right, #00d4ff, #baf7056f ); */
+  background: transparent;
 }
  
 h2 {

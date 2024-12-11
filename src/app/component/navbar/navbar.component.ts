@@ -34,7 +34,7 @@ export class NavbarComponent implements OnInit, AfterViewInit{
           { title: 'By Location', items: ['Mumbai', 'Delhi', 'Bangalore', 'Pune'],isOpen: false },
           { title: 'Work From Home', items: ['Remote Opportunities', 'Flexible Hours', 'Freelance Jobs', 'Full-Time Remote', 'Part-Time Remote'],isOpen: false },
           { title: 'Part-Time Internships', items: ['Internship', 'Part-Time Internship', 'Full Time Internship'],isOpen: false },
-          { title: 'Browse All Internships', items: ['Internship Opportunities', 'Remote Internships', 'Skill Development', 'Flexible Hours', 'Industry Exposure'],isOpen: false }
+          { title: 'Browse All Internships', items: ['Internship Opportunities', 'Remote Internships', 'Flexible Hours'],isOpen: false }
         ]
       },
       {
