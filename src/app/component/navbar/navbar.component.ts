@@ -167,7 +167,7 @@ export class NavbarComponent implements OnInit, AfterViewInit{
 
   logout(): void {
     this.userservice.logout();
-    alert('Logout Successfully.')
+    alert('Log out Successfully.')
     this.router.navigate(['/']);
   }
 }

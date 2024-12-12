@@ -19,9 +19,7 @@ export class AdminloginComponent {
 
    // Add this method to hide the login container
    closeLogin() {
-    // Logic to hide or close the login form (e.g., using a flag)
-    this.loginError = false;  // Optionally reset any errors
-    // You can also use a flag to conditionally render the login form
+    this.router.navigate(['/']);
   }
 
   onSubmit(): void {

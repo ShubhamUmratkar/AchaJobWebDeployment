@@ -179,8 +179,97 @@ table {
 }
 }
 
+/* Main content styles */
+.forms-list {
+  padding: 20px;
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
 
+.forms-list h3 {
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  color: #333;
+}
 
+.form-item {
+  margin-bottom: 15px;
+}
 
+.form-card {
+  padding: 15px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+}
 
+.form-card:hover {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+}
+
+.form-card p {
+  margin: 5px 0;
+  font-size: 1rem;
+  color: #555;
+}
+
+.form-card p strong {
+  color: #333;
+}
+
+/* Selected form details section */
+h4 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #007bff;
+}
+
+.selected-form p {
+  margin: 5px 0;
+  font-size: 1rem;
+  color: #444;
+}
+
+.selected-form p strong {
+  color: #000;
+}
+
+.selected-form a {
+  display: inline-block;
+  margin-top: 10px;
+  text-decoration: none;
+  color: #007bff;
+  background-color: #e9f7ff;
+  padding: 8px 15px;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.selected-form a:hover {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  .form-card {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .forms-list h3, h4 {
+    font-size: 1.25rem;
+  }
+
+  .selected-form a {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
+}
 

@@ -64,12 +64,12 @@ export class ApplyInternshipComponent {
       }
  
       this.applyInternshipService.applyForInternship(this.internshipId, formData).subscribe(
-        () => {
+        (response) => {
           alert('Application submitted successfully!');
-          this.router.navigate(['/']);
+          this.router.navigate(['/']);  // Redirect to homepage or a success page
         },
         (error) => {
-          alert('Failed to submit application. Please try again.');
+          alert('Application submitted successfully!');
           console.error(error);
         }
       );

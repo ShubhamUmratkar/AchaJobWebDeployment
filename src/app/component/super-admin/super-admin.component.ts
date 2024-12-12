@@ -7,15 +7,11 @@ import { SuperAdminService } from 'src/app/service/super-admin.service';
   styleUrls: ['./super-admin.component.css'],
 })
 export class SuperAdminComponent implements OnInit {
-  admins: any[] = [];
-  pendingPosts: any[] = [];
-  selectedAdminForPremium: any = null;
-  premiumPrice: number = 0;
-  selectedTab: 'admin' | 'post' = 'admin'; // To toggle between Admin and Post Management
-  errorMessage: string = ''; // To display errors if any
-  loading: boolean = false; // To indicate if the request is loading
-  http: any;
-
+  admins: any[] = []; // Admin list for the admin management section
+  pendingPosts: any[] = []; // Posts awaiting approval
+  selectedTab: 'admin' | 'post' = 'admin'; // Active tab state
+  errorMessage: string = ''; // Error message display
+  loading: boolean = false; // Global loading indicator
 
   constructor(private superAdminService: SuperAdminService) {}
 
@@ -36,7 +32,6 @@ export class SuperAdminComponent implements OnInit {
       });
   }
 
-
   approveAdmin(adminId: number): void {
     console.log(adminId,"AdminId in Approve state");
     this.superAdminService.approveAdmin(adminId).subscribe(
@@ -54,7 +49,7 @@ export class SuperAdminComponent implements OnInit {
         alert('Admin approved.');
       });
   }
-
+ 
   disableAdmin(adminId: number): void {
     console.log(adminId, "AdminId in Disable state");
     this.superAdminService.disableAdmin(adminId).subscribe(
@@ -69,6 +64,8 @@ export class SuperAdminComponent implements OnInit {
     );
   }
 
+
+  // Load pending posts
   loadPendingPosts(): void {
     this.superAdminService.getAllPendingPosts().subscribe(
       (posts) => {
@@ -81,7 +78,7 @@ export class SuperAdminComponent implements OnInit {
       }
     );
   }
-
+ 
   approvePost(postId: number, isApproved: boolean): void {
     this.superAdminService.approvePost(postId, isApproved).subscribe(
       () => {
@@ -94,7 +91,7 @@ export class SuperAdminComponent implements OnInit {
       }
     );
   }
-
+ 
   disapprovePost(postId: number): void {
     this.superAdminService.disapprovePost(postId).subscribe(
       () => {
@@ -107,19 +104,4 @@ export class SuperAdminComponent implements OnInit {
       }
     );
   }
-
-  // setPremiumPrice(admin: any): void {
-  //   this.selectedAdminForPremium = admin;
-  //   this.premiumPrice = admin.premiumPrice || 0;
-  // }
-
-  // savePremiumPrice(): void {
-  //   if (this.selectedAdminForPremium) {
-  //     this.superAdminService.setPremiumPrice(this.selectedAdminForPremium.id, this.premiumPrice).subscribe(() => {
-  //       this.loadAdmins();
-  //       this.selectedAdminForPremium = null;
-  //       this.premiumPrice = 0;
-  //     });
-  //   }
-  // }
 }
