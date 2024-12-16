@@ -418,7 +418,7 @@
   }
 }
 /* Media Queries */
-@media (max-width: 1024px) {
+@media (max-width: 1500px) {
   .navbar {
     padding: 1rem;
   }

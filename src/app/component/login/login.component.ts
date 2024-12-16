@@ -47,15 +47,15 @@ export class LoginComponent {
     // Call the userService to login
     this.userService.loginUser(username, password).subscribe(
       (response: any) => {
-        // Successful login
+
         this.loginFailed = false;
         console.log('Login successful', response);
 
-        // Redirect to home page after login
+
         this.router.navigate(['/']);  // Navigate to home page
       },
       (error) => {
-        // Login failed
+
         this.loginFailed = true;
         this.errorMessage = error.error || 'Login failed. Please try again later.';
         console.error('Login error', error);

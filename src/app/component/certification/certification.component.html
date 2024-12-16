@@ -1,21 +1,22 @@
+<div class="course-slider">
+  <button (click)="prevCourse()" class="slider-button">❮</button>
 
-<div class="course-container">
-  
-    <div class="course-card" *ngFor="let course of courses">
-      <h2>{{ course.title }}</h2>
-
-      <p>{{ course.description }}</p>
+  <div class="course-container">
+    <div class="course-card" *ngFor="let course of displayedCourses()">
+      <h2 class="course-title">{{ course.title }}</h2>
+      <p class="course-description">{{ course.description }}</p>
       
       <!-- Duration -->
       <p class="course-duration">{{ course.duration }}</p>
       
-      <!-- Stars -->
       <p class="course-stars">
         <span *ngFor="let star of stars" class="gold-star">{{ star }}</span>
       </p>
       
-      <!-- Learners count -->
+      <!-- Learners count --> 
       <p class="learners">{{ course.learners }} Learners</p>
     </div>
   </div>
-  
+
+  <button (click)="nextCourse()" class="slider-button">❯</button>
+</div>

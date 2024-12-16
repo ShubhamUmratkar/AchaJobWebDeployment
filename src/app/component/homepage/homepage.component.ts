@@ -124,8 +124,33 @@ export class HomepageComponent {
       ]
 
 
+      isLoggedIn: boolean = false;
+      user: {
+        fullName: string;
+        userName: string;
+        emailId: string;
+        gender: string;
+        mobileNo: string;
+        password: string;
+        confirmPassword: string;
+        status: string;
+      } | null = null;
+    
+      showProfileDropdown: boolean = false;
 
   constructor(private router: Router, private http: HttpClient) {}
+
+  ngOnInit(): void {
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      this.user = JSON.parse(storedUser);
+      this.isLoggedIn = true;
+      console.log('User is logged in:', this.user);
+    } else {
+      console.log('No user found, not logged in');
+    }
+  }
+  
 
   // Filter suggestions based on user input
   onSearchInput(): void {
@@ -187,5 +212,20 @@ export class HomepageComponent {
     if (event.key === 'Enter') {
       this.searchJobs();
     }
+  }
+
+  toggleProfileDropdown(): void {
+    this.showProfileDropdown = !this.showProfileDropdown;
+  }
+
+  editProfile(): void {
+    this.router.navigate(['/edit-profile']);
+  }
+
+  logout(): void {
+    localStorage.removeItem('user');
+    this.isLoggedIn = false;
+    this.user = null;
+    this.router.navigate(['/']);
   }
 }

@@ -227,6 +227,7 @@
     flex-direction: column;
     align-items: flex-start;
     padding: 20px;
+    width: 100%;
   }
 
   .cta-title {
@@ -364,4 +365,56 @@
   display: block; /* Ensure it spans the full width */
   text-align: left; /* Align the text to the left */
   padding-left: 20px; /* Optional: Align with the search bar content */
+}
+
+
+
+.user-profile-bottom {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.profile-icon img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #007bff;
+}
+
+.profile-dropdown {
+  position: absolute;
+  bottom: 60px; /* Adjust based on the profile icon size */
+  left: 0;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  z-index: 1000;
+}
+
+.profile-dropdown p {
+  margin: 0;
+  font-weight: bold;
+}
+
+.profile-dropdown button {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  padding: 5px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.profile-dropdown button:hover {
+  background-color: #0056b3;
 }

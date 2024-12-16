@@ -1,5 +1,17 @@
 <app-navbar></app-navbar>
 <div class="homepage-container">
+
+    <!-- User Profile Section at Bottom Left -->
+    <div class="user-profile-bottom" *ngIf="isLoggedIn">
+      <div class="profile-icon" (click)="toggleProfileDropdown()">
+        <img src="assets/profile-icon.png" alt="User Icon" />
+        Profile
+      </div>
+      <div class="profile-dropdown" *ngIf="showProfileDropdown">
+        <p>Hello, {{ user?.fullName }}</p>
+        <button (click)="editProfile()">Edit Profile</button>
+      </div>
+    </div>
   <div class="content-section">
     <!-- Main Title Section -->
     <h1 class="main-title">Find your dream job now</h1>
@@ -64,6 +76,8 @@
     />
   </div>
 </div>
+
+
 
 <app-slider></app-slider>
 <app-job-slider></app-job-slider>

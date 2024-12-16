@@ -1,55 +1,68 @@
+.course-slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+.slider-button {
+  /* background-color: #4682c6;  */
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  background: transparent;
+}
 
- 
-
+.slider-button:hover {
+  /* background-color: #4d8dc9; */
+  transform: scale(1.35);
+}
 
 .course-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Divides the page into three parts */
-  gap: 30px; /* Adds gap between each card */
-  padding: 50px 20px; /* Adjusted padding for better alignment, optional */
-  /* background: linear-gradient(to right, #00d4ff, #baf7056f ); */
+  grid-template-columns: repeat(3, 1fr); /* Three courses per slide */
+  gap: 30px; /* Gap between cards */
+  padding: 50px 20px;
   background: transparent;
-
 }
 
-  
-  .course-card {
-    background: linear-gradient(135deg, #84e5eb,#78d2e4, #66b5d9, #579dcf, #559acf, #4d8dc9, #4682c6, #427cc3);
-    color: #fff;
-    padding: 30px;
-    height: 350px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s ease;
+.course-card {
+  background: linear-gradient(135deg, #84e5eb, #78d2e4, #66b5d9, #579dcf, #559acf, #4d8dc9, #4682c6, #427cc3);
+  color: #fff;
+  padding: 30px;
+  height: 350px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.course-card:hover {
+  transform: scale(1.05);
+}
+
+.course-duration {
+  font-size: 30px;
+  margin-top: 10px;
+  color: #e0e0e0;
+}
+
+.course-stars {
+  color: gold;
+  font-size: 30px;
+  margin: 5px 0;
+}
+
+.learners {
+  font-size: 20px;
+  color: #e0e0e0;
+  margin-top: 10px;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .course-container {
+    grid-template-columns: 1fr; /* Stacks the cards on smaller screens */
   }
-  
-  .course-card:hover {
-    transform: scale(1.05);
-  }
-  
-  .course-duration {
-    font-size: 30px;
-    margin-top: 10px;
-    color: #e0e0e0;
-  }
-  
-  .course-stars {
-    color: gold;
-    font-size: 30px;
-    margin: 5px 0;
-  }
-  
-  .learners {
-    font-size: 20px;
-    color: #e0e0e0;
-    margin-top: 10px;
-  }
-  
-  /* Responsive adjustments for smaller screens */
-  @media (max-width: 768px) {
-    .course-container {
-      grid-template-columns: 1fr; /* Stacks the cards on top of each other on smaller screens */
-    }
-  }
-  
+}

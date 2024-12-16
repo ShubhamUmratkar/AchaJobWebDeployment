@@ -12,13 +12,40 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class NavbarComponent implements OnInit, AfterViewInit{
 
-  isResponsiveMode = false; // Tracks if the current mode is responsive
-  isNavbarOpen = false;
-  userData: any = null;
-  isLoggedIn = true;  // Track login status
-
-
-    navItems = [
+  isNavbarOpen = false; // Tracks navbar open/close state for mobile
+  isResponsiveMode = false; // Tracks responsive mode state
+  navItems: any[] = []; // Array to hold navigation items
+  isLoggedIn = false; // User authentication state
+ 
+  constructor(private router: Router, private userService: UserService) {}
+ 
+  ngOnInit(): void {
+    this.navItems = this.initializeNavItems();
+ 
+    // Detect initial screen size
+    this.checkResponsiveMode();
+ 
+    // Subscribe to authentication status changes
+    this.userService.isLoggedIn$.subscribe((isLoggedIn: boolean) => {
+      this.isLoggedIn = isLoggedIn;
+    });
+  }
+ 
+  ngAfterViewInit(): void {
+    // Initialize Bootstrap dropdowns if needed
+    const dropdownElement = document.getElementById('navbarDropdown');
+    if (dropdownElement) {
+      new bootstrap.Dropdown(dropdownElement);
+    }
+  }
+ 
+  @HostListener('window:resize', [])
+  onResize(): void {
+    this.checkResponsiveMode();
+  }
+ 
+  initializeNavItems(): any[] {
+    return [
       {
         label: 'Home',
         isOpen: false,
@@ -41,10 +68,10 @@ export class NavbarComponent implements OnInit, AfterViewInit{
         label: 'Online Training',
         isOpen: false,
         categories: [
-          { title: 'By Skills', items: ['Programing', 'Data Science', 'Digital Markating', 'Business Communication',],isOpen: false },
+          // { title: 'By Skills', items: ['Programing', 'Data Science', 'Digital Markating', 'Business Communication',],isOpen: false },
           { title: 'Placement Preparation', items: ['Placement Preparation','Interview Preparation'],isOpen: false },
-          { title: 'Free Courses', items: ['Beginner Courses','Advance Topics','Skills Development','Certification Paths','Practice Exercises'],isOpen: false },
-          { title: 'All Courses', items: ['Software Development','Software Testing','Website Development','Business Analyst','Cyber Security','Data Analyst','Data Engineering','Data Science','E-commerce Development','Full Stack Development','Google Cloud','Linux','PowerBI','Python','SAP','UI/UX','AWS Cloud','Azure'],isOpen: false },
+          // { title: 'Free Courses', items: ['Beginner Courses','Advance Topics','Skills Development','Certification Paths','Practice Exercises'],isOpen: false },
+          { title: 'All Courses', items: ['Software Development','Software Testing','Website Development','Business Analyst','Cyber Security','Data Analyst','Data Engineering','Data Science','E-commerce Development','Full Stack Development','Google Cloud','Linux','PowerBI','Python','SAP','UI/UX','AWS Cloud','Azure','Digital Marketing','Business Communication'],isOpen: false },
         ]
       },
       {
@@ -74,100 +101,58 @@ export class NavbarComponent implements OnInit, AfterViewInit{
           { title: 'Blog', items: ['Internship Tips', 'Skills Development', 'Industry Trends', 'Success Stories'],isOpen: false },
           { title: 'Resume Generator', items: ['Create Resume', 'Edit Resume'],isOpen: false },
           { title: 'Career Guide', items: ['Career Advice', 'Guidance Articles'],isOpen: false },
-          { title: 'Interview Preparations', items: ['Tips','Mock Interviews'],isOpen: false },
+          { title: 'Interview Tips', items: ['Placement','Mock Interviews'],isOpen: false },
         ]
       },
       {
         label: 'Help',
         isOpen: false,
         categories: [
-          { title: 'FAQs', items: ['Frequently Asked Questions'],isOpen: false },
+          // { title: 'FAQs', items: ['Frequently Asked Questions'],isOpen: false },
           { title: 'Contact Us', items: ['Email', 'Telecom Number'],isOpen: false },
           // { title: 'T&S', items: [],isOpen: false },
           // { title: 'Privacy Policy', items: [],isOpen: false  },
         ]
       },
-    ];
-
-
-    constructor(private router: Router, private userservice: UserService) {}
-
-  ngOnInit(): void {
-    // Subscribe to authentication status changes
-    this.userservice.isLoggedIn$.subscribe((isLoggedIn: boolean) => {
-      this.isLoggedIn = isLoggedIn;
-    });
+      ];
   }
-
-  ngAfterViewInit(): void {
-    // Initialize Bootstrap dropdowns if needed
-    const dropdownElement = document.getElementById('navbarDropdown');
-    if (dropdownElement) {
-      new bootstrap.Dropdown(dropdownElement);
+ 
+  checkResponsiveMode(): void {
+    const screenWidth = window.innerWidth;
+    this.isResponsiveMode = screenWidth <= 768;
+    if (!this.isResponsiveMode) {
+      this.isNavbarOpen = false;
     }
   }
-
-   // Detect screen resize
-   @HostListener('window:resize', [])
-   onResize(): void {
-     this.checkResponsiveMode();
-   }
-
-   // Check if the screen width is within the responsive range
-   checkResponsiveMode(): void {
-     const screenWidth = window.innerWidth;
-     this.isResponsiveMode = screenWidth <= 768; // Adjust width threshold as needed
-     if (!this.isResponsiveMode) {
-       this.isNavbarOpen = false; // Close the navbar in non-responsive mode
-     }
-   }
-
-   // Functionality for "hamburger-icon"
-   toggleNavbar(): void {
-     if (this.isResponsiveMode) {
-       this.isNavbarOpen = !this.isNavbarOpen;
-       console.log(`Navbar is now ${this.isNavbarOpen ? 'open' : 'closed'}`);
-     }
-   }
-
-   toggleItem(item: any): void {
+ 
+  toggleNavbar(): void {
+    if (this.isResponsiveMode) {
+      this.isNavbarOpen = !this.isNavbarOpen;
+      console.log(`Navbar is now ${this.isNavbarOpen ? 'expanded' : 'collapsed'}`);
+    }
+  }
+ 
+  toggleItem(item: any): void {
     if (this.isResponsiveMode) {
       item.isOpen = !item.isOpen;
       console.log(`${item.label} is now ${item.isOpen ? 'expanded' : 'collapsed'}`);
     }
   }
-   // Functionality for "nav-items"
-   toggleCategory(category: any): void {
-     if (this.isResponsiveMode) {
-       category.isOpen = !category.isOpen;
-       console.log(`${category.title} is now ${category.isOpen ? 'expanded' : 'collapsed'}`);
-     }
-   }
-
-   // Functionality for "dropdown-category" and "secondary-dropdown"
-   handleSubItemClick(subItem: string): void {
-     if (this.isResponsiveMode) {
-       console.log(`Sub-item clicked: ${subItem}`);
-       // Add any desired functionality here
-     }
-   }
-
-  onSubItemClick(subItem: any): void {
-    console.log('Sub-item clicked:', subItem.label);
+ 
+  toggleCategory(category: any): void {
+    if (this.isResponsiveMode) {
+      category.isOpen = !category.isOpen;
+      console.log(`${category.title} is now ${category.isOpen ? 'expanded' : 'collapsed'}`);
+    }
   }
-
-  loginUser(userName: string, password: string): void {
-    // Call the login method from the UserService
-    this.userservice.loginUser(userName, password).subscribe(response => {
-      if (response === 'Login successful.') {
-        this.router.navigate(['/']);
-      }
-    });
+ 
+  handleSubItemClick(subItem: string): void {
+    console.log(`Sub-item clicked: ${subItem}`);
   }
-
+ 
   logout(): void {
-    this.userservice.logout();
-    alert('Log out Successfully.')
+    this.userService.logout();
+    alert('Logout Successfully.');
     this.router.navigate(['/']);
   }
 }
