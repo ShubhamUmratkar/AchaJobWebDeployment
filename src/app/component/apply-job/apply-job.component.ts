@@ -68,19 +68,26 @@ export class ApplyJobComponent implements OnInit {
 
       if (this.cvFile) {
         formData.append('cv', this.cvFile);
+
+
+        this.applyJobService.submitApplication(this.jobId, formData).subscribe(
+          (error) => {
+            alert('Failed to submit application. Please try again.');
+            console.error(error);
+          },
+          (response) => {
+            console.log('Application Submitted Successfully', response);
+            alert('Application submitted successfully!');
+            this.router.navigate(['/']);  // Redirect to homepage or a success page
+          }
+        );
+      }
+      else{
+        this.fileError = 'CV is required to apply for this Job.';
       }
 
-      this.applyJobService.submitApplication(this.jobId, formData).subscribe(
-        (error) => {
-          alert('Failed to submit application. Please try again.');
-          console.error(error);
-        },
-        (response) => {
-          console.log('Application Submitted Successfully', response);
-          alert('Application submitted successfully!');
-          this.router.navigate(['/']);  // Redirect to homepage or a success page
-        }
-      );
+
+     
     } else {
       alert('Please fill out all required fields correctly.');
     }

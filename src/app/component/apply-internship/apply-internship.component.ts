@@ -60,19 +60,27 @@ export class ApplyInternshipComponent {
       formData.append('formData', JSON.stringify(this.applyForm.value));
  
       if (this.cvFile) {
+
         formData.append('cv', this.cvFile);
+
+
+        
+        this.applyInternshipService.applyForInternship(this.internshipId, formData).subscribe(
+          (response) => {
+            alert('Application submitted successfully!');
+            this.router.navigate(['/']);  // Redirect to homepage or a success page
+          },
+          (error) => {
+            alert('Application submitted successfully!');
+            console.error(error);
+          }
+        );
+    
+      } else {
+        this.fileError = 'CV is required to apply for this internship.';
       }
  
-      this.applyInternshipService.applyForInternship(this.internshipId, formData).subscribe(
-        (response) => {
-          alert('Application submitted successfully!');
-          this.router.navigate(['/']);  // Redirect to homepage or a success page
-        },
-        (error) => {
-          alert('Application submitted successfully!');
-          console.error(error);
-        }
-      );
+     
     } else {
       alert('Please fill out all required fields correctly.');
     }
