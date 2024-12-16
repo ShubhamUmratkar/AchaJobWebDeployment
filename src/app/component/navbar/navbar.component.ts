@@ -91,7 +91,7 @@ export class NavbarComponent implements OnInit, AfterViewInit{
           { title: 'Job Postings', items: ['Full-Time Opportunities','Project Extensions','Part-Time Roles'],isOpen: false },
           // { title: 'Pricing', items: [],isOpen: false },
           // { title: 'Login/Register', items: [],isOpen: false },
-
+ 
         ]
       },
       {

@@ -95,7 +95,7 @@ onSubmit() {
   this.userService.registerUser(user).subscribe(
     response => {
       this.errorMessage = ''; // Clear any previous error messages
-      alert(response.message); // Success message
+      alert("User Registered Successfully"); // Success message
       this.router.navigate(['/login']);
     },
     error => {

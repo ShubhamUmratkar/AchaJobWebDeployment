@@ -15,6 +15,7 @@ export class LoginComponent {
   loginFailed = false;
   errorMessage: string = '';
   passwordFieldType: string = 'password'; // Default type for password field
+  setLoggedIn: any;
 
   constructor(
     private formBuilder: FormBuilder, 
@@ -44,23 +45,17 @@ export class LoginComponent {
 
     const { username, password } = this.loginForm.value;
 
-    // Call the userService to login
-    this.userService.loginUser(username, password).subscribe(
-      (response: any) => {
-
-        this.loginFailed = false;
-        console.log('Login successful', response);
-
-
-        this.router.navigate(['/']);  // Navigate to home page
+    this.userService.loginUser(username, password).subscribe({
+      next: (response) => {
+        console.log('Login successful:', response);
+        this.router.navigate(['/']); // Navigate to another page after login
       },
-      (error) => {
-
-        this.loginFailed = true;
-        this.errorMessage = error.error || 'Login failed. Please try again later.';
-        console.error('Login error', error);
+      error: (error) => {
+        console.error('Login failed:', error);
+        alert(error); // Show error to the user
       }
-    );
+    });
+    
   }
 
   // Getter for easy access to form controls in the template

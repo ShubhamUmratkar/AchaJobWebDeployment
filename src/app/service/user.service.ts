@@ -15,6 +15,8 @@ export class UserService {
   private isLoggedInSubject = new BehaviorSubject<boolean>(this.hasToken()); // Initialized with token check
   isLoggedIn$ = this.isLoggedInSubject.asObservable(); // Expose as observable to subscribe to login status
 
+
+
   constructor(private http: HttpClient) { }
 
   // Register a new user
@@ -35,17 +37,17 @@ export class UserService {
       );
   }
 
-  // Login user
-  loginUser(userName: string, password: string): Observable<string> {
+  loginUser(userName: string, password: string): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     const body = { userName, password };
-
-    return this.http.post(`${NAV_URL}/users/user/login`, body, { headers, responseType: 'text' })
+  
+    return this.http.post(`${NAV_URL}/users/user/login`, body, { headers })
       .pipe(
-        map((response: string) => {
+        map((response: any) => {
           console.log('Login response:', response);
-          if (response === 'Login successful.') {
+          if (response && response.id) {
             this.setLoggedIn(true);
+            localStorage.setItem('user', JSON.stringify(response)); // Save user data
           }
           return response;
         }),
@@ -56,6 +58,8 @@ export class UserService {
         })
       );
   }
+  
+  
 
   // Fetch all users
   getAllUsers(): Observable<User[]> {
@@ -68,13 +72,13 @@ export class UserService {
       );
   }
 
-  // Check if user is logged in
   private hasToken(): boolean {
-    return !!localStorage.getItem('currentUser');
+    return !!localStorage.getItem('currentUser'); // Check for a key, adjust if storing tokens
   }
+  
 
-  // Update logged-in status
   private setLoggedIn(status: boolean): void {
+    console.log('Setting logged-in state to:', status);
     this.isLoggedInSubject.next(status);
     if (status) {
       localStorage.setItem('currentUser', 'loggedIn');
@@ -82,10 +86,18 @@ export class UserService {
       localStorage.removeItem('currentUser');
     }
   }
+  
 
   // Logout user
   logout(): void {
     console.log('Logging out...');
     this.setLoggedIn(false);
   }
+
+ // Method to update user profile
+ updateUserProfile(userId: number, user: User): Observable<string> {  // Changed return type to Observable<string>
+  return this.http.put<string>(`${NAV_URL}/users/user/update/${userId}`, user);
+}
+  
+  
 }

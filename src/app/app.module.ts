@@ -36,6 +36,7 @@ import { AdminregisterComponent } from './component/adminregister/adminregister/
 import { SuperAdminComponent } from './component/super-admin/super-admin.component';
 import { FrequentlyQuestionComponent } from './component/frequently-question/frequently-question.component';
 import { SliderComponent } from './component/slider/slider.component';
+import { EditprofileComponent } from './component/editprofile/editprofile.component';
 
 
 
@@ -73,6 +74,7 @@ import { SliderComponent } from './component/slider/slider.component';
     SuperAdminComponent,
     FrequentlyQuestionComponent,
     SliderComponent,
+    EditprofileComponent,
 
 
 

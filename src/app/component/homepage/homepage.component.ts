@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-homepage',
@@ -138,18 +139,27 @@ export class HomepageComponent {
     
       showProfileDropdown: boolean = false;
 
-  constructor(private router: Router, private http: HttpClient) {}
+  constructor(private router: Router, private http: HttpClient, private userService: UserService) {}
 
   ngOnInit(): void {
+    // Check local storage for user details
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
       this.user = JSON.parse(storedUser);
       this.isLoggedIn = true;
-      console.log('User is logged in:', this.user);
-    } else {
-      console.log('No user found, not logged in');
     }
-  }
+
+     // Subscribe to login status updates
+  this.userService.isLoggedIn$.subscribe((loggedIn) => {
+    this.isLoggedIn = loggedIn;
+    if (loggedIn) {
+      const userData = localStorage.getItem('user');
+      this.user = userData ? JSON.parse(userData) : null;
+    } else {
+      this.user = null;
+    }
+  });
+  }  
   
 
   // Filter suggestions based on user input
@@ -219,13 +229,13 @@ export class HomepageComponent {
   }
 
   editProfile(): void {
-    this.router.navigate(['/edit-profile']);
+    this.router.navigate(['/editprofile']);
   }
 
   logout(): void {
-    localStorage.removeItem('user');
+    this.userService.logout(); // Call the service logout
     this.isLoggedIn = false;
     this.user = null;
-    this.router.navigate(['/']);
   }
+  
 }
