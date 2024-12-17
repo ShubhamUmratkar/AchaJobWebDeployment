@@ -33,6 +33,10 @@ import { SuperAdminComponent } from './component/super-admin/super-admin.compone
 import { FrequentlyQuestionComponent } from './component/frequently-question/frequently-question.component';
 import { SliderComponent } from './component/slider/slider.component';
 import { EditprofileComponent } from './component/editprofile/editprofile.component';
+import { MockInterviewComponent } from './component/mockinterview/mockinterview.component';
+import { PlacementComponent } from './component/placement/placement.component';
+import { UserMockinterviewComponent } from './component/user-mockinterview/user-mockinterview.component';
+import { UserPlacementComponent } from './component/user-placement/user-placement.component';
 
 
 
@@ -71,6 +75,10 @@ const routes: Routes = [
   {path:'frequently-question',component:FrequentlyQuestionComponent},
   {path:'slider',component:SliderComponent},
   {path:'editprofile',component:EditprofileComponent},
+  {path:'mockinterview',component:MockInterviewComponent},
+  {path:'placement',component:PlacementComponent},
+  {path:'usermockinterview',component:UserMockinterviewComponent},
+  {path:'userplacement',component:UserPlacementComponent},
 
 
 ];

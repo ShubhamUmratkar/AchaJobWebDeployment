@@ -9,6 +9,8 @@ import { UserService } from 'src/app/service/user.service';
   styleUrls: ['./editprofile.component.css']
 })
 export class EditprofileComponent {
+ 
+ 
   user: User & { id: number } = {  // Extend User with id
     id: 0, // Initialize id
     fullName: '',
@@ -20,6 +22,8 @@ export class EditprofileComponent {
     confirmPassword: '',
     status: '' // Add status property
   };
+  passwordFieldType: string = 'password';
+  confirmPasswordFieldType: string = 'password';
 
   constructor(private userService: UserService, private router: Router) {}
 
@@ -33,10 +37,19 @@ export class EditprofileComponent {
     }
   }
 
+  togglePasswordVisibility(): void {
+    this.passwordFieldType =
+      this.passwordFieldType === 'password' ? 'text' : 'password';
+  }
+  
+  toggleConfirmPasswordVisibility(): void {
+    this.confirmPasswordFieldType =
+      this.confirmPasswordFieldType === 'password' ? 'text' : 'password';
+  }
+
   onSubmit(): void {
-    // Check if passwords match (optional validation)
-    if (this.user.password && this.user.password !== this.user.confirmPassword) {
-      alert('Passwords do not match!');
+    if (!this.user.password || this.user.password !== this.user.confirmPassword) {
+      alert('Passwords are required and must match!');
       return;
     }
 

@@ -1,0 +1,43 @@
+<div class="placement-container">
+  <h2>Placement Details</h2>
+  <button (click)="clearSelectedPlacement()" class="back-button">Back</button>
+
+  <!-- Error message -->
+  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+  <!-- Loading spinner -->
+  <div *ngIf="isLoading" class="loading">Loading...</div>
+
+  <!-- Placements list -->
+  <div *ngIf="!isLoading && placements.length > 0" class="placement-list">
+    <ul>
+      <li
+        *ngFor="let placement of placements"
+        (click)="fetchPlacementById(placement.id)"
+        class="placement-item"
+      >
+        <p><strong>ID:</strong> {{ placement.id }}</p>
+        <p><strong>Text:</strong> {{ placement.text }}</p>
+        <button class="details-button">View Details</button>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Selected placement details -->
+  <div *ngIf="selectedPlacement" class="placement-details">
+    <h3>Placement Details</h3>
+    <p><strong>ID:</strong> {{ selectedPlacement.id }}</p>
+    <p><strong>Text:</strong> {{ selectedPlacement.text }}</p>
+    <p>
+      <strong>Hyperlink:</strong>
+      <a [href]="selectedPlacement.hyperlink" target="_blank">{{
+        selectedPlacement.hyperlink
+      }}</a>
+    </p>
+  </div>
+
+  <!-- No placements available -->
+  <div *ngIf="!isLoading && placements.length === 0" class="no-placements">
+    <p>No placements found.</p>
+  </div>
+</div>

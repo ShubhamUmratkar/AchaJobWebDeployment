@@ -1,0 +1,132 @@
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  form {
+    margin-bottom: 20px;
+  }
+  
+  form label {
+    display: block;
+    margin-top: 10px;
+  }
+  
+  form input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+  }
+  
+  form button {
+    margin-top: 10px;
+    padding: 10px 20px;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  ul li {
+    margin-bottom: 10px;
+  }
+  
+  ul li strong {
+    margin-right: 10px;
+  }
+  
+
+  
+/* Sidebar styles */
+.sidebar {
+  background-color: #ffffff;
+  padding-top: 20px;
+  padding-left: 20px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  color: #fff;
+}
+
+.sidebar .text-center {
+  text-align: center;
+}
+
+.sidebar .text-center img {
+  max-width: 150px;
+  border-radius: 50%;
+}
+
+.sidebar .text-center h5 {
+  margin-top: 10px;
+  font-size: 1.5rem; /* Increase heading font size */
+}
+
+.sidebar hr {
+  border-top: 1px solid #fff;
+  margin: 20px 0;
+}
+
+.sidebar .nav {
+  display: flex;
+  flex-direction: column;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.sidebar .nav-item {
+  margin-bottom: 1rem;
+}
+
+.sidebar .nav-link {
+  text-decoration: none;
+  color: #2c3e50;
+  padding: 1rem; /* Increase padding for larger clickable area */
+  display: block;
+  font-size: 1.25rem; /* Increased font size for nav links */
+  transition: all 0.3s ease;
+}
+
+.sidebar .nav-link:hover {
+  color: #007bff;
+  background: #f0f4f8;
+}
+
+.sidebar .nav-link i {
+  font-size: 1.3rem; /* Increase the size of icons */
+  margin-right: 10px; /* Add space between icon and text */
+}
+
+.sidebar .text-warning {
+  color: #ffc107;
+}
+
+.sidebar .text-info {
+  color: #17a2b8;
+}
+
+
+
+
+.nav {
+  list-style: none; /* Remove default list styling */
+  padding: 0;
+  margin: 0;
+}
+
+.nav-item {
+  margin-right: 20px; /* Adjust spacing between items */
+}
+
+.nav-link {
+  display: flex;
+  align-items: center; /* Ensures the icon and text align properly */
+}
+
+.nav-item:last-child {
+  margin-right: 0; /* Remove margin from the last item */
+}
+
+
+

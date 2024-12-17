@@ -3,12 +3,12 @@
 
   <div class="user-profile-bottom" *ngIf="isLoggedIn">
     <div class="profile-icon" (click)="toggleProfileDropdown()">
-      <img src="../../../assets/userimage.png" alt="User Icon" />
+      <img src="../../../assets/Userprofile.png" alt="User Icon" />
     </div>
     <div class="profile-dropdown" *ngIf="showProfileDropdown">
       <p>Hello, {{ user?.fullName }}</p>
       <button (click)="editProfile()">Edit Profile</button>
-      <button (click)="logout()">Logout</button>
+      <!-- <button (click)="logout()">Logout</button> -->
     </div>
   </div>
   

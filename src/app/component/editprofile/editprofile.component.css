@@ -1,0 +1,120 @@
+/* General Page Styling */
+.edit-profile-container {
+  width: 100%;
+  max-width: 500px; /* Set a max-width for better readability */
+  margin: 50px auto; /* Center the container */
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft box shadow */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.edit-profile-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333333;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+/* Form Styling */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Spacing between fields */
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #555555;
+}
+
+input,
+select {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+input:focus,
+select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+input[readonly] {
+  background-color: #f2f2f2;
+  color: #888888;
+  cursor: not-allowed;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  padding-top: 25px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 18px;
+  color: #443a3a;
+  transition: color 0.3s ease;
+}
+
+.eye-icon:hover {
+  color: #425262; /* Change color on hover */
+}
+
+
+button {
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button[type="submit"] {
+  background-color: #007bff;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+button[type="button"] {
+  background-color: #6c757d;
+  color: #ffffff;
+}
+
+button[type="button"]:hover {
+  background-color: #5a6268;
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 600px) {
+  .edit-profile-container {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  form {
+    gap: 10px;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+}

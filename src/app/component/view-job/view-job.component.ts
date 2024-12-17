@@ -30,6 +30,9 @@ export class ViewJobComponent implements OnInit {
   };
   jobId: number | null = null;
 
+  shareText: string = '';
+shareUrl: string = '';
+
   constructor(
     private jobService: JobService,
     private route: ActivatedRoute,
@@ -72,6 +75,10 @@ export class ViewJobComponent implements OnInit {
           this.activity.started = job.created_at || 'Loading...';
           this.activity.opportunities = 1;
           this.activity.hired = 4;
+  
+          // Prepare share text and URL
+          this.shareText = `Check out this amazing job opportunity at ${this.companyName}`;
+          this.shareUrl = window.location.href;  // Get the current page URL
         } else {
           this.router.navigate(['/not-found']);
         }

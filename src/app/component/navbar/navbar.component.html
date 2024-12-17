@@ -33,10 +33,10 @@
           >
             <a
               *ngFor="let subItem of category.items"
-              href="#"
-              (click)="handleSubItemClick(subItem)"
+              [routerLink]="subItem.link"
+              (click)="handleSubItemClick(subItem.name)"
             >
-              {{ subItem }}
+              {{ subItem.name }}
             </a>
           </div>
         </div>

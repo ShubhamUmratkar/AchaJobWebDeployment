@@ -1,0 +1,127 @@
+<!-- src/app/mockinterview/mockinterview.component.html -->
+
+
+
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <nav class="col-4 col-md-4 col-lg-2 sidebar sticky-top">
+      <div class="text-center my-3">
+        <img src="../../../assets/AchaJobs.png" width="150" alt="" />
+        <h5 class="text-black">Admin</h5>
+      </div>
+      <hr />
+      <ul class="nav flex-column mx-0">
+        <!-- Other items -->
+        <li class="nav-item mb-1">
+          <a
+            class="nav-link"
+            [routerLink]="['/save-job']"
+            routerLinkActive="router-link-active"
+          >
+            <i class="fa fa-briefcase text-warning"></i> Job's
+          </a>
+        </li>
+        <li class="nav-item mb-2">
+          <a class="nav-link" [routerLink]="['/internship']">
+            <i class="fa-brands fa-wpforms"></i> Internship
+          </a>
+        </li>
+        <li class="nav-item mb-2">
+          <a class="nav-link" [routerLink]="['/userslist']">
+            <i class="fas fa-envelope text-info"></i> UserList
+          </a>
+        </li>
+        <!-- View All Forms -->
+        <li class="nav-item mb-2">
+          <a class="nav-link" [routerLink]="['/view-all-forms-admin']">
+            <i class="fa fa-eye text-info"></i> View Forms
+          </a>
+        </li>
+
+        <li class="nav-item mb-2">
+          <a class="nav-link" [routerLink]="['/adminpanel']">
+            <i class="fas fa-folder-open text-danger"></i> Submitted Forms
+          </a>
+        </li>
+        <li class="nav-item mb-2">
+          <a class="nav-link" [routerLink]="['/mockinterview']">
+            <i class="fas fa-folder-open text-danger"></i> Mock Interview
+          </a>
+        </li>
+
+        <li class="nav-item mb-2">
+          <a class="nav-link" [routerLink]="['/placement']">
+            <i class="fas fa-folder-open text-danger"></i> Placement
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="col-8 col-md-8 col-lg-10 p-0">
+      <!-- topbar start -->
+      <div class="d-flex justify-content-between align-items-center topbar">
+        <div class="d-flex gap-2 align-items-center">
+          <i class="fa-solid fa-bars fa-xl"></i>
+        </div>
+        <div>
+          <span
+            class="dropdown-toggle p-2"
+            type="button"
+            id="dropdownMenuButton"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <img
+              src="../../../assets/userimage.png"
+              class="rounded-circle img-fluid"
+              alt="User"
+              style="width: 40px; height: 40px"
+            />
+            Admin
+          </span>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li><a class="dropdown-item" href="#">Log Out</a></li>
+          </ul>
+        </div>
+      </div>
+
+<div class="container">
+    <h1>Mock Interviews</h1>
+  
+    <form (ngSubmit)="editing ? updateMockInterview() : createMockInterview()">
+      <div>
+        <label for="text">Text</label>
+        <input
+          type="text"
+          id="text"
+          [(ngModel)]="mockInterview.text"
+          name="text"
+          required
+        />
+      </div>
+      <div>
+        <label for="hyperlink">Hyperlink</label>
+        <input
+          type="text"
+          id="hyperlink"
+          [(ngModel)]="mockInterview.hyperlink"
+          name="hyperlink"
+          required
+        />
+      </div>
+      <button type="submit">{{ editing ? 'Update' : 'Create' }}</button>
+      <button type="button" (click)="resetForm()" *ngIf="editing">Cancel</button>
+    </form>
+  
+    <hr />
+  
+    <ul>
+      <li *ngFor="let mock of mockInterviews">
+        <strong>{{ mock.text }}</strong> - <a [href]="mock.hyperlink" target="_blank">{{ mock.hyperlink }}</a>
+        <button (click)="editMockInterview(mock)">Edit</button>
+        <button (click)="deleteMockInterview(mock.id)">Delete</button>
+      </li>
+    </ul>
+  </div>
+  

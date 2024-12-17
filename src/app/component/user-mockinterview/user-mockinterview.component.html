@@ -1,0 +1,52 @@
+<div class="mock-interview-container">
+  <h2>Mock Interview Details</h2>
+  <button (click)="clearselectedMockInterview()" class="back-button">
+    Back
+  </button>
+
+  <!-- Loading Spinner -->
+  <div *ngIf="isLoading" class="loading-spinner">
+    Loading mock interviews...
+  </div>
+
+  <!-- Error Message -->
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Mock Interviews List -->
+  <div *ngIf="!isLoading && !errorMessage && mockInterviews.length > 0">
+    <ul class="mock-interview-list">
+      <li
+        *ngFor="let interview of mockInterviews"
+        (click)="fetchMockInterviewById(interview.id)"
+        class="mock-interview-item"
+      >
+        <p><strong>ID:</strong> {{ interview.id }}</p>
+        <p><strong>Text:</strong> {{ interview.text }}</p>
+        <button class="details-button">View Details</button>
+      </li>
+    </ul>
+  </div>
+
+  <!-- No Mock Interviews -->
+  <div
+    *ngIf="!isLoading && mockInterviews.length === 0 && !errorMessage"
+    class="no-data"
+  >
+    No mock interviews available.
+  </div>
+
+  <!-- Selected Mock Interview Details -->
+  <div *ngIf="selectedMockInterview" class="mock-interview-details">
+    <h3>Mock Interview Details</h3>
+    <p><strong>ID:</strong> {{ selectedMockInterview.id }}</p>
+    <p><strong>Text:</strong> {{ selectedMockInterview.text }}</p>
+    <p>
+      <strong>Hyperlink:</strong>
+      <a [href]="selectedMockInterview.hyperlink" target="_blank">
+        {{ selectedMockInterview.hyperlink }}
+      </a>
+    </p>
+  </div>
+</div>

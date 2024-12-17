@@ -92,4 +92,45 @@ export class AdminService {
     const url = `${NAV_URL}/admin/deleteJobPost/${adminId}/${postId}`;
     return this.http.delete(url, { responseType: 'text' });  // Specify responseType as 'text'
   }
+
+  createMockInterview(mockInterview: any): Observable<any> {
+    return this.http.post(`${NAV_URL}/admin/mockInterview/createMockInterview`, mockInterview);
+  }
+  getMockInterviewById(id: number): Observable<any> {
+    return this.http.get(`${NAV_URL}/admin/mockInterview/getMockInterviewById/${id}`);
+  }
+
+  getAllMockInterviews(): Observable<any[]> {
+    return this.http.get<any[]>(`${NAV_URL}/admin/mockInterview/getAllMockInterviews`);
+  }
+
+  updateMockInterview(id: number, mockInterview: any): Observable<any> {
+    return this.http.put(`${NAV_URL}/admin/mockInterview/updateMockInterview/${id}`, mockInterview);
+  }
+
+  deleteMockInterview(id: number): Observable<any> {
+    return this.http.delete(`${NAV_URL}/admin/mockInterview/deleteMockInterview/${id}`);
+  }
+
+
+  createPlacement(placement: any): Observable<any> {
+    return this.http.post(`${NAV_URL}/admin/placement/createPlacement`, placement);
+  }
+
+  getPlacementById(id: number): Observable<any> {
+    return this.http.get(`${NAV_URL}/admin/placement/getPlacementById/${id}`);
+  }
+
+  getAllPlacements(): Observable<any[]> {
+    return this.http.get<any[]>(`${NAV_URL}/admin/placement/getAllPlacements`);
+  }
+
+  updatePlacement(id: number, placement: any): Observable<any> {
+    return this.http.put(`${NAV_URL}/admin/placement/updatePlacement/${id}`, placement);
+  }
+
+  deletePlacement(id: number): Observable<any> {
+    return this.http.delete(`${NAV_URL}/admin/placement/deletePlacement/${id}`);
+  }
+
 }

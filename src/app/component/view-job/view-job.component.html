@@ -41,17 +41,53 @@
       >
     </p>
     <!-- Share Icon -->
-    <div class="icon-container">
-      <div
-        class="icon"
-        (click)="sharePage()"
-        tabindex="0"
-        role="button"
-        aria-label="Share"
-      >
-        <i class="fas fa-share-alt"></i>
-      </div>
-    </div>
+   <!-- Share Icon Section -->
+<div class="icon-container">
+  <!-- <div
+    class="icon"
+    (click)="sharePage()"
+    tabindex="0"
+    role="button"
+    aria-label="Share"
+  >
+    <i class="fas fa-share-alt"></i>
+  </div> -->
+  <!-- Add social media share buttons -->
+  <!-- <a
+    class="social-share"
+    href="https://twitter.com/intent/tweet?text={{ shareText }}&url={{ shareUrl }}"
+    target="_blank"
+    aria-label="Share on Twitter"
+  >
+    <i class="fab fa-twitter"></i>
+  </a>
+  <a
+    class="social-share"
+    href="https://www.facebook.com/sharer/sharer.php?u={{ shareUrl }}"
+    target="_blank"
+    aria-label="Share on Facebook"
+  >
+    <i class="fab fa-facebook"></i>
+  </a> -->
+  <!-- <a
+    class="social-share"
+    href="https://linkedin.com/shareArticle?mini=true&url={{ shareUrl }}&title={{ jobTitle }}&summary={{ shareText }}"
+    target="_blank"
+    aria-label="Share on LinkedIn"
+  >
+    <i class="fab fa-linkedin"></i>
+  </a> -->
+
+  <a
+  class="social-share"
+  href="https://api.whatsapp.com/send?text={{ shareText }}%20{{ shareUrl }}"
+  target="_blank"
+  aria-label="Share on WhatsApp"
+>
+  <i class="fab fa-whatsapp"></i>
+</a>
+</div>
+
   </div>
 
   <div class="job-description">

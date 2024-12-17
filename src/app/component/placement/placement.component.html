@@ -1,6 +1,8 @@
 <!-- Bootstrap CSS -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
-
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
 
 <div class="container-fluid">
   <div class="row">
@@ -11,15 +13,19 @@
         <h5 class="text-black">Admin</h5>
       </div>
       <hr />
-      <ul class="nav flex-column mx-0 ">
+      <ul class="nav flex-column mx-0">
         <li class="nav-item mb-2">
-          <a class="nav-link" [routerLink]="['/save-job']" routerLinkActive="router-link-active">
+          <a
+            class="nav-link"
+            [routerLink]="['/save-job']"
+            routerLinkActive="router-link-active"
+          >
             <i class="fa fa-briefcase text-warning"></i> Job's
           </a>
         </li>
 
-        <li class="nav-item mb-2">
-          <a class="nav-link  " [routerLink]="['/internship']">
+        <li class="nav-item mb-1">
+          <a class="nav-link" [routerLink]="['/internship']">
             <i class="fa-brands fa-wpforms"></i> Internship
           </a>
         </li>
@@ -53,7 +59,6 @@
             <i class="fas fa-folder-open text-danger"></i> Placement
           </a>
         </li>
-   
 
         <!-- <li class="nav-item mb-2">
           <a class="nav-link" [routerLink]="['/admin-blogs']">
@@ -73,11 +78,19 @@
         </div>
         <div>
           <!-- <i class="fas fa-bell me-3"></i> -->
-          <span class="dropdown-toggle p-2" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
-            aria-expanded="false">
+          <span
+            class="dropdown-toggle p-2"
+            type="button"
+            id="dropdownMenuButton"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
             <img
               src="../../../assets/userimage.png"
-              class="rounded-circle img-fluid" alt="User" style="width: 40px; height: 40px" />
+              class="rounded-circle img-fluid"
+              alt="User"
+              style="width: 40px; height: 40px"
+            />
             Admin
           </span>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -86,44 +99,39 @@
           </ul>
         </div>
       </div>
-  <!-- <div *ngIf="admin">
-  <h3>Admin Details</h3>
-  <p><strong>ID:</strong> {{ admin.id }}</p>
-  <p><strong>Name:</strong> {{ admin.name }}</p>
-  <p><strong>Email:</strong> {{ admin.email }}</p>
-</div>
-<div *ngIf="error" style="color: red;">
-  {{ error }}
-</div> -->
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 
-
-<div class="admin-panel-container">
-  <h1>Registered Users</h1>
-  <div class="table-responsive">
-    <table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Username</th>
-          <th>Full Name</th>
-          <th>Mobile No</th>
-          <th>Gender</th>
-          <th>Email ID</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let user of users">
-          <td>{{ user.id }}</td>
-          <td>{{ user.userName }}</td>
-          <td>{{ user.fullName }}</td>
-          <td>{{ user.mobileNo }}</td>
-          <td>{{ user.gender }}</td>
-          <td>{{ user.emailId }}</td>
-        </tr>
-      </tbody>
-    </table>
+<div class="container">
+    <h1>Placement Management</h1>
+  
+    <form (ngSubmit)="isEditing ? updatePlacement() : createPlacement()">
+      <label for="text">Text:</label>
+      <input type="text" id="text" [(ngModel)]="placementForm.text" name="text" required />
+  
+      <label for="hyperlink">Hyperlink:</label>
+      <input
+        type="text"
+        id="hyperlink"
+        [(ngModel)]="placementForm.hyperlink"
+        name="hyperlink"
+        required
+      />
+  
+      <button type="submit">{{ isEditing ? 'Update' : 'Create' }} Placement</button>
+      <button type="button" (click)="resetForm()" *ngIf="isEditing">Cancel</button>
+    </form>
+  
+    <div *ngIf="placements.length > 0">
+      <h2>All Placements</h2>
+      <ul>
+        <li *ngFor="let placement of placements">
+          <strong>{{ placement.text }}</strong> - 
+          <a [href]="placement.hyperlink" target="_blank">{{ placement.hyperlink }}</a>
+          <button (click)="editPlacement(placement)">Edit</button>
+          <button (click)="deletePlacement(placement.id)">Delete</button>
+        </li>
+      </ul>
+    </div>
   </div>
-</div>
+  
