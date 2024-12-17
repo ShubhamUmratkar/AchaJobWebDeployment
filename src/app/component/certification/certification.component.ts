@@ -12,7 +12,7 @@ export class CertificationComponent {
 
   
   courses = [
-    { title: 'Software Development', description: 'Master end-to-end software development, including design, coding, testing, and maintenance for web, mobile, and cloud platforms. Gain real-world experience with hands-on projects.', duration: '6 months', learners: '1,200' },
+    { title: 'Software Development', description: 'Master end-to-end software development and maintenance for web, mobile, and cloud platforms. Gain real-world experience with hands-on projects.', duration: '6 months', learners: '1,200' },
     { title: 'Software Testing', description: 'Learn manual and automated testing techniques to identify bugs and ensure software quality. Work on real-world testing projects covering unit, integration, and system testing.', duration: '6 months', learners: '1,000' },
     { title: 'Website Development', description: 'Build modern, responsive websites using HTML, CSS, JavaScript, and frameworks like React or Angular. Gain hands-on experience with real-world projects.', duration: '6 months', learners: '1,800' },
     { title: 'Business Analyst', description: 'Bridge business needs with technical solutions by learning process mapping and requirement gathering, and translating them into actionable insights. Includes real-world projects.', duration: '6 months', learners: '1,500' },

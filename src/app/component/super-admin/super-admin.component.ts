@@ -12,6 +12,7 @@ export class SuperAdminComponent implements OnInit {
   selectedTab: 'admin' | 'post' = 'admin'; // Active tab state
   errorMessage: string = ''; // Error message display
   loading: boolean = false; // Global loading indicator
+  expandedPostId: number | null = null;
 
   constructor(private superAdminService: SuperAdminService) {}
 
@@ -104,4 +105,24 @@ export class SuperAdminComponent implements OnInit {
       }
     );
   }
+
+
+
+toggleReadMore(postId: number, event: Event): void {
+  event.preventDefault();
+  this.expandedPostId = this.expandedPostId === postId ? null : postId;
+}
+
+formatContent(content: string): { key: string; value: string }[] {
+  try {
+    const parsedContent = JSON.parse(content); // Parse the JSON string
+    return Object.keys(parsedContent).map((key) => ({
+      key: key,
+      value: parsedContent[key],
+    }));
+  } catch (error) {
+    console.error('Error parsing content:', error);
+    return [{ key: 'Error', value: 'Invalid content format' }];
+  }
+}
 }

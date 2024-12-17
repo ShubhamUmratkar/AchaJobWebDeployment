@@ -1,5 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AdminService } from 'src/app/service/admin.service';
+
+interface mockInterviews {
+  id: number;
+  text: string;
+  hyperlink: string;
+}
+ 
 
 @Component({
   selector: 'app-user-mockinterview',
@@ -11,13 +19,14 @@ export class UserMockinterviewComponent implements OnInit {
   selectedMockInterview: any = null; // To store details of a selected placement
   isLoading: boolean = true;
   errorMessage: string = '';
-
-  constructor(private adminService: AdminService) {}
-
+  selectedMockInterviewDetails: mockInterviews | null = null;
+ 
+  constructor(private adminService: AdminService, private router: Router) {}
+ 
   ngOnInit(): void {
     this.fetchMockInterviews();
   }
-
+ 
   fetchMockInterviews(): void {
     this.isLoading = true;
     this.adminService.getAllMockInterviews().subscribe({
@@ -32,7 +41,7 @@ export class UserMockinterviewComponent implements OnInit {
       },
     });
   }
-
+ 
   // Fetch details of a specific placement by ID
   fetchMockInterviewById(id: number): void {
     this.isLoading = true;
@@ -48,10 +57,27 @@ export class UserMockinterviewComponent implements OnInit {
       }
     });
   }
-
-  // Clear selected placement
-  clearselectedMockInterview(): void {
+ 
+  // Handle Details Button Click
+  onDetailsButtonClick(placementId: number) {
+    if (this.selectedMockInterview === placementId) {
+      this.clearDetails();
+    } else {
+      this.selectedMockInterview = placementId;
+      this.selectedMockInterviewDetails = this.mockInterviews.find(
+        (mockInterviews) => mockInterviews.id === placementId
+      ) || null;
+    }
+  }
+ 
+  // Clear Details
+  clearDetails() {
     this.selectedMockInterview = null;
+    this.selectedMockInterviewDetails = null;
+  }
+ 
+  // Navigate back to the homepage
+  navigateToHomepage(): void {
+    this.router.navigate(['/']); // Adjust route to your homepage
   }
 }
-

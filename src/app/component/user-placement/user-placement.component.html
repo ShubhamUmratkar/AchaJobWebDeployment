@@ -1,43 +1,72 @@
-<div class="placement-container">
-  <h2>Placement Details</h2>
-  <button (click)="clearSelectedPlacement()" class="back-button">Back</button>
+<div class="body">
 
+<div class="placement-container">
+  <!-- Back button -->
+  <button
+    (click)="navigateToHomepage()"
+    class="back-button"
+    aria-label="Back to Homepage"
+  >
+    &larr;
+  </button>
+ 
+  <!-- Placement Details Header -->
+  <h2>Placement Details</h2>
+ 
   <!-- Error message -->
   <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
-
+ 
   <!-- Loading spinner -->
   <div *ngIf="isLoading" class="loading">Loading...</div>
-
-  <!-- Placements list -->
-  <div *ngIf="!isLoading && placements.length > 0" class="placement-list">
-    <ul>
-      <li
-        *ngFor="let placement of placements"
-        (click)="fetchPlacementById(placement.id)"
-        class="placement-item"
-      >
+ 
+  <!-- Placements List -->
+  <li *ngFor="let placement of placements" class="placement-item">
+    <!-- Wrapper for Summary and Details -->
+    <div class="placement-item-wrapper">
+      <!-- Placement Summary -->
+      <div class="placement-summary">
         <p><strong>ID:</strong> {{ placement.id }}</p>
-        <p><strong>Text:</strong> {{ placement.text }}</p>
-        <button class="details-button">View Details</button>
-      </li>
-    </ul>
-  </div>
-
-  <!-- Selected placement details -->
-  <div *ngIf="selectedPlacement" class="placement-details">
-    <h3>Placement Details</h3>
-    <p><strong>ID:</strong> {{ selectedPlacement.id }}</p>
-    <p><strong>Text:</strong> {{ selectedPlacement.text }}</p>
-    <p>
-      <strong>Hyperlink:</strong>
-      <a [href]="selectedPlacement.hyperlink" target="_blank">{{
-        selectedPlacement.hyperlink
-      }}</a>
-    </p>
-  </div>
-
-  <!-- No placements available -->
+        <p><strong>Description:</strong> {{ placement.text }}</p>
+        <button
+          (click)="onDetailsButtonClick(placement.id)"
+          class="details-button"
+        >
+          {{
+            selectedPlacement === placement.id
+              ? "Close Details"
+              : "View Details"
+          }}
+        </button>
+      </div>
+ 
+      <!-- Placement Details -->
+      <div
+        *ngIf="selectedPlacement === placement.id"
+        class="placement-details-container"
+      >
+        <h4>Details</h4>
+        <!-- <p><strong>ID:</strong> {{ placement.id }}</p> -->
+        <p><strong>Description:</strong> {{ placement.text }}</p>
+        <p>
+          <strong>Hyperlink:</strong>
+          <a
+            [href]="placement.hyperlink"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {{ placement.hyperlink }}
+          </a>
+        </p>
+      </div>
+    </div>
+  </li>
+ 
+  <!-- No Placements Available -->
   <div *ngIf="!isLoading && placements.length === 0" class="no-placements">
     <p>No placements found.</p>
   </div>
+</div>
+ 
+
+
 </div>

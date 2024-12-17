@@ -244,95 +244,298 @@ td button:hover {
   }
 }
 
+
+.container {
+  margin: 20px;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+form div {
+  margin-bottom: 10px;
+}
+
+button {
+  margin-right: 5px;
+}
+
+
+
 /* Sidebar styles */
 .sidebar {
-  background-color: #ffffff;
-  padding-top: 20px;
-  padding-left: 20px;
-  height: 100vh;
-  position: sticky;
-  top: 0;
-  color: #fff;
+background-color: #ffffff;
+padding-top: 20px;
+padding-left: 20px;
+height: 100vh;
+position: sticky;
+top: 0;
+color: #fff;
 }
 
 .sidebar .text-center {
-  text-align: center;
+text-align: center;
 }
 
 .sidebar .text-center img {
-  max-width: 150px;
-  border-radius: 50%;
+max-width: 150px;
+border-radius: 50%;
 }
 
 .sidebar .text-center h5 {
-  margin-top: 10px;
-  font-size: 1.5rem; /* Increase heading font size */
+margin-top: 10px;
+font-size: 1.5rem; /* Increase heading font size */
 }
 
 .sidebar hr {
-  border-top: 1px solid #fff;
-  margin: 20px 0;
+border-top: 1px solid #fff;
+margin: 20px 0;
 }
 
 .sidebar .nav {
-  display: flex;
-  flex-direction: column;
-  margin-left: 2rem;
-  margin-right: 2rem;
+display: flex;
+flex-direction: column;
+margin-left: 2rem;
+margin-right: 2rem;
 }
 
 .sidebar .nav-item {
-  margin-bottom: 1rem;
+margin-bottom: 1rem;
 }
 
 .sidebar .nav-link {
-  text-decoration: none;
-  color: #2c3e50;
-  padding: 1rem; /* Increase padding for larger clickable area */
-  display: block;
-  font-size: 1.25rem; /* Increased font size for nav links */
-  transition: all 0.3s ease;
+text-decoration: none;
+color: #2c3e50;
+padding: 1rem; /* Increase padding for larger clickable area */
+display: block;
+font-size: 1.25rem; /* Increased font size for nav links */
+transition: all 0.3s ease;
 }
 
 .sidebar .nav-link:hover {
-  color: #007bff;
-  background: #f0f4f8;
+color: #007bff;
+background: #f0f4f8;
 }
 
 .sidebar .nav-link i {
-  font-size: 1.3rem; /* Increase the size of icons */
-  margin-right: 10px; /* Add space between icon and text */
+font-size: 1.3rem; /* Increase the size of icons */
+margin-right: 10px; /* Add space between icon and text */
 }
 
 .sidebar .text-warning {
-  color: #ffc107;
+color: #ffc107;
 }
 
 .sidebar .text-info {
-  color: #17a2b8;
+color: #17a2b8;
 }
 
 
+/* Sidebar responsive styles */
+@media (max-width: 768px) {
+.sidebar {
+  height: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+  position: relative;
+}
+
+.sidebar .nav {
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar .nav-link {
+  font-size: 1rem;
+  padding: 0.75rem;
+}
+
+.sidebar .text-center img {
+  max-width: 100px;
+}
+}
 
 
 .nav {
-  list-style: none; /* Remove default list styling */
-  padding: 0;
-  margin: 0;
+list-style: none; /* Remove default list styling */
+padding: 0;
+margin: 0;
 }
 
 .nav-item {
-  margin-right: 20px; /* Adjust spacing between items */
+margin-right: 20px; /* Adjust spacing between items */
 }
 
 .nav-link {
-  display: flex;
-  align-items: center; /* Ensures the icon and text align properly */
+display: flex;
+align-items: center; /* Ensures the icon and text align properly */
 }
 
 .nav-item:last-child {
-  margin-right: 0; /* Remove margin from the last item */
+margin-right: 0; /* Remove margin from the last item */
 }
 
 
 
+
+/* General Styles */
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+font-family: Arial, sans-serif;
+}
+
+.tab-body {
+background-color: #ffffff;
+color: #333;
+padding: 1rem;
+}
+
+h1 {
+text-align: center;
+margin-bottom: 1rem;
+color: #007bff;
+}
+
+/* General Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+thead {
+  background-color: #007bff;
+  color: #fff;
+  text-align: left;
+}
+
+th, td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #dee2e6;
+  text-align: center;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tbody tr:hover {
+  background-color: #e3f2fd;
+  transform: scale(1.01);
+  transition: all 0.2s ease-in-out;
+}
+
+/* Table Actions Buttons */
+td button {
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+td button:nth-child(1) {
+  background-color: #ffc107;
+  color: #fff;
+}
+
+td button:nth-child(1):hover {
+  background-color: #e0a800;
+}
+
+td button:nth-child(2) {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+td button:nth-child(2):hover {
+  background-color: #c82333;
+}
+
+/* Responsive Table Container */
+.table-container {
+  width: 100%;
+  overflow-x: auto; /* Enables horizontal scrolling */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  table {
+    font-size: 0.8rem; /* Smaller text on mobile */
+  }
+
+  th, td {
+    padding: 8px 10px; /* Reduce padding on small screens */
+    white-space: nowrap; /* Prevent content wrapping */
+  }
+
+  td button {
+    padding: 6px 8px; /* Smaller buttons */
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 576px) {
+  h3 {
+    font-size: 1.2rem; /* Smaller heading */
+    text-align: center;
+  }
+
+  table {
+    font-size: 0.75rem; /* Even smaller text */
+  }
+
+  th, td {
+    padding: 6px 8px;
+  }
+
+  td button {
+    padding: 4px 6px;
+    font-size: 0.7rem;
+  }
+}
+/* Table Cell Scrollbar Styles */
+td {
+  max-width: 200px; /* Set a maximum width for table cells */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  white-space: nowrap; /* Prevent text from wrapping */
+  text-overflow: ellipsis; /* Optional: Adds ellipsis (...) for long text */
+}
+
+td::-webkit-scrollbar {
+  height: 8px; /* Adjust scrollbar height */
+}
+
+td::-webkit-scrollbar-track {
+  background: #f0f4f8; /* Light gray background */
+  border-radius: 5px;
+}
+
+td::-webkit-scrollbar-thumb {
+  background-color: #007bff; /* Blue scrollbar color */
+  border-radius: 5px;
+  border: 2px solid #f0f4f8; /* Adds spacing around the thumb */
+}
+
+td::-webkit-scrollbar-thumb:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Responsive Table Container */
+.table-container {
+  width: 100%;
+  overflow-x: auto; /* Enables horizontal scrolling for the table */
+}
+
+@media (max-width: 768px) {
+  td {
+    max-width: 150px; /* Reduce max-width on smaller screens */
+  }
+}

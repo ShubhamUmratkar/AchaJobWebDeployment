@@ -252,7 +252,7 @@
     font-size: 16px; /* Increased for better visibility */
 }
 .detail-item.details span {
-    margin-right: 50px; /* Adds space between each detail item */
+    margin-right: 30px; /* Adds space between each detail item */
 }
  
 .detail-item.header div {
@@ -607,12 +607,12 @@
  
     /* Job Details adjustments */
     .job-details {
-        gap: 20px; /* Reduced gap between each item */
+        gap: 10px; /* Reduced gap between each item */
     }
  
     /* Card-like layout for each job detail */
     .detail-item.details {
-        padding: 15px;
+        padding: 10px;
     }
  
     .detail-item.details h1 {
@@ -622,4 +622,5 @@
     .detail-item.details span {
         font-size: 12px; /* Further reduce description font size */
     }
-} 
+}
+ 

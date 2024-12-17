@@ -1,5 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AdminService } from 'src/app/service/admin.service';
+
+ 
+interface Placement {
+  id: number;
+  text: string;
+  hyperlink: string;
+}
 
 @Component({
   selector: 'app-user-placement',
@@ -11,13 +19,14 @@ export class UserPlacementComponent implements OnInit {
   selectedPlacement: any = null; // To store details of a selected placement
   isLoading: boolean = false;
   errorMessage: string = '';
-
-  constructor(private adminService: AdminService) {}
-
+  selectedPlacementDetails: Placement | null = null;
+ 
+  constructor(private adminService: AdminService, private router: Router) {}
+ 
   ngOnInit(): void {
     this.fetchAllPlacements();
   }
-
+ 
   // Fetch all placements
   fetchAllPlacements(): void {
     this.isLoading = true;
@@ -33,7 +42,7 @@ export class UserPlacementComponent implements OnInit {
       }
     });
   }
-
+ 
   // Fetch details of a specific placement by ID
   fetchPlacementById(id: number): void {
     this.isLoading = true;
@@ -49,9 +58,27 @@ export class UserPlacementComponent implements OnInit {
       }
     });
   }
-
-  // Clear selected placement
-  clearSelectedPlacement(): void {
+ 
+  // Handle Details Button Click
+  onDetailsButtonClick(placementId: number) {
+    if (this.selectedPlacement === placementId) {
+      this.clearDetails();
+    } else {
+      this.selectedPlacement = placementId;
+      this.selectedPlacementDetails = this.placements.find(
+        (placement) => placement.id === placementId
+      ) || null;
+    }
+  }
+ 
+  // Clear Details
+  clearDetails() {
     this.selectedPlacement = null;
+    this.selectedPlacementDetails = null;
+  }
+ 
+  // Navigate back to the homepage
+  navigateToHomepage(): void {
+    this.router.navigate(['/']); // Adjust route to your homepage
   }
 }

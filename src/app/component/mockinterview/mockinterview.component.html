@@ -86,12 +86,14 @@
         </div>
       </div>
 
+
+<div class="body" >
 <div class="container">
-    <h1>Mock Interviews</h1>
+    <h1 >Mock Interviews</h1>
   
     <form (ngSubmit)="editing ? updateMockInterview() : createMockInterview()">
       <div>
-        <label for="text">Text</label>
+        <label for="text">Desciption</label>
         <input
           type="text"
           id="text"
@@ -116,12 +118,18 @@
   
     <hr />
   
-    <ul>
-      <li *ngFor="let mock of mockInterviews">
-        <strong>{{ mock.text }}</strong> - <a [href]="mock.hyperlink" target="_blank">{{ mock.hyperlink }}</a>
-        <button (click)="editMockInterview(mock)">Edit</button>
-        <button (click)="deleteMockInterview(mock.id)">Delete</button>
+    <ul class="mock-list">
+      <li *ngFor="let mock of mockInterviews" class="mock-item">
+        <div class="text-container">
+          <strong>{{ mock.text }}</strong> 
+          - <a [href]="mock.hyperlink" target="_blank">{{ mock.hyperlink }}</a>
+        </div>
+        <div class="item-buttons">
+          <button class="edit-btn" (click)="editMockInterview(mock)">Edit</button>
+          <button class="delete-btn" (click)="deleteMockInterview(mock.id)">Delete</button>
+        </div>
       </li>
     </ul>
+    
   </div>
-  
+</div>

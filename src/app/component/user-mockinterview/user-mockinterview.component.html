@@ -1,52 +1,74 @@
+
+<div class="body">
+
 <div class="mock-interview-container">
-  <h2>Mock Interview Details</h2>
-  <button (click)="clearselectedMockInterview()" class="back-button">
-    Back
-  </button>
-
-  <!-- Loading Spinner -->
-  <div *ngIf="isLoading" class="loading-spinner">
-    Loading mock interviews...
-  </div>
-
-  <!-- Error Message -->
-  <div *ngIf="errorMessage" class="error-message">
-    {{ errorMessage }}
-  </div>
-
-  <!-- Mock Interviews List -->
-  <div *ngIf="!isLoading && !errorMessage && mockInterviews.length > 0">
-    <ul class="mock-interview-list">
-      <li
-        *ngFor="let interview of mockInterviews"
-        (click)="fetchMockInterviewById(interview.id)"
-        class="mock-interview-item"
-      >
-        <p><strong>ID:</strong> {{ interview.id }}</p>
-        <p><strong>Text:</strong> {{ interview.text }}</p>
-        <button class="details-button">View Details</button>
-      </li>
-    </ul>
-  </div>
-
-  <!-- No Mock Interviews -->
-  <div
-    *ngIf="!isLoading && mockInterviews.length === 0 && !errorMessage"
-    class="no-data"
+  <!-- Back button -->
+  <button
+    (click)="navigateToHomepage()"
+    class="back-button"
+    aria-label="Back to Homepage"
   >
-    No mock interviews available.
+    &larr;
+  </button>
+ 
+  <!-- Placement Details Header -->
+  <h2>Mock Interview Details</h2>
+ 
+  <!-- Error message -->
+  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+ 
+  <!-- Loading spinner -->
+  <div *ngIf="isLoading" class="loading">Loading mock interviews...</div>
+ 
+  <!-- Placements List -->
+  <li *ngFor="let interview of mockInterviews" class="mock-interview-item">
+    <!-- Wrapper for Summary and Details -->
+    <div class="mock-interview-item-wrapper">
+      <!-- Placement Summary -->
+      <div class="mock-interview-summary">
+        <p><strong>ID:</strong> {{ interview.id }}</p>
+        <p><strong>Description:</strong> {{ interview.text }}</p>
+        <button
+          (click)="onDetailsButtonClick(interview.id)"
+          class="details-button"
+        >
+          {{
+            selectedMockInterview === interview.id
+              ? "Close Details"
+              : "View Details"
+          }}
+        </button>
+      </div>
+ 
+      <!-- Placement Details -->
+      <div
+        *ngIf="selectedMockInterview === interview.id"
+        class="mock-interview-details-container"
+      >
+        <h4>Details</h4>
+        <!-- <p><strong>ID:</strong> {{ placement.id }}</p> -->
+        <p><strong>Description:</strong> {{ interview.text }}</p>
+        <p>
+          <strong>Hyperlink:</strong>
+          <a
+            [href]="interview.hyperlink"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {{ interview.hyperlink }}
+          </a>
+        </p>
+      </div>
+    </div>
+  </li>
+ 
+  <!-- No Placements Available -->
+  <div
+    *ngIf="!isLoading && mockInterviews.length === 0"
+    class="no-mock-interview"
+  >
+    <p>No placements found.</p>
   </div>
+</div>
 
-  <!-- Selected Mock Interview Details -->
-  <div *ngIf="selectedMockInterview" class="mock-interview-details">
-    <h3>Mock Interview Details</h3>
-    <p><strong>ID:</strong> {{ selectedMockInterview.id }}</p>
-    <p><strong>Text:</strong> {{ selectedMockInterview.text }}</p>
-    <p>
-      <strong>Hyperlink:</strong>
-      <a [href]="selectedMockInterview.hyperlink" target="_blank">
-        {{ selectedMockInterview.hyperlink }}
-      </a>
-    </p>
-  </div>
 </div>

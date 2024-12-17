@@ -95,7 +95,7 @@
           </span>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <!-- <li><a class="dropdown-item" href="#">My Profile</a></li> -->
-            <li><a class="dropdown-item" href="#">Log Out</a></li>
+            <li><a class="dropdown-item" href="/">Log Out</a></li>
           </ul>
         </div>
       </div>
@@ -106,7 +106,7 @@
     <h1>Placement Management</h1>
   
     <form (ngSubmit)="isEditing ? updatePlacement() : createPlacement()">
-      <label for="text">Text:</label>
+      <label for="text">Desciption:</label>
       <input type="text" id="text" [(ngModel)]="placementForm.text" name="text" required />
   
       <label for="hyperlink">Hyperlink:</label>
@@ -124,12 +124,18 @@
   
     <div *ngIf="placements.length > 0">
       <h2>All Placements</h2>
-      <ul>
-        <li *ngFor="let placement of placements">
-          <strong>{{ placement.text }}</strong> - 
+      <ul class="placement-list">
+        <li *ngFor="let placement of placements" class="placement-item">
+          <strong>{{ placement.text }}</strong> -
           <a [href]="placement.hyperlink" target="_blank">{{ placement.hyperlink }}</a>
-          <button (click)="editPlacement(placement)">Edit</button>
-          <button (click)="deletePlacement(placement.id)">Delete</button>
+          <div class="item-buttons">
+            <button (click)="editPlacement(placement)" class="btn edit-btn">
+              Edit
+            </button>
+            <button (click)="deletePlacement(placement.id)" class="btn delete-btn">
+              Delete
+            </button>
+          </div>
         </li>
       </ul>
     </div>

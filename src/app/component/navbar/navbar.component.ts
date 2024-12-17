@@ -151,28 +151,28 @@ export class NavbarComponent implements OnInit, AfterViewInit{
           {
             title: 'By Industry',
             items: [
-              { name: 'IT', link: '' },
-              { name: 'Designing', link: '' },
-              { name: 'Sales', link: '' },
-              { name: 'Engineering', link: '' },
+              { name: 'IT', link: '/job-posts' },
+              { name: 'Designing', link: '/job-posts' },
+              { name: 'Sales', link: '/job-posts' },
+              { name: 'Engineering', link: '/job-posts' },
             ],
             isOpen: false,
           },
           {
             title: 'By Location',
             items: [
-              { name: 'Mumbai', link: '' },
-              { name: 'Delhi', link: '' },
-              { name: 'Bangalore', link: '' },
-              { name: 'Pune', link: '' },
+              { name: 'Mumbai', link: '/job-posts' },
+              { name: 'Delhi', link: '/job-posts' },
+              { name: 'Bangalore', link: '/job-posts' },
+              { name: 'Pune', link: '/job-posts' },
             ],
             isOpen: false,
           },
           { title: 'Remote Jobs',
             items: [
-            {name:'Full-Time Remote', link: ''},
-            {name:'Part-Time Remote', link: ''},
-            {name:'Hybrid', link: ''}
+            {name:'Full-Time Remote', link: '/job-posts'},
+            {name:'Part-Time Remote', link: '/job-posts'},
+            {name:'Hybrid', link: '/job-posts'}
           ],
           isOpen: false },
           { title: 'All Jobs Categories',
