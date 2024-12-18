@@ -1,0 +1,161 @@
+.container {
+    margin-top: 50px;
+    padding: 0 20px;
+  }
+   
+  /* Card Styles */
+  .card {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+  }
+   
+  .card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  }
+   
+  /* Card Image Styles */
+  .card-img-top {
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 4px solid #007bff;
+    transition: transform 0.4s ease-in-out;
+  }
+   
+  .card-img-top:hover {
+    transform: scale(1.08);
+  }
+   
+  /* Card Body */
+  .card-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+   
+  /* Card Title */
+  .card-title {
+    color: #007bff;
+    font-weight: 600;
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    text-align: center;
+    transition: color 0.3s;
+  }
+   
+  .card-title:hover {
+    color: #ff6e40;
+  }
+   
+  /* Card Text */
+  .card-text {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.7;
+    text-align: justify;
+  }
+   
+  /* Button Styles */
+  .btn {
+    background-color: #007bff;
+    color: white;
+    border-radius: 20px;
+    padding: 12px 25px;
+    text-transform: uppercase;
+    transition: background-color 0.3s, transform 0.3s;
+    text-align: center;
+    display: block;
+    width: 100%;
+    margin-top: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+   
+  .btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+  }
+   
+  /* Gradient Border Animation */
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #ff8a80, #ff6e40, #ffca28, #66bb6a, #42a5f5);
+    animation: gradient 6s linear infinite;
+  }
+   
+  @keyframes gradient {
+    0% {
+      background-position: 0%;
+    }
+    100% {
+      background-position: 100%;
+    }
+  }
+   
+  /* Responsive Design */
+  @media (max-width: 1200px) {
+    .card {
+      margin-bottom: 30px;
+    }
+  }
+   
+  @media (max-width: 768px) {
+    .card-img-top {
+      height: 180px;
+    }
+   
+    .card-title {
+      font-size: 1.4rem;
+    }
+   
+    .card-text {
+      font-size: 0.9rem;
+    }
+   
+    .btn {
+      font-size: 0.9rem;
+    }
+  }
+   
+  @media (max-width: 576px) {
+    .card-img-top {
+      height: 160px;
+    }
+   
+    .card-title {
+      font-size: 1.2rem;
+    }
+   
+    .card-text {
+      font-size: 0.85rem;
+    }
+   
+    .btn {
+      font-size: 0.85rem;
+      padding: 8px 15px;
+    }
+  }
+   
+  /* Additional Hover Effects */
+  .card:hover .card-title {
+    color: #ff6e40;
+  }
+   
+  .card:hover .btn {
+    background: linear-gradient(45deg, #ff6e40, #ffca28);
+  }
+   

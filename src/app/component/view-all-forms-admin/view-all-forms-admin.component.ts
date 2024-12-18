@@ -13,12 +13,28 @@ export class ViewAllFormsAdminComponent {
   jobs: any[] = [];   // Jobs list
   internships: any[] = []; // Internships list
   selectedForm: any = null;
+  adminId: number | null = null; // Initially null
 
   constructor(private formService: FormService, private jobService: JobService,private internshipsService: InternshipService) {}
 
   ngOnInit(): void {
-    this.fetchForms();
-  }
+      // Retrieve the adminId from localStorage
+      const storedAdminId = localStorage.getItem('adminId');
+      if (storedAdminId) {
+        this.adminId = parseInt(storedAdminId, 10);
+        console.log("adminId retrieved from localStorage:", this.adminId);
+      } else {
+        console.error("Admin ID not found in localStorage");
+      }
+  
+      this.fetchForms();
+      if (this.adminId) {
+        this.fetchJobs();  // Fetch jobs using the adminId
+        this.fetchInternships();  // Fetch internships using the adminId
+      }
+    }
+  
+  
 
   fetchForms(): void {
     this.formService.getAllForms().subscribe(
@@ -32,31 +48,33 @@ export class ViewAllFormsAdminComponent {
   }
 
   fetchJobs(): void {
-    const adminId = 1; // Replace with the actual adminId
-    this.jobService.getJobsByAdmin(adminId).subscribe(
-      (data) => {
-        this.jobs = data;
-        this.internships = []; // Clear internships if displayed
-      },
-      (error) => {
-        console.error('Error fetching jobs:', error);
-      }
-    );
+    if (this.adminId) {
+      this.jobService.getJobsByAdmin(this.adminId).subscribe(
+        (data) => {
+          this.jobs = data;
+          this.internships = []; // Clear internships if displayed
+        },
+        (error) => {
+          console.error('Error fetching jobs:', error);
+        }
+      );
+    }
   }
 
   fetchInternships(): void {
-    const adminId = 1; // Replace with the actual adminId
-    console.log(adminId)
-    this.internshipsService.getInternshipsByAdmin(adminId).subscribe(
-      (data) => {
-        this.internships = data;
-        this.jobs = []; // Clear jobs if displayed
-      },
-      (error) => {
-        console.error('Error fetching internships:', error);
-      }
-    );
+    if (this.adminId) {
+      this.internshipsService.getInternshipsByAdmin(this.adminId).subscribe(
+        (data) => {
+          this.internships = data;
+          this.jobs = []; // Clear jobs if displayed
+        },
+        (error) => {
+          console.error('Error fetching internships:', error);
+        }
+      );
+    }
   }
+
 
   viewFormDetails(form: any): void {
     this.selectedForm = form;

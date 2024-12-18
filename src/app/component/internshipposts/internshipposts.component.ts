@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Internship } from 'src/app/model/internship.model';
 import { InternshipService } from 'src/app/service/service-internship.service';
 
@@ -21,7 +22,7 @@ export class InternshippostsComponent {
     qualifications: ''
   };
 
-  constructor(private internshipService: InternshipService) {}
+  constructor(private internshipService: InternshipService,private router: Router) {}
 
   ngOnInit(): void {
     this.getAllInternships();
@@ -91,6 +92,17 @@ export class InternshippostsComponent {
       qualifications: ''
     };
     this.filteredInternships = this.internships; // Show all internships
+  }
+  
+
+
+  applyForInternship(internshipId: number | undefined): void {
+    if (internshipId !== undefined) {
+      this.router.navigate([`/apply-internship/${internshipId}`]);
+      console.log("Navigating to apply for internship with ID:", internshipId);
+    } else {
+      console.log("Internship ID is undefined");
+    }
   }
   
 }

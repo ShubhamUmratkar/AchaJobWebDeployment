@@ -44,6 +44,7 @@ import { UserPlacementComponent } from './component/user-placement/user-placemen
 import { InternshippostsComponent } from './component/internshipposts/internshipposts.component';
 import { PlacementPreparationComponent } from './component/placement-preparation/placement-preparation.component';
 import { InterviewPreparationComponent } from './component/interview-preparation/interview-preparation.component';
+import { AllcoursesComponent } from './component/allcourses/allcourses.component';
 
 
 
@@ -89,6 +90,7 @@ import { InterviewPreparationComponent } from './component/interview-preparation
     InternshippostsComponent,
     PlacementPreparationComponent,
     InterviewPreparationComponent,
+    AllcoursesComponent,
 
 
 

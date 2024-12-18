@@ -65,43 +65,43 @@ export class NavbarComponent implements OnInit, AfterViewInit{
         categories: [
           { title: 'By Category',
             items: [
-            { name: 'Engineering', link: '' },
-            { name: 'Marketing', link: '' },
-            { name: 'Sales', link: '' },
-            { name: 'Content Writing', link: '' },
+            { name: 'Engineering', link: '/internshippost' },
+            { name: 'Marketing', link: '/internshippost' },
+            { name: 'Sales', link: '/internshippost' },
+            { name: 'Content Writing', link: '/internshippost' },
           ],isOpen: false },
           { title: 'By Location', items: [
-            {name:'Mumbai', link: ''},
-            {name:'Delhi', link:''},
-            {name:'Bangalore', link: ''},
-            {name:'Pune', link: ''}
+            {name:'Mumbai', link: '/internshippost'},
+            {name:'Delhi', link:'/internshippost'},
+            {name:'Bangalore', link: '/internshippost'},
+            {name:'Pune', link: '/internshippost'}
           ],isOpen: false },
           {
             title: 'Work From Home',
             items: [
-              { name: 'Remote Opportunities', link: '' },
-              { name: 'Flexible Hours', link: '' },
-              { name: 'Freelance Jobs', link: '' },
-              { name: 'Full-Time Remote', link: '' },
-              { name: 'Part-Time Remote', link: '' },
+              { name: 'Remote Opportunities', link: '/internshippost' },
+              { name: 'Flexible Hours', link: '/internshippost' },
+              { name: 'Freelance Jobs', link: '/internshippost' },
+              { name: 'Full-Time Remote', link: '/internshippost' },
+              { name: 'Part-Time Remote', link: '/internshippost' },
             ],
             isOpen: false,
           },
           {
             title: 'Part-Time Internships',
             items: [
-              { name: 'Internship', link: '' },
-              { name: 'Part-Time Internship', link: '' },
-              { name: 'Full-Time Internship', link: '' },
+              { name: 'Internship', link: '/internshippost' },
+              { name: 'Part-Time Internship', link: '/internshippost' },
+              { name: 'Full-Time Internship', link: '/internshippost' },
             ],
             isOpen: false,
           },
           {
             title: 'Browse All Internships',
             items: [
-              { name: 'Internship Opportunities', link: '' },
-              { name: 'Remote Internships', link: '' },
-              { name: 'Flexible Hours', link: '' },
+              { name: 'Internship Opportunities', link: '/internshippost' },
+              { name: 'Remote Internships', link: '/internshippost' },
+              { name: 'Flexible Hours', link: '/internshippost' },
             ],
             isOpen: false,
           },
@@ -111,35 +111,35 @@ export class NavbarComponent implements OnInit, AfterViewInit{
         label: 'Online Training',
         isOpen: false,
         categories: [
-          // { title: 'By Skills', items: ['Programing', 'Data Science', 'Digital Markating', 'Business Communication',],isOpen: false },
+
           { title: 'Placement Preparation',
             items: [
-            {name:'Placement Preparation', link: ''},
-            {name:'Interview Preparation', link: ''}
+            {name:'Placement Preparation', link: '/placement-preparation'},
+            {name:'Interview Preparation', link: '/interview-preparation'}
           ],isOpen: false },
-          // { title: 'Free Courses', items: ['Beginner Courses','Advance Topics','Skills Development','Certification Paths','Practice Exercises'],isOpen: false },
+
           { title: 'All Courses',
             items: [
-              {name:'Software Development', link: ''},
-              {name:'Software Testing', link: ''},
-              {name:'Website Development',link: ''},
-              {name:'Business Analyst',link: ''},
-              {name:'Cyber Security', link: ''},
-              {name:'Data Analyst', link: ''},
-              {name:'Data Engineering',link: ''},
-              {name:'Data Science',link: ''},
-              {name:'E-commerce Development',link: ''},
-              {name:'Full Stack Development', link: ''},
-              {name:'Google Cloud', link: ''},
-              {name:'Linux', link: ''},
-              {name:'PowerBI', link: ''},
-              {name:'Python', link: ''},
-              {name:'SAP', link: ''},
-              {name:'UI/UX', link: ''},
-              {name:'AWS Cloud', link: ''},
-              {name:'Azure', link: ''},
-              {name:'Digital Marketing', link: ''},
-              {name:'Business Communication', link: ''}
+              {name:'Software Development', link: '/allcourses'},
+              {name:'Software Testing', link: '/allcourses'},
+              {name:'Website Development',link: '/allcourses'},
+              {name:'Business Analyst',link: '/allcourses'},
+              {name:'Cyber Security', link: '/allcourses'},
+              {name:'Data Analyst', link: '/allcourses'},
+              {name:'Data Engineering',link: '/allcourses'},
+              {name:'Data Science',link: '/allcourses'},
+              {name:'E-commerce Development',link: '/allcourses'},
+              {name:'Full Stack Development', link: '/allcourses'},
+              {name:'Google Cloud', link: '/allcourses'},
+              {name:'Linux', link: '/allcourses'},
+              {name:'PowerBI', link: '/allcourses'},
+              {name:'Python', link: '/allcourses'},
+              {name:'SAP', link: '/allcourses'},
+              {name:'UI/UX', link: '/allcourses'},
+              {name:'AWS Cloud', link: '/allcourses'},
+              {name:'Azure', link: '/allcourses'},
+              {name:'Digital Marketing', link: '/allcourses'},
+              {name:'Business Communication', link: '/allcourses'}
             ],
             isOpen: false },
         ]
@@ -196,9 +196,9 @@ export class NavbarComponent implements OnInit, AfterViewInit{
           {
             title: 'Job Postings',
             items: [
-              { name: 'Full-Time Opportunities', link: '' },
-              { name: 'Project Extensions', link: '' },
-              { name: 'Part-Time Roles', link: '' },
+              { name: 'Full-Time Opportunities', link: '/adminregister' },
+              { name: 'Project Extensions', link: '/adminregister' },
+              { name: 'Part-Time Roles', link: '/adminregister' },
             ],
             isOpen: false,
           },
@@ -237,14 +237,19 @@ export class NavbarComponent implements OnInit, AfterViewInit{
             ],
             isOpen: false,
           },
-          { title: 'Interview Tips', items: [{name:'Placement', link:'/userplacement'},{name:'Mock Interviews', link: '/usermockinterview'}],isOpen: false },
+          { title: 'Interview Tips',
+             items: [
+                {name:'Placement',link:'/userplacement'},
+                {name:'Mock Interviews', link: '/usermockinterview'}
+              ],isOpen: false 
+          },
         ]
       },
       {
         label: 'Help',
         isOpen: false,
         categories: [
-          // { title: 'FAQs', items: ['Frequently Asked Questions'],isOpen: false },
+
           {
             title: 'Contact Us',
             items: [
@@ -253,8 +258,7 @@ export class NavbarComponent implements OnInit, AfterViewInit{
             ],
             isOpen: false,
           },
-          // { title: 'T&S', items: [],isOpen: false },
-          // { title: 'Privacy Policy', items: [],isOpen: false  },
+
         ]
       },
       ];
@@ -298,4 +302,6 @@ export class NavbarComponent implements OnInit, AfterViewInit{
     alert('Logout Successfully.');
     this.router.navigate(['/']);
   }
+
+  
 }

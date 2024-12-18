@@ -19,8 +19,17 @@ export class ApplyInternshipService {
    * @param formData - The form data (including CV file if present)
    * @returns Observable<any> - The response from the API
    */
+
+
+
+
   applyForInternship(internshipId: number, formData: FormData): Observable<any> {
-    // Send POST request to the backend API
-    return this.http.post(`${NAV_URL}/forms/applyForInternshipForm/${internshipId}`, formData);
+    return this.http.post(`${NAV_URL}/forms/applyForInternshipForm/${internshipId}`, formData, {
+      responseType: 'json'  // Expect JSON response from backend
+    });
   }
+  
+
+
+
 }
