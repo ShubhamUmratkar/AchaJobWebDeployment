@@ -1,0 +1,78 @@
+<!-- internship.component.html -->
+
+<div class="body">
+<div class="internship-container">
+    <div class="filter-sidebar">
+      <h2>Filters</h2>
+  
+      <!-- Location Filter -->
+      <div class="filter-group">
+        <label for="location">Location</label>
+        <input type="text" id="location" [(ngModel)]="filters.location" placeholder="Enter Location" />
+      </div>
+  
+      <!-- Stipend Range Filter -->
+      <div class="filter-group">
+        <label for="minStipend">Stipend Range</label>
+        <div class="stipend-inputs">
+          <input
+            type="number"
+            id="minStipend"
+            [(ngModel)]="filters.minStipend"
+            placeholder="Min Stipend" min="0"
+          />
+          <input
+            type="number"
+            id="maxStipend"
+            [(ngModel)]="filters.maxStipend"
+            placeholder="Max Stipend" min="0"
+          />
+        </div>
+      </div>
+  
+      <!-- Status Filter -->
+      <div class="filter-group">
+        <label for="status">Status</label>
+        <select id="status" [(ngModel)]="filters.status">
+          <option value="">Select Status</option>
+          <option value="Active">Active</option>
+          <option value="Closed">Closed</option>
+        </select>
+      </div>
+  
+      <!-- Apply Filters Button -->
+      <button class="filter-button" (click)="applyFilters()">Apply Filters</button>
+      <br />
+      <!-- Clear Filters Button -->
+      <button class="filter-button" (click)="clearFilters()">Clear Filters</button>
+    </div>
+  
+    <!-- Internship List Section -->
+    <div class="internship-list-container">
+      <h1>All Internships</h1>
+      <div *ngIf="loading" class="loading">
+        <p>Loading internships...</p>
+      </div>
+      <div *ngIf="error" class="error">
+        <p>{{ error }}</p>
+      </div>
+      <div *ngIf="!loading && !error">
+        <!-- Internship Cards Grid -->
+        <div class="internship-cards-grid">
+          <div *ngFor="let internship of filteredInternships" class="internship-card">
+            <div class="internship-card-header">
+              <h3>{{ internship.title }}</h3>
+              <span class="internship-category">{{ internship.company }}</span>
+            </div>
+            <p><strong>Location:</strong> {{ internship.location }}</p>
+            <p><strong>Stipend:</strong> ₹{{ internship.stipend }}</p>
+            <p><strong>Duration:</strong> {{ internship.duration }}</p>
+            <p><strong>Qualifications:</strong> {{ internship.qualifications }}</p>
+            <p><strong>Status:</strong> {{ internship.status }}</p>
+            <p><strong>Description:</strong> {{ internship.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

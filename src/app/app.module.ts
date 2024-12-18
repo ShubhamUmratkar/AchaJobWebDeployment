@@ -41,6 +41,9 @@ import { MockInterviewComponent } from './component/mockinterview/mockinterview.
 import { PlacementComponent } from './component/placement/placement.component';
 import { UserMockinterviewComponent } from './component/user-mockinterview/user-mockinterview.component';
 import { UserPlacementComponent } from './component/user-placement/user-placement.component';
+import { InternshippostsComponent } from './component/internshipposts/internshipposts.component';
+import { PlacementPreparationComponent } from './component/placement-preparation/placement-preparation.component';
+import { InterviewPreparationComponent } from './component/interview-preparation/interview-preparation.component';
 
 
 
@@ -83,6 +86,9 @@ import { UserPlacementComponent } from './component/user-placement/user-placemen
     PlacementComponent,
     UserMockinterviewComponent,
     UserPlacementComponent,
+    InternshippostsComponent,
+    PlacementPreparationComponent,
+    InterviewPreparationComponent,
 
 
 
