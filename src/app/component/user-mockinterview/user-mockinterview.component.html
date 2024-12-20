@@ -1,74 +1,73 @@
-
 <div class="body">
-
-<div class="mock-interview-container">
-  <!-- Back button -->
-  <button
-    (click)="navigateToHomepage()"
-    class="back-button"
-    aria-label="Back to Homepage"
-  >
-    &larr;
-  </button>
+  <div class="mock-interview-container">
+    <!-- Back button -->
+    <button
+      (click)="navigateToHomepage()"
+      class="back-button"
+      aria-label="Back to Homepage"
+    >
+      &larr;
+    </button>
  
-  <!-- Placement Details Header -->
-  <h2>Mock Interview Details</h2>
+    <!-- Placement Details Header -->
+    <h2>Mock Interview Details</h2>
  
-  <!-- Error message -->
-  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+    <!-- Error message -->
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
  
-  <!-- Loading spinner -->
-  <div *ngIf="isLoading" class="loading">Loading mock interviews...</div>
+    <!-- Loading spinner -->
+    <div *ngIf="isLoading" class="loading">Loading mock interviews...</div>
  
-  <!-- Placements List -->
-  <li *ngFor="let interview of mockInterviews" class="mock-interview-item">
-    <!-- Wrapper for Summary and Details -->
-    <div class="mock-interview-item-wrapper">
-      <!-- Placement Summary -->
-      <div class="mock-interview-summary">
-        <p><strong>ID:</strong> {{ interview.id }}</p>
-        <p><strong>Description:</strong> {{ interview.text }}</p>
-        <button
-          (click)="onDetailsButtonClick(interview.id)"
-          class="details-button"
-        >
-          {{
-            selectedMockInterview === interview.id
-              ? "Close Details"
-              : "View Details"
-          }}
-        </button>
-      </div>
- 
-      <!-- Placement Details -->
-      <div
-        *ngIf="selectedMockInterview === interview.id"
-        class="mock-interview-details-container"
-      >
-        <h4>Details</h4>
-        <!-- <p><strong>ID:</strong> {{ placement.id }}</p> -->
-        <p><strong>Description:</strong> {{ interview.text }}</p>
-        <p>
-          <strong>Hyperlink:</strong>
-          <a
-            [href]="interview.hyperlink"
-            target="_blank"
-            rel="noopener noreferrer"
+    <!-- Placements List -->
+    <li *ngFor="let interview of mockInterviews" class="mock-interview-item">
+      <!-- Wrapper for Summary and Details -->
+      <div class="mock-interview-item-wrapper">
+        <!-- Placement Summary -->
+        <div class="mock-interview-summary">
+          <p><strong>ID:</strong> {{ interview.id }}</p>
+          <p><strong>Description:</strong> {{ interview.text }}</p>
+          <button
+            (click)="onDetailsButtonClick(interview.id)"
+            class="details-button"
           >
-            {{ interview.hyperlink }}
-          </a>
-        </p>
-      </div>
-    </div>
-  </li>
+            {{
+              selectedMockInterview === interview.id
+                ? "Close Details"
+                : "View Details"
+            }}
+          </button>
+        </div>
  
-  <!-- No Placements Available -->
-  <div
-    *ngIf="!isLoading && mockInterviews.length === 0"
-    class="no-mock-interview"
-  >
-    <p>No placements found.</p>
+        <!-- Placement Details -->
+        <div
+          *ngIf="selectedMockInterview === interview.id"
+          class="mock-interview-details-container"
+        >
+          <h4>Details</h4>
+          <!-- <p><strong>ID:</strong> {{ placement.id }}</p> -->
+          <p><strong>Description:</strong> {{ interview.text }}</p>
+          <p>
+            <strong>Hyperlink:</strong>
+            <a
+              [href]="interview.hyperlink"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {{ interview.hyperlink }}
+            </a>
+          </p>
+        </div>
+      </div>
+    </li>
+ 
+    <!-- No Placements Available -->
+    <div
+      *ngIf="!isLoading && mockInterviews.length === 0"
+      class="no-mock-interview"
+    >
+      <p>No placements found.</p>
+    </div>
   </div>
 </div>
-
-</div>
+ 
+ 

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApplyJobService } from 'src/app/service/apply-job.service';
 import { FormService } from 'src/app/service/form.service';
 
@@ -10,11 +11,37 @@ import { FormService } from 'src/app/service/form.service';
 export class AdminpanelComponent {
   forms: any[] = [];  // Array to hold the list of forms
   selectedForm: any = null;
+  adminId: number | null = null; // Initially null
+  errorMessage: string | null = null;
 
-  constructor(private formService: FormService, private applyJobService : ApplyJobService) {}
+  constructor(private formService: FormService, private applyJobService : ApplyJobService, private router :Router) {}
 
   ngOnInit(): void {
     this.fetchForms();
+    console.log(this.adminId,'Admin Id before getting from localStorage');
+
+      // Retrieve adminId from localStorage after login
+      const storedAdminId = localStorage.getItem('adminId');
+      if (storedAdminId) {
+        this.adminId = parseInt(storedAdminId, 10); // Convert to number
+      }
+  
+      if (this.adminId !== null) {
+        this.loadDetails(this.adminId);
+      } else {
+        // Handle case where adminId is not available, e.g., redirect to login page
+        this.errorMessage = 'You must be logged in to manage jobs.';
+        // Optionally redirect to the login page
+        // this.router.navigate(['/login']);
+      }
+  
+      console.log("AdminID:",this.adminId);
+  }
+
+  loadDetails(adminId : number): void{
+
+    
+
   }
 
   // Method to fetch all forms from the backend
@@ -53,4 +80,11 @@ export class AdminpanelComponent {
   }
   
 
+  navigateToEdit(): void {
+    if (this.adminId) {
+      this.router.navigate(['/editadmin', this.adminId]);
+    } else {
+      console.error('Invalid adminId:', this.adminId);
+    }
+  }
 }

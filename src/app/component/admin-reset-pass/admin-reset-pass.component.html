@@ -1,0 +1,58 @@
+<div class="body">
+  <div class="container">
+    <h2>Reset Password</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="text"
+          id="email"
+          class="form-control"
+          [(ngModel)]="email"
+          name="email"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="otp">OTP</label>
+        <input
+          type="text"
+          id="otp"
+          class="form-control"
+          [(ngModel)]="otp"
+          name="otp"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="password">New Password</label>
+        <input
+          type="password"
+          id="password"
+          class="form-control"
+          [(ngModel)]="password"
+          name="password"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="confirmPassword">Confirm New Password</label>
+        <input
+          type="password"
+          id="confirmPassword"
+          class="form-control"
+          [(ngModel)]="confirmPassword"
+          name="confirmPassword"
+          required
+        />
+      </div>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="!otp || !password || password !== confirmPassword"
+      >
+        Reset Password
+      </button>
+    </form>
+  </div>
+</div>

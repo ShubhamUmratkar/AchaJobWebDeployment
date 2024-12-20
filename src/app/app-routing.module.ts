@@ -41,6 +41,14 @@ import { InternshippostsComponent } from './component/internshipposts/internship
 import { PlacementPreparationComponent } from './component/placement-preparation/placement-preparation.component';
 import { InterviewPreparationComponent } from './component/interview-preparation/interview-preparation.component';
 import { AllcoursesComponent } from './component/allcourses/allcourses.component';
+import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './component/reset-password/reset-password.component';
+import { AdminForgetComponent } from './component/admin-forget/admin-forget.component';
+import { AdminResetPassComponent } from './component/admin-reset-pass/admin-reset-pass.component';
+import { EditAdminComponent } from './component/edit-admin/edit-admin.component';
+import { CareerAdviceComponent } from './component/career-advice/career-advice.component';
+import { GuidanceAdviceComponent } from './component/guidance-advice/guidance-advice.component';
+import { CreateResumeComponent } from './component/create-resume/create-resume.component';
 
 
 
@@ -87,6 +95,16 @@ const routes: Routes = [
   {path: 'placement-preparation', component:PlacementPreparationComponent},
   {path: 'interview-preparation', component:InterviewPreparationComponent},
   {path: 'allcourses', component:AllcoursesComponent},
+  {path:'forgot-password',component:ForgotPasswordComponent},
+  { path: 'reset-password', component: ResetPasswordComponent },
+  {path:'admin-forget',component:AdminForgetComponent},
+  {path:'admin-reset-pass', component:AdminResetPassComponent},
+
+
+  {path:'career-advice',component:CareerAdviceComponent},
+  {path:'Guidance-advice',component:GuidanceAdviceComponent},
+  {path:'create-resume',component:CreateResumeComponent},
+  { path: 'editadmin/:id', component: EditAdminComponent },
 
 
 ];

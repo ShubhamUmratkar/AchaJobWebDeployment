@@ -40,10 +40,8 @@ export class AdminService {
    * @param adminId - Admin ID
    * @returns Observable<Admin>
    */
-  getAdminById(adminId: number): Observable<Admin> {
-    return this.http.get<Admin>(`${NAV_URL}/admin/get/${adminId}`).pipe(
-      catchError(this.handleError('getAdminById'))
-    );
+  getAdminById(adminId: number): Observable<any> {
+    return this.http.get(`${NAV_URL}/admin/getAdminById/${adminId}`).pipe(catchError(this.handleError('getAdminById')));
   }
 
 
@@ -133,4 +131,29 @@ export class AdminService {
     return this.http.delete(`${NAV_URL}/admin/placement/deletePlacement/${id}`);
   }
 
+  forgotPassword(email: string): Observable<any> {
+    return this.http.post(`${NAV_URL}/admin/admin/forgotPassword/${email}`, {});
+  }
+  resetPassword(email: string, passwordResetRequest: any): Observable<any> {
+    return this.http.post(`${NAV_URL}/admin/admin/resetPassword/${email}`, passwordResetRequest);
+  }
+
+
+    // Method to get admin by ID
+    getAdminByIdInBackEnd(adminId: number): Observable<Admin> {
+      return this.http.get<Admin>(`${NAV_URL}/admin/getAdminById/${adminId}`);
+    }
+  
+  /**
+   * Update admin by ID
+   * @param adminId - Admin ID
+   * @param adminData - Updated admin data
+   */
+  updateAdmin(adminId: number, adminData: Partial<Admin>): Observable<any> {
+    const url = `${NAV_URL}/admin/updateAdmin/${adminId}`;
+    return this.http.put(url, adminData).pipe(catchError(this.handleError('updateAdmin')));
+  }
+
+  
+  
 }

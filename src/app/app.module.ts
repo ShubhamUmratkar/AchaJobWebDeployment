@@ -45,6 +45,16 @@ import { InternshippostsComponent } from './component/internshipposts/internship
 import { PlacementPreparationComponent } from './component/placement-preparation/placement-preparation.component';
 import { InterviewPreparationComponent } from './component/interview-preparation/interview-preparation.component';
 import { AllcoursesComponent } from './component/allcourses/allcourses.component';
+import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './component/reset-password/reset-password.component';
+import { AdminForgetComponent } from './component/admin-forget/admin-forget.component';
+import { AdminResetPassComponent } from './component/admin-reset-pass/admin-reset-pass.component';
+import { EditAdminComponent } from './component/edit-admin/edit-admin.component';
+import { PopupService } from '@ng-bootstrap/ng-bootstrap/util/popup';
+import { PopupComponent } from './component/popup/popup.component';
+import { CreateResumeComponent } from './component/create-resume/create-resume.component';
+import { GuidanceAdviceComponent } from './component/guidance-advice/guidance-advice.component';
+import { CareerAdviceComponent } from './component/career-advice/career-advice.component';
 
 
 
@@ -91,6 +101,17 @@ import { AllcoursesComponent } from './component/allcourses/allcourses.component
     PlacementPreparationComponent,
     InterviewPreparationComponent,
     AllcoursesComponent,
+    ForgotPasswordComponent,
+    ResetPasswordComponent,
+    AdminForgetComponent,
+    AdminResetPassComponent,
+    EditAdminComponent,
+
+
+    PopupComponent,
+    CreateResumeComponent,
+    GuidanceAdviceComponent,
+    CareerAdviceComponent,
 
 
 

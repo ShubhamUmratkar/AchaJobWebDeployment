@@ -1,0 +1,34 @@
+<div class="body">
+  <div class="container">
+    <h2>Forgot Password</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          class="form-control"
+          [(ngModel)]="email"
+          name="email"
+          placeholder="Enter your Registered email"
+          required
+        />
+      </div>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="!email || buttonState === 'Sending OTP'"
+      >
+        <ng-container *ngIf="buttonState === 'Sending OTP'; else defaultText">
+          <span
+            class="spinner-border spinner-border-sm"
+            role="status"
+            aria-hidden="true"
+          ></span>
+          Sending OTP
+        </ng-container>
+        <ng-template #defaultText>{{ buttonState || "Submit" }}</ng-template>
+      </button>
+    </form>
+  </div>
+</div>

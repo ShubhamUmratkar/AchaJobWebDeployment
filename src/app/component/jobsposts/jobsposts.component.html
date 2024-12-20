@@ -52,6 +52,16 @@
       </select>
     </div>
 
+    <!-- Employment Type Filter -->
+<div class="filter-group">
+  <label for="employmentType">Employment Type</label>
+  <select id="employmentType" [(ngModel)]="filters.employmentType">
+    <option value="">Select Employment Type</option>
+    <option value="Full Time">Full-Time</option>
+    <option value="Part Time">Part-Time</option>
+  </select>
+</div>
+
     <!-- Apply Filters Button -->
     <button class="filter-button" (click)="applyFilters()">Apply Filters</button>
 <br>
@@ -81,7 +91,9 @@
           <p><strong>Salary:</strong> ₹{{ job.salary }}</p>
           <p><strong>Experience:</strong> {{ job.experience }}</p>
           <p><strong>Work Mode:</strong> {{ job.workModel }}</p>
+          <p><strong>Job Description:</strong> {{ job.employmentType }}</p>
           <p><strong>Job Description:</strong> {{ job.jobDescription }}</p>
+
           <!-- Apply Now Button -->
           <button class="apply-button" (click)="job.id ? onApplyNow(job.id) : null">Apply Now</button>
         </div>

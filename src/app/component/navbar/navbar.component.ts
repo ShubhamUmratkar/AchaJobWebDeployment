@@ -224,16 +224,16 @@ export class NavbarComponent implements OnInit, AfterViewInit{
           {
             title: 'Resume Generator',
             items: [
-              { name: 'Create Resume', link: '' },
-              { name: 'Edit Resume', link: '' },
+              { name: 'Create Resume', link: '/create-resume' },
+              // { name: 'Edit Resume', link: '' },
             ],
             isOpen: false,
           },
           {
             title: 'Career Guide',
             items: [
-              { name: 'Career Advice', link: '' },
-              { name: 'Guidance Articles', link: '' },
+              { name: 'Career Advice', link: '/career-advice' },
+              { name: 'Guidance Advice', link: '/Guidance-advice' },
             ],
             isOpen: false,
           },

@@ -11,7 +11,6 @@ import { JobService } from 'src/app/service/job.service';
 export class JobspostsComponent {
 
 
-  
   jobs: Job[] = [];  // All jobs fetched from the backend
   filteredJobs: Job[] = [];  // Jobs after applying the filter
   loading = true;  // A loading indicator to show while data is being fetched
@@ -22,7 +21,8 @@ export class JobspostsComponent {
     minSalary: null,
     maxSalary: null,
     workMode: '',
-    experience: ''
+    experience: '',
+    employmentType: '' // Add this to the filter object
   };
 
   constructor(private jobService: JobService, private router: Router) {}
@@ -65,7 +65,6 @@ export class JobspostsComponent {
   
       // Work Mode Filter
       if (this.filters.workMode) {
-        // Ensure the filter handles all work modes, including "WFH" and "WFO"
         const validWorkModes = ["Remote", "On-site", "Hybrid", "WFH", "WFO"];
         if (validWorkModes.includes(this.filters.workMode)) {
           if (job.workModel !== this.filters.workMode) {
@@ -95,6 +94,12 @@ export class JobspostsComponent {
           }
         }
       }
+
+      // Employment Type Filter (new filter)
+      if (this.filters.employmentType && job.employmentType !== this.filters.employmentType) {
+        matches = false;
+      }
+  
   
       return matches;
     });
@@ -114,7 +119,8 @@ export class JobspostsComponent {
       minSalary: null,
       maxSalary: null,
       workMode: '',
-      experience: ''
+      experience: '',
+      employmentType: '' // Reset employmentType when clearing filters
     };
     this.filteredJobs = this.jobs;  // Show all jobs again after clearing filters
   }

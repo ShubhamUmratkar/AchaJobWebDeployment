@@ -1,0 +1,199 @@
+/* Container styling */
+.body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background: transparent;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Heading styling */
+h2 {
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+  animation: fadeInUp 1s ease-out;
+}
+
+/* Form group styling */
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Label styling */
+label {
+  font-size: 14px;
+  color: #555;
+  display: block;
+  margin-bottom: 5px;
+  transition: color 0.3s ease;
+}
+
+/* Input fields styling */
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+/* Input focus effect */
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border-color: #007bff;
+  outline: none;
+  transform: scale(1.05);
+}
+
+/* Button styling */
+button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Button hover effect */
+button[type="submit"]:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* Button disabled state */
+button[type="submit"]:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Input hover effect */
+input[type="text"]:hover,
+input[type="password"]:hover {
+  border-color: #007bff;
+  transform: scale(1.02);
+}
+
+/* Label hover effect */
+label:hover {
+  color: #007bff;
+}
+
+/* Special effect for form submission */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Special effect for heading */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Media queries for responsiveness */
+
+/* Small screens (mobile phones) */
+@media (max-width: 480px) {
+  .container {
+    margin: 20px;
+    padding: 15px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  button[type="submit"] {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+
+/* Medium screens (tablets) */
+@media (max-width: 768px) {
+  .container {
+    margin: 30px;
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    font-size: 15px;
+    padding: 9px;
+  }
+
+  button[type="submit"] {
+    padding: 11px;
+    font-size: 15px;
+  }
+}
+
+/* Larger screens (desktops) */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 25px;
+  }
+
+  h2 {
+    font-size: 26px;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    font-size: 18px;
+    padding: 12px;
+  }
+
+  button[type="submit"] {
+    padding: 15px;
+    font-size: 18px;
+  }
+}

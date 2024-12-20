@@ -15,6 +15,7 @@ interface mockInterviews {
   styleUrls: ['./user-mockinterview.component.css']
 })
 export class UserMockinterviewComponent implements OnInit {
+ 
   mockInterviews: any[] = [];
   selectedMockInterview: any = null; // To store details of a selected placement
   isLoading: boolean = true;
@@ -81,3 +82,6 @@ export class UserMockinterviewComponent implements OnInit {
     this.router.navigate(['/']); // Adjust route to your homepage
   }
 }
+ 
+ 
+ 

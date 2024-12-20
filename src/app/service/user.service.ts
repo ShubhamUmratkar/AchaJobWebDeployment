@@ -6,6 +6,14 @@ import { environment } from '../environment/environment';
 
 const NAV_URL = environment.apiUrl;
 
+// Define the PasswordResetRequest interface
+export interface PasswordResetRequest {
+  password: string;
+  confirmPassword: string;
+  otp: string;
+}
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -41,7 +49,7 @@ export class UserService {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     const body = { userName, password };
   
-    return this.http.post(`${NAV_URL}/users/user/login`, body, { headers })
+    return this.http.post(`${NAV_URL}/users/login`, body, { headers })
       .pipe(
         map((response: any) => {
           console.log('Login response:', response);
@@ -98,6 +106,23 @@ export class UserService {
  updateUserProfile(userId: number, user: User): Observable<string> {  // Changed return type to Observable<string>
   return this.http.put<string>(`${NAV_URL}/users/user/update/${userId}`, user);
 }
+
+
+forgotPassword(userEmail: string): Observable<any> {
+  return this.http.post(`${NAV_URL}/users/user/forgotPassword/${userEmail}`, {});
+}
   
+
+  resetPassword(userEmail: string, request: PasswordResetRequest): Observable<any> {
+    const url = `${NAV_URL}/users/user/resetPassword/${userEmail}`;
+    
+    // Prepare the headers if necessary
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+
+    // Send POST request to the backend with the user email and request body
+    return this.http.post(url, request, { headers });
+  }
   
 }

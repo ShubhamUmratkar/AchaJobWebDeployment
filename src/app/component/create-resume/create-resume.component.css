@@ -1,0 +1,88 @@
+/* General Reset */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+  }
+
+  .body{
+    background-color: white;
+  }
+  
+  /* Container Styling */
+  .resume-tips-container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Heading Styles */
+  .resume-tips-container h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #2c3e50;
+  }
+  
+  .resume-tips-container h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #433d3d;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 5px;
+  }
+  
+  /* List Styling */
+  .resume-section ul {
+    margin: 10px 0 20px 20px;
+    padding: 0;
+    list-style-type: disc;
+  }
+  
+  .resume-section ul li {
+    margin: 10px 0;
+    line-height: 1.6;
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  /* Section Styling */
+  .resume-section {
+    margin-bottom: 30px;
+    padding: 15px;
+    border-left: 4px solid #3498db;
+    background: #f4f9fc;
+    border-radius: 4px;
+    transition: transform 0.3s, background-color 0.3s;
+  }
+  
+  .resume-section:hover {
+    transform: translateY(-3px);
+    background-color: #eaf5fc;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .resume-tips-container {
+      padding: 15px;
+    }
+  
+    .resume-tips-container h1 {
+      font-size: 2rem;
+    }
+  
+    .resume-tips-container h2 {
+      font-size: 1.5rem;
+    }
+  
+    .resume-section ul li {
+      font-size: 0.9rem;
+    }
+  }
+  

@@ -4,6 +4,7 @@
 />
 
 
+<!-- <div class="body"> -->
 <div class="edit-profile-container">
     <h2>Edit Profile</h2>
     <form (ngSubmit)="onSubmit()">
@@ -57,6 +58,7 @@
           placeholder="Enter your mobile number"
         />
       </div>
+      <!-- Password input (only empty and editable) -->
       <div style="position: relative;">
         <label for="password">Password</label>
         <input
@@ -73,6 +75,7 @@
         ></i>
       </div>
       
+      <!-- Confirm password input (only empty and editable) -->
       <div style="position: relative;">
         <label for="confirmPassword">Confirm Password</label>
         <input
@@ -93,4 +96,4 @@
       <button type="button" (click)="cancel()">Cancel</button>
     </form>
   </div>
-  
+<!-- </div> -->

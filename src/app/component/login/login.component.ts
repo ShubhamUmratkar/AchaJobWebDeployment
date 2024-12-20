@@ -68,7 +68,7 @@ export class LoginComponent {
   }
 
   navigateToForgotPassword() {
-    // Implement forgot password navigation logic
+    this.router.navigate(['/forgot-password']); // Replace with your actual route
   }
 
   navigateToHome() {

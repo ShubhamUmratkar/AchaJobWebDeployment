@@ -1,0 +1,21 @@
+<div class="popup-container" *ngIf="isPopupVisible">
+    <div class="popup-content">
+      <!-- Close button at the top-right corner -->
+      <button class="close-btn" (click)="closePopup()">&#10005;</button>
+      <h2>What do you want to do?</h2>
+      <div class="options">
+        <!-- Option 1: Image Click for Job -->
+        <div class="option" (click)="selectOption('job')">
+          <img src="../../../assets/I want a job.jpg" alt="I want a job">
+          <!-- <p>I want a job</p> -->
+        </div>
+  
+        <!-- Option 2: Image Click for Hire -->
+        <div class="option" (click)="selectOption('hire')">
+          <img src="../../../assets/I want to hire people.jpg" alt="I want to hire people">
+          <!-- <p>I want to hire people</p> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  
