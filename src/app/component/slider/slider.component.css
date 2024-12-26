@@ -1,3 +1,8 @@
+.body {
+  background: transparent;
+}
+
+
 .slider-container {
   width: 100%; /* Full width of the viewport */
   max-width: 1200px; /* Optional max width */

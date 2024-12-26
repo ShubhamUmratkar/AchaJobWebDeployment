@@ -1,11 +1,5 @@
-<body style="margin: 0; 
-padding: 0; 
-height: 35vh; 
-width: 100%;
-background: transparent;
+<body class="body">
 
-background-repeat: no-repeat; 
-background-attachment: fixed;">
 <div class="slider-container">
   <div class="slider" [ngStyle]="{'transform': 'translateX(' + translateX + 'px)'}">
     <img *ngFor="let image of images" [src]="image" class="slider-image" />

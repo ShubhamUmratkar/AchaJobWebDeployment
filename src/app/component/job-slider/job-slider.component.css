@@ -54,6 +54,7 @@ h2 {
   justify-content: center;
   gap: 150px; /* Consistent gap between each card */
   transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  
 }
  
 .job-card {

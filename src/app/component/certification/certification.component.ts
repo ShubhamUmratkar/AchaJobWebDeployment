@@ -36,11 +36,10 @@ export class CertificationComponent {
 
 stars = Array(5).fill('★');
 
-// Method to get displayed courses based on the current index
-displayedCourses() {
-  return this.courses.slice(this.currentIndex, this.currentIndex + this.itemsPerSlide);
+ // Method to get the first 3 courses to display
+ displayedCourses() {
+  return this.courses.slice(0, this.itemsPerSlide);
 }
-
 nextCourse() {
   this.currentIndex = (this.currentIndex < this.courses.length - 1) ? this.currentIndex + 1 : 0;
 }

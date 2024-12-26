@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, HostListener, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthServiceService } from 'src/app/service/auth-service.service';
 import * as bootstrap from 'bootstrap';
@@ -16,6 +16,7 @@ export class NavbarComponent implements OnInit, AfterViewInit{
   isResponsiveMode = false; // Tracks responsive mode state
   navItems: any[] = []; // Array to hold navigation items
   isLoggedIn = false; // User authentication state
+  @ViewChild('certificationSection') certificationSection!: ElementRef;
 
   constructor(private router: Router, private userService: UserService) {}
 
@@ -294,14 +295,28 @@ export class NavbarComponent implements OnInit, AfterViewInit{
   }
 
   handleSubItemClick(subItemName: string): void {
-    console.log(`Sub-item clicked: ${subItemName}`);
+    if (subItemName === 'Email' || subItemName === 'Telecom Number') {
+      this.scrollToFooter();
+    }
   }
-
   logout(): void {
     this.userService.logout();
     alert('Logout Successfully.');
     this.router.navigate(['/']);
   }
 
+
+  scrollToSection(subItemName?: string): void {
+    if (subItemName === 'Email' || subItemName === 'Telecom Number') {
+      this.scrollToFooter();
+    }
+  }
+ 
+  scrollToFooter(): void {
+    const footerElement = document.getElementById('footer-section'); // Use the footer section ID
+    if (footerElement) {
+      footerElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
   
 }

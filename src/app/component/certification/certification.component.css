@@ -1,37 +1,26 @@
+/* Course Slider Styling */
 .course-slider {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-
-.slider-button {
-  /* background-color: #4682c6;  */
-  color: rgb(0, 0, 0);
-  border: none;
-  border-radius: 5px;
-  padding: 10px;
-  cursor: pointer;
-  font-size: 24px;
-  background: transparent;
-}
-
-.slider-button:hover {
-  /* background-color: #4d8dc9; */
-  transform: scale(1.35);
+  text-align: center;
+  width: 100%;
 }
 
 .course-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Three courses per slide */
-  gap: 30px; /* Gap between cards */
-  padding: 50px 20px;
-  background: transparent;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  gap: 20px;
+  width: 100%;
+  margin-bottom: 40px;
+
 }
 
 .course-card {
   background: linear-gradient(135deg, #84e5eb, #78d2e4, #66b5d9, #579dcf, #559acf, #4d8dc9, #4682c6, #427cc3);
   color: #fff;
-  padding: 30px;
+  padding: 20px;
   height: 350px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -42,27 +31,56 @@
   transform: scale(1.05);
 }
 
-.course-duration {
-  font-size: 30px;
-  margin-top: 10px;
-  color: #e0e0e0;
+.course-title {
+  font-size: 1.5rem;
 }
 
-.course-stars {
-  color: gold;
-  font-size: 30px;
-  margin: 5px 0;
+.course-description {
+  font-size: 1.1rem;
+  color: #ddd;
 }
 
+.course-duration,
 .learners {
-  font-size: 20px;
+  font-size: 1.2rem;
   color: #e0e0e0;
-  margin-top: 10px;
 }
 
-/* Responsive adjustments for smaller screens */
+/* View More Button Styling */
+.view-more-button {
+  padding: 10px 20px;
+  background-color: #4682c6;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  position: absolute; /* Position it relative to its container */
+  right: 20px; /* Move it to the right side */
+
+}
+
+.view-more-button:hover {
+  background-color: #4d8dc9;
+}
+
+.view-more-link {
+  text-decoration: none;
+  margin-top: 20px;
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
   .course-container {
-    grid-template-columns: 1fr; /* Stacks the cards on smaller screens */
+    grid-template-columns: 1fr; /* Single column for mobile */
+  }
+
+  /* Adjust position of View More button on mobile */
+  .view-more-button {
+    position: relative; /* Make it normal flow on mobile */
+    right: 0; /* Remove the right positioning */
+    bottom: 0; /* Reset bottom position */
+    font-size: 1rem; /* Slightly smaller font size on mobile */
   }
 }

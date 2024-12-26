@@ -2,20 +2,21 @@
   <a href="#" class="navbar-logo">
     <img src="../../../assets/AchaJobs.png" alt="Company Logo" />
   </a>
-
+ 
   <!-- Hamburger Icon for Mobile View -->
   <button class="hamburger-icon" (click)="toggleNavbar()">
     <span class="bar"></span>
     <span class="bar"></span>
     <span class="bar"></span>
   </button>
-
+ 
   <!-- Navigation Items (Collapsible in Responsive Mode) -->
   <ul class="nav-items" [class.open]="isNavbarOpen">
     <li *ngFor="let item of navItems" class="nav-item">
-      <a (click)="toggleItem(item)"
-        >{{ item.label }} <span *ngIf="isResponsiveMode"></span
-      ></a>
+      <a (click)="toggleItem(item)">
+        {{ item.label }}
+        <span *ngIf="isResponsiveMode"></span>
+      </a>
       <div class="dropdown" *ngIf="item.isOpen || !isResponsiveMode">
         <div class="dropdown-category" *ngFor="let category of item.categories">
           <!-- Dropdown Title -->
@@ -24,7 +25,7 @@
             <span class="dropdown-icon"></span>
           </h3>
           <h3 *ngIf="!isResponsiveMode">{{ category.title }}</h3>
-
+ 
           <!-- Secondary Dropdown (Visible When Expanded in Responsive Mode) -->
           <div
             class="secondary-dropdown"
@@ -43,9 +44,7 @@
       </div>
     </li>
   </ul>
-
-  
-
+ 
   <!-- Conditional Login/Logout Button -->
   <button class="login-button" *ngIf="!isLoggedIn" routerLink="/login">
     Login

@@ -1,22 +1,19 @@
 <div class="course-slider">
-  <button (click)="prevCourse()" class="slider-button">❮</button>
-
-  <div class="course-container" id="scrollspyHeading2">
-    <div class="course-card" *ngFor="let course of displayedCourses()">
+  <div class="course-container">
+    <!-- Display only the first 3 courses initially -->
+    <div class="course-card" *ngFor="let course of displayedCourses(); let i = index">
       <h2 class="course-title">{{ course.title }}</h2>
       <p class="course-description">{{ course.description }}</p>
-      
-      <!-- Duration -->
       <p class="course-duration">{{ course.duration }}</p>
-      
-      <!-- <p class="course-stars">
-        <span *ngFor="let star of stars" class="gold-star">{{ star }}</span>
-      </p> -->
-      
-      <!-- Learners count --> 
       <p class="learners">{{ course.learners }} Learners</p>
     </div>
+    
+  <!-- View More Button -->
+  <a routerLink="/allcourses" class="view-more-link">
+    <button class="view-more-button">View More</button>
+    
+  </a>
+
   </div>
 
-  <button (click)="nextCourse()" class="slider-button">❯</button>
 </div>
