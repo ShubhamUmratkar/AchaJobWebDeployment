@@ -18,6 +18,7 @@ h1 {
   color: #007bff;
 }
  
+ 
 /* Sidebar */
 .sidebar {
   background-color: #ffffff;
@@ -273,4 +274,30 @@ form button[type="button"]:hover {
   .mock-item a {
     font-size: 0.9rem; /* Scale down link text */
   }
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+ 
+.btn-primary {
+  background-color: #007bff;
+}
+ 
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+ 
+.btn-secondary {
+  background-color: #6c757d;
+}
+ 
+.btn-secondary:hover {
+  background-color: #495057;
 }

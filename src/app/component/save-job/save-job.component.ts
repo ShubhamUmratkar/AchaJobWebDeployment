@@ -34,6 +34,7 @@ export class SaveJobComponent {
   errorMessage: string | null = null;
   adminId: number | null = null; // Initially null
   today:string = '';
+  sidebarOpen = false;
 
   jobs: Job[] = [];
 
@@ -164,5 +165,10 @@ export class SaveJobComponent {
 
   editJob(job: Job): void {
     this.job = { ...job }; // Populate the form with job data for editing
+  }
+
+
+  toggleSidebar() {
+    this.sidebarOpen = !this.sidebarOpen;
   }
 }

@@ -57,30 +57,6 @@ textarea {
   min-height: 100px;
 }
  
-button {
-  display: inline-block;
-  padding: 0.8rem 2rem;
-  margin: 1rem 0.5rem;
-  background: linear-gradient(135deg, #4caf50, #45a049);
-  color: white;
-  border: none;
-  border-radius: 20px;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
- 
-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
- 
-button[disabled] {
-  background: #ccc;
-  cursor: not-allowed;
-}
- 
 /* Alerts */
 .alert {
   padding: 1rem;
@@ -163,8 +139,8 @@ table button:last-child {
 table button:last-child:hover {
   background: linear-gradient(135deg, #b71c1c, #8e0000);
 }
-
-
+ 
+ 
 /* Sidebar styles */
 .sidebar {
   background-color: #ffffff;
@@ -175,37 +151,37 @@ table button:last-child:hover {
   top: 0;
   color: #fff;
   }
-  
+ 
   .sidebar .text-center {
   text-align: center;
   }
-  
+ 
   .sidebar .text-center img {
   max-width: 150px;
   border-radius: 50%;
   }
-  
+ 
   .sidebar .text-center h5 {
   margin-top: 10px;
   font-size: 1.5rem; /* Increase heading font size */
   }
-  
+ 
   .sidebar hr {
   border-top: 1px solid #fff;
   margin: 20px 0;
   }
-  
+ 
   .sidebar .nav {
   display: flex;
   flex-direction: column;
   margin-left: 2rem;
   margin-right: 2rem;
   }
-  
+ 
   .sidebar .nav-item {
   margin-bottom: 1rem;
   }
-  
+ 
   .sidebar .nav-link {
   text-decoration: none;
   color: #2c3e50;
@@ -214,26 +190,26 @@ table button:last-child:hover {
   font-size: 1.25rem; /* Increased font size for nav links */
   transition: all 0.3s ease;
   }
-  
+ 
   .sidebar .nav-link:hover {
   color: #007bff;
   background: #f0f4f8;
   }
-  
+ 
   .sidebar .nav-link i {
   font-size: 1.3rem; /* Increase the size of icons */
   margin-right: 10px; /* Add space between icon and text */
   }
-  
+ 
   .sidebar .text-warning {
   color: #ffc107;
   }
-  
+ 
   .sidebar .text-info {
   color: #17a2b8;
   }
-  
-  
+ 
+ 
   /* Sidebar responsive styles */
   @media (max-width: 768px) {
   .sidebar {
@@ -242,42 +218,42 @@ table button:last-child:hover {
     padding-right: 10px;
     position: relative;
   }
-  
+ 
   .sidebar .nav {
     margin: 0;
     padding: 0;
   }
-  
+ 
   .sidebar .nav-link {
     font-size: 1rem;
     padding: 0.75rem;
   }
-  
+ 
   .sidebar .text-center img {
     max-width: 100px;
   }
   }
-  
-  
+ 
+ 
   .nav {
   list-style: none; /* Remove default list styling */
   padding: 0;
   margin: 0;
   }
-  
+ 
   .nav-item {
   margin-right: 20px; /* Adjust spacing between items */
   }
-  
+ 
   .nav-link {
   display: flex;
   align-items: center; /* Ensures the icon and text align properly */
   }
-  
+ 
   .nav-item:last-child {
   margin-right: 0; /* Remove margin from the last item */
   }
-  
+ 
 /* Responsive Adjustments */
 @media (max-width: 992px) {
   .sidebar {
@@ -346,4 +322,160 @@ table button:last-child:hover {
     font-size: 0.9rem;
     padding: 0.4rem;
   }
+}
+
+/* Sidebar Adjustments for Desktop */
+@media (min-width: 1200px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px; /* Fixed width for the sidebar */
+    height: 100vh; /* Full height */
+    padding: 20px; /* Consistent padding */
+    background-color: #ffffff; /* White background for clarity */
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    z-index: 1000; /* Ensure it stays on top */
+    overflow-y: auto; /* Add vertical scrollbar if content overflows */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+  }
+ 
+  /* Adjust the scrollbar appearance for better aesthetics */
+  .sidebar::-webkit-scrollbar {
+    width: 8px;
+  }
+ 
+  .sidebar::-webkit-scrollbar-thumb {
+    background: #cccccc; /* Light gray thumb */
+    border-radius: 4px;
+  }
+ 
+  .sidebar::-webkit-scrollbar-thumb:hover {
+    background: #b3b3b3; /* Darker gray on hover */
+  }
+ 
+  .sidebar::-webkit-scrollbar-track {
+    background: #f9f9f9; /* Light track */
+  }
+}
+ 
+ 
+/* Form Adjustments for Desktop */
+@media (min-width: 1200px) {
+  .form-container {
+    margin-left: 320px; /* Offset to avoid overlap with the sidebar */
+    max-width: calc(100% - 300px); /* Adjust width to occupy more space */
+    padding: 3rem; /* Increased padding for a spacious look */
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Maintain visual consistency */
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* Increased gap for better spacing between fields */
+  }
+ 
+  .form-container input,
+  .form-container textarea,
+  .form-container select {
+    font-size: 1.2rem; /* Slightly larger font for better readability */
+    padding: 1.2rem 1.5rem; /* Larger padding for bigger input fields */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+  }
+ 
+  .form-container textarea {
+    min-height: 150px; /* Increase minimum height for larger text areas */
+  }
+ 
+  .form-container button {
+    padding: 1.2rem 3rem; /* Larger button size */
+    font-size: 1.3rem; /* Slightly larger font size for buttons */
+    border-radius: 25px; /* More rounded for a modern look */
+  }
+}
+ 
+ 
+ 
+/* Jobs List Adjustments for Desktop */
+@media (min-width: 1200px) {
+  .jobs-list {
+    margin-left: 320px; /* Offset to align with the sidebar */
+    max-width: calc(100% - 340px); /* Ensure it fits within the remaining space */
+    padding: 2rem; /* Adequate padding for better spacing */
+    background: white;
+    border-radius: 15px; /* Smooth rounded corners */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    overflow-x: auto; /* Allow horizontal scrolling for tables if needed */
+  }
+ 
+  .jobs-list table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+  }
+ 
+  .jobs-list table th,
+  .jobs-list table td {
+    padding: 1rem; /* Increased padding for readability */
+    font-size: 1rem; /* Maintain readability */
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+  }
+ 
+  .jobs-list table th {
+    background-color: #f3f4f6;
+    font-weight: 600;
+    color: #555;
+  }
+ 
+  .jobs-list table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+ 
+  .jobs-list table tr:hover {
+    background-color: #f1f8e9;
+  }
+ 
+  .jobs-list table button {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    background: linear-gradient(135deg, #1e88e5, #1565c0);
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+ 
+  .jobs-list table button:hover {
+    background: linear-gradient(135deg, #1565c0, #0d47a1);
+  }
+}
+
+
+.btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+ 
+.btn-primary {
+  background-color: #007bff;
+}
+ 
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+ 
+.btn-secondary {
+  background-color: #6c757d;
+}
+ 
+.btn-secondary:hover {
+  background-color: #495057;
 }

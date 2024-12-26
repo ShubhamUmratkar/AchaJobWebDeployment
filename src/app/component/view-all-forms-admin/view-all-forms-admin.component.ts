@@ -14,6 +14,7 @@ export class ViewAllFormsAdminComponent {
   internships: any[] = []; // Internships list
   selectedForm: any = null;
   adminId: number | null = null; // Initially null
+  sidebarOpen = false;
 
   constructor(private formService: FormService, private jobService: JobService,private internshipsService: InternshipService) {}
 

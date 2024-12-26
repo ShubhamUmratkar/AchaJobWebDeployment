@@ -14,11 +14,26 @@ export class PlacementComponent implements OnInit {
   };
   isEditing: boolean = false;
   editingPlacementId: number | null = null;
+  sidebarOpen = false;
+  adminId: number = 0; // Initially null
+  errorMessage: string | null = null;
 
   constructor(private placementService: AdminService) {}
 
   ngOnInit(): void {
     this.fetchAllPlacements();
+
+      // Retrieve adminId from localStorage after login
+      const storedAdminId = localStorage.getItem('adminId');
+      if (storedAdminId) {
+        this.adminId = parseInt(storedAdminId, 10); // Convert to number
+ 
+      } else {
+        // Handle case where adminId is not available, e.g., redirect to login page
+        this.errorMessage = 'You must be logged in to manage jobs.';
+        // Optionally redirect to the login page
+        // this.router.navigate(['/login']);
+      }
   }
 
   fetchAllPlacements() {

@@ -4,14 +4,19 @@
   rel="stylesheet"
 />
 
-<div class="container-fluid">
+<div class="container-fluid" [class.sidebar-open-content]="sidebarOpen">
   <div class="row">
     <!-- Sidebar -->
-    <nav class="col-4 col-md-4 col-lg-2 sidebar sticky-top">
+    <nav class="col-4 col-md-4 col-lg-2 sidebar sticky-top" [class.sidebar-open]="sidebarOpen">
       <div class="text-center my-3">
         <img src="../../../assets/AchaJobs.png" width="150" alt="" />
-        <h5 class="text-black">Admin</h5>
       </div>
+      
+      <!-- Edit Admin Button in Sidebar -->
+      <div class="d-flex justify-content-center my-1">
+        <button class="btn btn-primary" [routerLink]="['/editadmin', adminId]">Edit Admin</button>
+      </div>
+      
       <hr />
       <ul class="nav flex-column mx-0">
         <li class="nav-item mb-2">
@@ -70,35 +75,7 @@
 
     <!-- Main content -->
     <div class="col-8 col-md-8 col-lg-10 p-0">
-      <!-- topbar start -->
-      <div class="d-flex justify-content-between align-items-center topbar">
-        <div class="d-flex gap-2 align-items-center">
-          <i class="fa-solid fa-bars fa-xl"></i>
-          <!-- <img src="https://openfuturetechnologies.com/images/logoimg.png" width="150" alt="" /> -->
-        </div>
-        <div>
-          <!-- <i class="fas fa-bell me-3"></i> -->
-          <span
-            class="dropdown-toggle p-2"
-            type="button"
-            id="dropdownMenuButton"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            <img
-              src="../../../assets/userimage.png"
-              class="rounded-circle img-fluid"
-              alt="User"
-              style="width: 40px; height: 40px"
-            />
-            Admin
-          </span>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <!-- <li><a class="dropdown-item" href="#">My Profile</a></li> -->
-            <li><a class="dropdown-item" href="#">Log Out</a></li>
-          </ul>
-        </div>
-      </div>
+    
 
       <!-- internship.component.html -->
 
@@ -208,4 +185,3 @@
           </tbody>
         </table>
 </div>
-

@@ -138,6 +138,7 @@ export class HomepageComponent {
       } | null = null;
     
       showProfileDropdown: boolean = false;
+      isPopupVisible: boolean = true; // Show popup only when not logged in
 
   constructor(private router: Router, private http: HttpClient, private userService: UserService) {}
 
@@ -147,21 +148,23 @@ export class HomepageComponent {
     if (storedUser) {
       this.user = JSON.parse(storedUser);
       this.isLoggedIn = true;
+      this.isPopupVisible = false; // Hide popup after login
     }
-
-     // Subscribe to login status updates
-  this.userService.isLoggedIn$.subscribe((loggedIn) => {
-    this.isLoggedIn = loggedIn;
-    if (loggedIn) {
-      const userData = localStorage.getItem('user');
-      this.user = userData ? JSON.parse(userData) : null;
-    } else {
-      this.user = null;
-    }
-  });
-  }  
-  
-
+ 
+    // Subscribe to login status updates
+    this.userService.isLoggedIn$.subscribe((loggedIn) => {
+      this.isLoggedIn = loggedIn;
+      if (loggedIn) {
+        const userData = localStorage.getItem('user');
+        this.user = userData ? JSON.parse(userData) : null;
+        this.isPopupVisible = false; // Hide popup after login
+      } else {
+        this.user = null;
+        this.isPopupVisible = true; // Show popup before login
+      }
+    });
+  }
+ 
   // Filter suggestions based on user input
   onSearchInput(): void {
     this.showErrorMessage = false; // Hide error message on input
@@ -177,28 +180,28 @@ export class HomepageComponent {
       this.suggestions = []; // Clear suggestions if input is empty
     }
   }
-
+ 
   // Handle suggestion click
   onSuggestionClick(suggestion: string): void {
     this.searchText = suggestion; // Set the selected suggestion as search text
     this.suggestions = []; // Clear suggestions
     this.searchJobs(); // Trigger the search when a suggestion is clicked
   }
-
+ 
   searchJobs(): void {
     const trimmedSearchText = this.searchText.trim();
-  
+ 
     if (!trimmedSearchText) {
       this.showErrorMessage = true; // Show error message
       this.jobs = []; // Clear previous results
       return;
     }
-  
+ 
     this.showErrorMessage = false; // Hide error message if input is valid
-  
+ 
     const params = new HttpParams().set('title', trimmedSearchText);
     this.isSearching = true; // Show loader
-  
+ 
     this.http.get<any[]>('/api/searchJobs', { params }).subscribe(
       (response) => {
         this.jobs = response.filter((job) =>
@@ -212,30 +215,29 @@ export class HomepageComponent {
         this.isSearching = false; // Hide loader
       }
     );
-  
+ 
     this.router.navigate(['/job-posts'], { queryParams: { search: trimmedSearchText } });
   }
-  
-
+ 
   // Handle the Enter key press to trigger search
   onEnter(event: KeyboardEvent): void {
     if (event.key === 'Enter') {
       this.searchJobs();
     }
   }
-
+ 
   toggleProfileDropdown(): void {
     this.showProfileDropdown = !this.showProfileDropdown;
   }
-
+ 
   editProfile(): void {
     this.router.navigate(['/editprofile']);
   }
-
+ 
   logout(): void {
     this.userService.logout(); // Call the service logout
     this.isLoggedIn = false;
     this.user = null;
+    this.isPopupVisible = true; // Show popup after logout
   }
-  
 }

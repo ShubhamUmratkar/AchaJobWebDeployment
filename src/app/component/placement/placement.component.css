@@ -16,118 +16,71 @@ button {
  
  
  
-/* Sidebar styles */
+/* Sidebar */
 .sidebar {
-background-color: #ffffff;
-padding-top: 20px;
-padding-left: 20px;
-height: 100vh;
-position: sticky;
-top: 0;
-color: #fff;
-}
- 
-.sidebar .text-center {
-text-align: center;
+  background-color: #ffffff;
+  padding-top: 20px;
+  padding-left: 20px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  color: #fff;
 }
  
 .sidebar .text-center img {
-max-width: 150px;
-border-radius: 50%;
-}
- 
-.sidebar .text-center h5 {
-margin-top: 10px;
-font-size: 1.5rem; /* Increase heading font size */
-}
- 
-.sidebar hr {
-border-top: 1px solid #fff;
-margin: 20px 0;
+  max-width: 150px;
+  border-radius: 50%;
 }
  
 .sidebar .nav {
-display: flex;
-flex-direction: column;
-margin-left: 2rem;
-margin-right: 2rem;
-}
- 
-.sidebar .nav-item {
-margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  margin: 0 1rem;
 }
  
 .sidebar .nav-link {
-text-decoration: none;
-color: #2c3e50;
-padding: 1rem; /* Increase padding for larger clickable area */
-display: block;
-font-size: 1.25rem; /* Increased font size for nav links */
-transition: all 0.3s ease;
+  text-decoration: none;
+  color: #2c3e50;
+  padding: 1rem;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
 }
  
 .sidebar .nav-link:hover {
-color: #007bff;
-background: #f0f4f8;
-}
- 
-.sidebar .nav-link i {
-font-size: 1.3rem; /* Increase the size of icons */
-margin-right: 10px; /* Add space between icon and text */
+  color: #007bff;
+  background: #f0f4f8;
 }
  
 .sidebar .text-warning {
-color: #ffc107;
+  color: #ffc107;
 }
  
 .sidebar .text-info {
-color: #17a2b8;
+  color: #17a2b8;
 }
  
- 
-/* Sidebar responsive styles */
 @media (max-width: 768px) {
-.sidebar {
-  height: auto;
-  padding-left: 10px;
-  padding-right: 10px;
-  position: relative;
+  .sidebar {
+    height: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: relative;
+  }
+ 
+  .sidebar .nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0;
+  }
+ 
+  .sidebar .nav-link {
+    flex: 1 0 50%; /* Two items per row */
+    padding: 0.5rem;
+    text-align: center;
+    font-size: 1rem;
+  }
 }
  
-.sidebar .nav {
-  margin: 0;
-  padding: 0;
-}
- 
-.sidebar .nav-link {
-  font-size: 1rem;
-  padding: 0.75rem;
-}
- 
-.sidebar .text-center img {
-  max-width: 100px;
-}
-}
- 
- 
-.nav {
-list-style: none; /* Remove default list styling */
-padding: 0;
-margin: 0;
-}
- 
-.nav-item {
-margin-right: 20px; /* Adjust spacing between items */
-}
- 
-.nav-link {
-display: flex;
-align-items: center; /* Ensures the icon and text align properly */
-}
- 
-.nav-item:last-child {
-margin-right: 0; /* Remove margin from the last item */
-}
  
 /* General Styles */
 * {

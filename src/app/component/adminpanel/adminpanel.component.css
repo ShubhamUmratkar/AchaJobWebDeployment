@@ -1,3 +1,4 @@
+
 .admin-panel-container {
   max-width: 1200px;
   margin: 40px auto;
@@ -6,125 +7,104 @@
   border-radius: 8px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
-
+ 
 h1 {
   text-align: center;
   margin-bottom: 20px;
 }
-
+ 
 table {
   width: 100%;
   border-collapse: collapse;
 }
-
+ 
 thead {
   background-color: #007bff;
   color: white;
 }
-
+ 
 th, td {
   padding: 12px;
   text-align: left;
   border-bottom: 1px solid #ddd;
 }
-
+ 
 tr:hover {
   background-color: #f1f1f1;
 }
-
+ 
 tbody tr:nth-child(even) {
   background-color: #f9f9f9;
 }
+ 
 
-
-/* Sidebar styles */
+ 
+/* Sidebar */
 .sidebar {
-background-color: #ffffff;
-padding-top: 20px;
-padding-left: 20px;
-height: 100vh;
-position: sticky;
-top: 0;
-color: #fff;
+  background-color: #ffffff;
+  padding-top: 20px;
+  padding-left: 20px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  color: #fff;
 }
-
-.sidebar .text-center {
-text-align: center;
-}
-
+ 
 .sidebar .text-center img {
-max-width: 150px;
-border-radius: 50%;
+  max-width: 150px;
+  border-radius: 50%;
 }
-
-.sidebar .text-center h5 {
-margin-top: 10px;
-font-size: 1.5rem; /* Increase heading font size */
-}
-
-.sidebar hr {
-border-top: 1px solid #fff;
-margin: 20px 0;
-}
-
+ 
 .sidebar .nav {
-display: flex;
-flex-direction: column;
-margin-left: 2rem;
-margin-right: 2rem;
+  display: flex;
+  flex-direction: column;
+  margin: 0 1rem;
 }
-
-.sidebar .nav-item {
-margin-bottom: 1rem;
-}
-
+ 
 .sidebar .nav-link {
-text-decoration: none;
-color: #2c3e50;
-padding: 1rem; /* Increase padding for larger clickable area */
-display: block;
-font-size: 1.25rem; /* Increased font size for nav links */
-transition: all 0.3s ease;
+  text-decoration: none;
+  color: #2c3e50;
+  padding: 1rem;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
 }
-
+ 
 .sidebar .nav-link:hover {
-color: #007bff;
-background: #f0f4f8;
+  color: #007bff;
+  background: #f0f4f8;
 }
-
-.sidebar .nav-link i {
-font-size: 1.3rem; /* Increase the size of icons */
-margin-right: 10px; /* Add space between icon and text */
-}
-
+ 
 .sidebar .text-warning {
-color: #ffc107;
+  color: #ffc107;
 }
-
+ 
 .sidebar .text-info {
-color: #17a2b8;
+  color: #17a2b8;
 }
-
-
-.nav {
-list-style: none; /* Remove default list styling */
-padding: 0;
-margin: 0;
+ 
+@media (max-width: 768px) {
+  .sidebar {
+    height: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: relative;
+  }
+ 
+  .sidebar .nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0;
+  }
+ 
+  .sidebar .nav-link {
+    flex: 1 0 50%; /* Two items per row */
+    padding: 0.5rem;
+    text-align: center;
+    font-size: 1rem;
+  }
 }
-
-.nav-item {
-margin-right: 20px; /* Adjust spacing between items */
-}
-
-.nav-link {
-display: flex;
-align-items: center; /* Ensures the icon and text align properly */
-}
-
-.nav-item:last-child {
-margin-right: 0; /* Remove margin from the last item */
-}
-
+ 
+ 
 .admin-panel-container {
 max-width: 1200px;
 margin: 40px auto;
@@ -133,112 +113,138 @@ background: #ffffff;
 border-radius: 8px;
 box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
-
+ 
 h1 {
 text-align: center;
 margin-bottom: 20px;
 }
-
+ 
 table {
 width: 100%;
 border-collapse: collapse;
 }
-
+ 
 thead {
 background-color: #007bff;
 color: white;
 }
-
+ 
 th, td {
 padding: 12px;
 text-align: left;
 border-bottom: 1px solid #ddd;
 }
-
+ 
 tr:hover {
 background-color: #f1f1f1;
 }
-
+ 
 tbody tr:nth-child(even) {
 background-color: #f9f9f9;
 }
-
+ 
 /* Add scrollable table container for mobile view */
 .table-responsive {
 overflow-x: auto;
 -webkit-overflow-scrolling: touch; /* Enables smooth scrolling on mobile */
 }
-
+ 
 @media (max-width: 767px) {
 .admin-panel-container {
   padding: 10px;  /* Adjust padding on smaller screens */
 }
-
+ 
 table {
   width: 100%;
 }
 }
-
-/* Main content styles */
+ 
+/* Ensure forms section is scrollable if content overflows */
 .forms-list {
+  max-height: 70vh; /* Adjust based on your design */
+  overflow-y: auto; /* Add vertical scroll */
   padding: 20px;
   background-color: #f8f9fa;
   border: 1px solid #ddd;
   border-radius: 8px;
   margin-bottom: 20px;
 }
-
-.forms-list h3 {
-  margin-bottom: 15px;
-  font-size: 1.5rem;
-  color: #333;
+ 
+/* Sidebar and Content Container Adjustments */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
-
-.form-item {
-  margin-bottom: 15px;
+ 
+.container-fluid {
+  display: flex;
+  flex-grow: 1;
 }
-
+ 
+.row {
+  flex-grow: 1;
+  display: flex;
+  flex-wrap: nowrap; /* Prevent wrapping */
+}
+ 
+/* Ensure main content doesn't overlap with sidebar */
+.col-8, .col-md-8, .col-lg-10 {
+  flex: 1; /* Allow it to fill remaining space */
+  padding: 20px;
+}
+ 
+/* Sidebar tweaks for smaller screens */
+@media (max-width: 768px) {
+  .sidebar {
+    height: auto;
+    position: relative;
+  }
+}
+ 
+/* Adjustments for the form item cards */
+/* Card container styles */
 .form-card {
   padding: 15px;
+  margin-bottom: 10px;
   background-color: #ffffff;
   border: 1px solid #ddd;
   border-radius: 8px;
   transition: box-shadow 0.3s ease, transform 0.2s ease;
   cursor: pointer;
+  overflow: hidden; /* Prevent content from overflowing the card */
+  word-wrap: break-word; /* Ensure long words break within the container */
+  word-break: break-word; /* Specifically for long unbreakable words like email addresses */
 }
-
-.form-card:hover {
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  transform: translateY(-3px);
-}
-
+ 
+/* Text inside the card */
 .form-card p {
   margin: 5px 0;
   font-size: 1rem;
   color: #555;
+  word-wrap: break-word; /* Break long words */
+  overflow: hidden; /* Prevent text overflow */
+  text-overflow: ellipsis; /* Add ellipsis if necessary */
+  white-space: normal; /* Allow text to wrap if necessary */
 }
-
-.form-card p strong {
-  color: #333;
+ 
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .form-card p {
+    font-size: 0.9rem; /* Adjust text size for smaller screens */
+  }
 }
-
-/* Selected form details section */
-h4 {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-  color: #007bff;
+ 
+ 
+/* Selected Form Details Section */
+.selected-form {
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-top: 20px;
 }
-
-.selected-form p {
-  margin: 5px 0;
-  font-size: 1rem;
-  color: #444;
-}
-
-.selected-form p strong {
-  color: #000;
-}
-
+ 
 .selected-form a {
   display: inline-block;
   margin-top: 10px;
@@ -250,47 +256,57 @@ h4 {
   font-size: 1rem;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
-
+ 
 .selected-form a:hover {
   background-color: #007bff;
   color: #ffffff;
 }
-
+ 
+/* Handle Scrollbar Appearance */
+.forms-list::-webkit-scrollbar {
+  width: 8px;
+}
+ 
+.forms-list::-webkit-scrollbar-thumb {
+  background-color: #007bff;
+  border-radius: 4px;
+}
+ 
+ 
 /* Responsive adjustments */
 @media (max-width: 991px) {
   .form-card {
     font-size: 0.9rem;
     padding: 10px;
   }
-
+ 
   .forms-list h3, h4 {
     font-size: 1.25rem;
   }
-
+ 
   .selected-form a {
     font-size: 0.9rem;
     padding: 6px 12px;
   }
 }
-
-
+ 
+ 
 .container {
   margin: 20px;
 }
-
+ 
 form {
   margin-bottom: 20px;
 }
-
+ 
 form div {
   margin-bottom: 10px;
 }
-
+ 
 button {
   margin-right: 5px;
 }
-
-
+ 
 
 /* Sidebar styles */
 .sidebar {
@@ -302,37 +318,37 @@ position: sticky;
 top: 0;
 color: #fff;
 }
-
+ 
 .sidebar .text-center {
 text-align: center;
 }
-
+ 
 .sidebar .text-center img {
 max-width: 150px;
 border-radius: 50%;
 }
-
+ 
 .sidebar .text-center h5 {
 margin-top: 10px;
 font-size: 1.5rem; /* Increase heading font size */
 }
-
+ 
 .sidebar hr {
 border-top: 1px solid #fff;
 margin: 20px 0;
 }
-
+ 
 .sidebar .nav {
 display: flex;
 flex-direction: column;
 margin-left: 2rem;
 margin-right: 2rem;
 }
-
+ 
 .sidebar .nav-item {
 margin-bottom: 1rem;
 }
-
+ 
 .sidebar .nav-link {
 text-decoration: none;
 color: #2c3e50;
@@ -341,26 +357,25 @@ display: block;
 font-size: 1.25rem; /* Increased font size for nav links */
 transition: all 0.3s ease;
 }
-
+ 
 .sidebar .nav-link:hover {
 color: #007bff;
 background: #f0f4f8;
 }
-
+ 
 .sidebar .nav-link i {
 font-size: 1.3rem; /* Increase the size of icons */
 margin-right: 10px; /* Add space between icon and text */
 }
-
+ 
 .sidebar .text-warning {
 color: #ffc107;
 }
-
+ 
 .sidebar .text-info {
 color: #17a2b8;
 }
-
-
+ 
 /* Sidebar responsive styles */
 @media (max-width: 768px) {
 .sidebar {
@@ -369,42 +384,41 @@ color: #17a2b8;
   padding-right: 10px;
   position: relative;
 }
-
+ 
 .sidebar .nav {
   margin: 0;
   padding: 0;
 }
-
+ 
 .sidebar .nav-link {
   font-size: 1rem;
   padding: 0.75rem;
 }
-
+ 
 .sidebar .text-center img {
   max-width: 100px;
 }
 }
-
-
+ 
 .nav {
 list-style: none; /* Remove default list styling */
 padding: 0;
 margin: 0;
 }
-
+ 
 .nav-item {
 margin-right: 20px; /* Adjust spacing between items */
 }
-
+ 
 .nav-link {
 display: flex;
 align-items: center; /* Ensures the icon and text align properly */
 }
-
+ 
 .nav-item:last-child {
 margin-right: 0; /* Remove margin from the last item */
 }
-
+ 
 /* General Styles */
 * {
 box-sizing: border-box;
@@ -412,16 +426,43 @@ margin: 0;
 padding: 0;
 font-family: Arial, sans-serif;
 }
-
+ 
 body {
 background-color: #f8f9fa;
 color: #333;
 padding: 1rem;
 }
-
+ 
 h1 {
 text-align: center;
 margin-bottom: 1rem;
 color: #007bff;
 }
 
+
+
+.btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+ 
+.btn-primary {
+  background-color: #007bff;
+}
+ 
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+ 
+.btn-secondary {
+  background-color: #6c757d;
+}
+ 
+.btn-secondary:hover {
+  background-color: #495057;
+}

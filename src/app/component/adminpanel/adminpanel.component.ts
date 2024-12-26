@@ -13,6 +13,7 @@ export class AdminpanelComponent {
   selectedForm: any = null;
   adminId: number | null = null; // Initially null
   errorMessage: string | null = null;
+  sidebarOpen = false;
 
   constructor(private formService: FormService, private applyJobService : ApplyJobService, private router :Router) {}
 

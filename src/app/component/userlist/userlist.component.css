@@ -359,3 +359,30 @@ th, td {
   white-space: nowrap; /* Prevents content wrapping */
 }
 
+
+
+.btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+ 
+.btn-primary {
+  background-color: #007bff;
+}
+ 
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+ 
+.btn-secondary {
+  background-color: #6c757d;
+}
+ 
+.btn-secondary:hover {
+  background-color: #495057;
+}

@@ -17,6 +17,7 @@ export class InternshipComponent implements OnInit {
   adminId: number = 0; // Initially null
   errorMessage: string | null = null;
   today: string = ''; // Declare the 'today' property
+  sidebarOpen = false;
 
   constructor(private fb: FormBuilder, private internshipService: InternshipService, private adminService: AdminService) {}
 
