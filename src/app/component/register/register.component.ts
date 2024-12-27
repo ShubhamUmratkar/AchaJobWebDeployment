@@ -83,32 +83,32 @@ export class RegisterComponent {
       this.confirmPasswordFieldType === 'password' ? 'text' : 'password';
   }
 
-onSubmit() {
-  this.submitted = true;
-
-  if (this.registerForm.invalid) {
-    return;
-  }
-
-  const user = new User(this.registerForm.value);
-
-  this.userService.registerUser(user).subscribe(
-    response => {
-      this.errorMessage = ''; // Clear any previous error messages
-      alert("User Registered Successfully"); // Success message
-      this.router.navigate(['/login']);
-    },
-    error => {
-      if (typeof error === 'string') {
-        // this.errorMessage = error; // Show the backend error message
-        alert(error);
-      } else {
-        this.errorMessage = 'An unexpected error occurred. Please try again later.';
-      }
-      console.error('Error:', error);
+  onSubmit() {
+    this.submitted = true;
+   
+    if (this.registerForm.invalid) {
+      return;
     }
-  );
-}
+   
+    const user = new User(this.registerForm.value);
+   
+    this.userService.registerUser(user).subscribe(
+      response => {
+        this.errorMessage = ''; // Clear any previous error messages
+        alert("User Registered Successfully"); // Success message
+        this.router.navigate(['/login']);
+      },
+      error => {
+        if (typeof error === 'string') {
+          // this.errorMessage = error; // Show the backend error message
+          alert("Entered Username Or Mobile Number Or Emaild-Id is Already Exist");
+        } else {
+          this.errorMessage = 'An unexpected error occurred. Please try again later.';
+        }
+        console.error('Error:', error);
+      }
+    );
+  }
 
 
   // Getter for form controls

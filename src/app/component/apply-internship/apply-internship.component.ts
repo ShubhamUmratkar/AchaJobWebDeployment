@@ -36,6 +36,9 @@ export class ApplyInternshipComponent {
     this.route.params.subscribe(params => {
       this.internshipId = +params['id'];
     });
+      // Reset scroll to the top without animations
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
   }
  
   onFileChange(event: Event): void {

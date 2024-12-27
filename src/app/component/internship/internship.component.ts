@@ -18,9 +18,9 @@ export class InternshipComponent implements OnInit {
   errorMessage: string | null = null;
   today: string = ''; // Declare the 'today' property
   sidebarOpen = false;
-
+ 
   constructor(private fb: FormBuilder, private internshipService: InternshipService, private adminService: AdminService) {}
-
+ 
   ngOnInit(): void {
     this.today = new Date().toISOString().split('T')[0]; // Format the date as YYYY-MM-DD
     this.internshipForm = this.fb.group({
@@ -29,14 +29,24 @@ export class InternshipComponent implements OnInit {
       company: ['', Validators.required],
       location: ['', Validators.required],
       duration: [''],
-      stipend: [''],
+      stipend: [
+        '',
+        [
+          Validators.pattern('^[0-9]*$'), // Ensures only non-negative numbers
+        ]
+      ],
       qualifications: ['', Validators.required],
       skills: [''],
       description: [''],
       status: ['', Validators.required],
       openingStartDate: [''],
       lastApplyDate: [''],
-      numberOfOpenings: [null],
+      numberOfOpenings: [
+        null,
+        [
+          Validators.pattern('^[0-9]*$'), // Ensures only non-negative numbers
+        ]
+      ],
       perks: [''],
       companyDescription: [''],
     });
@@ -51,10 +61,10 @@ export class InternshipComponent implements OnInit {
       // Optionally redirect to the login page
       // this.router.navigate(['/login']);
     }
-
+ 
     console.log("AdminID:@@@@@@@@@@@@@@@",this.adminId);
   }
-
+ 
   // Update fetchInternships to use the method that fetches internships by adminId
   fetchInternships(): void {
     if (this.adminId) {
@@ -72,8 +82,15 @@ export class InternshipComponent implements OnInit {
       this.errorMessage = 'Admin ID is not set.';
     }
   }
-
+ 
   createInternship(): void {
+  const stipend = this.internshipForm.get('stipend')?.value;
+  const numberOfOpenings = this.internshipForm.get('numberOfOpenings')?.value;
+ 
+  if (stipend < 0 || numberOfOpenings < 0) {
+    alert('Stipend and Number of Openings cannot be negative.');
+    return; // Prevent form submission
+  }
     if (this.internshipForm.valid) {
       const internshipData = this.internshipForm.value;
       alert('Waiting for Super-Admin Approvel');
@@ -83,13 +100,20 @@ export class InternshipComponent implements OnInit {
       });
     }
   }
-
+ 
   selectInternship(internship: any): void {
     this.selectedInternship = internship;
     this.internshipForm.patchValue(internship);
   }
-
+ 
   updateInternship(): void {
+    const stipend = this.internshipForm.get('stipend')?.value;
+  const numberOfOpenings = this.internshipForm.get('numberOfOpenings')?.value;
+ 
+  if (stipend < 0 || numberOfOpenings < 0) {
+    alert('Stipend and Number of Openings cannot be negative.');
+    return; // Prevent form submission
+  }
     if (this.selectedInternship && this.internshipForm.valid) {
       alert('Post Updated Successfully');
       this.internshipService.updateInternship(this.selectedInternship.id, this.internshipForm.value).subscribe(() => {
@@ -99,7 +123,7 @@ export class InternshipComponent implements OnInit {
       });
     }
   }
-
+ 
   deleteInternship(id: number): void {
     alert('Post Deleted Successfully');
     this.internshipService.deleteInternship(id).subscribe(() => {
@@ -107,9 +131,15 @@ export class InternshipComponent implements OnInit {
     });
     this.fetchInternships();
   }
-
+ 
   resetForm(): void {
     this.internshipForm.reset();
     this.selectedInternship = null;
   }
+ 
+  validateNonNegative(field: string): void {
+    const value = this.internshipForm.get(field)?.value;
+    if (value < 0) {
+      this.internshipForm.get(field)?.setValue(0);
+    }}
 }

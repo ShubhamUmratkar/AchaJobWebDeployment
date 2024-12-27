@@ -33,7 +33,7 @@ export class UserService {
     return this.http.post(`${NAV_URL}/users/user/register`, user, { headers, responseType: 'text' })
       .pipe(
         map((response: string) => {
-          console.log('Registration response:', response);
+
           return { success: true, message: response };
         }),
         catchError((error) => {

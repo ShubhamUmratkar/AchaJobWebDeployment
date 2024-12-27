@@ -29,21 +29,21 @@ export class SaveJobComponent {
     perks: '',
     companyDescription: '',
   };
-
+ 
   successMessage: string | null = null;
   errorMessage: string | null = null;
   adminId: number | null = null; // Initially null
   today:string = '';
   sidebarOpen = false;
-
+ 
   jobs: Job[] = [];
-
+ 
   constructor(
     private jobService: JobService,
     // private jobNotificationService: JobnotificationService,
     private adminService: AdminService
   ) {}
-
+ 
   ngOnInit(): void {
     this.today= new Date().toISOString().split('T')[0];
     // Retrieve adminId from localStorage after login
@@ -51,7 +51,7 @@ export class SaveJobComponent {
     if (storedAdminId) {
       this.adminId = parseInt(storedAdminId, 10); // Convert to number
     }
-
+ 
     if (this.adminId !== null) {
       this.loadJobs(this.adminId);
     } else {
@@ -60,16 +60,16 @@ export class SaveJobComponent {
       // Optionally redirect to the login page
       // this.router.navigate(['/login']);
     }
-
+ 
     console.log("AdminID:",this.adminId);
   }
-
+ 
   loadJobs(adminId: number): void {
     if (adminId === null) {
       this.errorMessage = 'Admin ID is missing!';
       return;
     }
-
+ 
     this.jobService.getJobsByAdmin(adminId).subscribe({
       next: (response) => {
         this.jobs = response;
@@ -81,25 +81,25 @@ export class SaveJobComponent {
       },
     });
   }
-
+ 
   saveJob(jobForm: any): void {
     if (!jobForm.valid) {
       alert('Please fill out all required fields!');
       return;
     }
-
+ 
     if (this.adminId === null) {
       alert('Admin not logged in!');
       return;
     }
-
+ 
     alert('Waiting for Super-Admin Approvel');
     // Post job data to backend using JobService
     this.adminService.postJob(this.adminId, this.job).subscribe({
       next: (response) => {
         this.successMessage = 'Job posted successfully!';
         console.log('Job posted:', response);
-
+ 
       },
       error: (error) => {
         console.error('Error posting job:', error);
@@ -107,18 +107,18 @@ export class SaveJobComponent {
       },
     });
   }
-
+ 
   updateJob(): void {
     if (!this.job.id) {
       alert('Job ID is missing!');
       return;
     }
-
+ 
     if (this.adminId === null) {
       alert('Admin not logged in!');
       return;
     }
-
+ 
     this.jobService.updateJob(this.job.id, this.job).subscribe({
       next: (updatedJob) => {
         this.successMessage = 'Job updated successfully!';
@@ -132,23 +132,23 @@ export class SaveJobComponent {
       },
     });
   }
-
+ 
   deleteJob(id: number | undefined): void {
     if (id === undefined) {
       alert('Job ID is missing!');
       return;
     }
-
+ 
     if (this.adminId === null) {
       alert('Admin not logged in!');
       return;
     }
-
+ 
     const confirmed = window.confirm('Are you sure you want to delete this job?');
     if (!confirmed) {
       return;
     }
-
+ 
     this.adminService.deleteJob(this.adminId, id).subscribe({
       next: (response) => {
         console.log('Job deleted successfully:', response);
@@ -162,13 +162,21 @@ export class SaveJobComponent {
       },
     });
   }
-
+ 
   editJob(job: Job): void {
     this.job = { ...job }; // Populate the form with job data for editing
   }
-
-
+ 
+ 
   toggleSidebar() {
     this.sidebarOpen = !this.sidebarOpen;
+  }
+  validatePositiveValue(field: 'salary' | 'numberOfOpenings'): void {
+    const fieldValue = this.job?.[field] ?? 0; // Default to 0 if undefined or null
+ 
+    if (fieldValue < 0) {
+      this.job[field] = 0; // Reset to 0 if a negative value is entered
+      alert(`${field === 'salary' ? 'Salary' : 'Number of Openings'} cannot be negative.`);
+    }
   }
 }

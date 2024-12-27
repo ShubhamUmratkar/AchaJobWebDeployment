@@ -3,20 +3,25 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
   rel="stylesheet"
 />
-
+ 
 <div class="container-fluid" [class.sidebar-open-content]="sidebarOpen">
   <div class="row">
     <!-- Sidebar -->
-    <nav class="col-4 col-md-4 col-lg-2 sidebar sticky-top" [class.sidebar-open]="sidebarOpen">
+    <nav
+      class="col-4 col-md-4 col-lg-2 sidebar sticky-top"
+      [class.sidebar-open]="sidebarOpen"
+    >
       <div class="text-center my-3">
         <img src="../../../assets/AchaJobs.png" width="150" alt="" />
       </div>
-      
+ 
       <!-- Edit Admin Button in Sidebar -->
       <div class="d-flex justify-content-center my-1">
-        <button class="btn btn-primary" [routerLink]="['/editadmin', adminId]">Edit Admin</button>
+        <button class="btn btn-primary" [routerLink]="['/editadmin', adminId]">
+          Edit Admin
+        </button>
       </div>
-      
+ 
       <hr />
       <ul class="nav flex-column mx-0">
         <li class="nav-item mb-2">
@@ -28,43 +33,43 @@
             <i class="fa fa-briefcase text-warning"></i> Job's
           </a>
         </li>
-
+ 
         <li class="nav-item mb-1">
           <a class="nav-link" [routerLink]="['/internship']">
             <i class="fa-brands fa-wpforms"></i> Internship
           </a>
         </li>
-
+ 
         <li class="nav-item mb-2">
           <a class="nav-link" [routerLink]="['/userslist']">
             <i class="fas fa-envelope text-info"></i> UserList
           </a>
         </li>
-
+ 
         <li class="nav-item mb-2">
           <a class="nav-link" [routerLink]="['/view-all-forms-admin']">
             <i class="fas fa-envelope text-info"></i> View Forms
           </a>
         </li>
-
+ 
         <li class="nav-item mb-2">
           <a class="nav-link" [routerLink]="['/adminpanel']">
             <i class="fas fa-folder-open text-danger"></i> Submitted Forms
           </a>
         </li>
-
+ 
         <li class="nav-item mb-2">
           <a class="nav-link" [routerLink]="['/mockinterview']">
             <i class="fas fa-folder-open text-danger"></i> Mock Interview
           </a>
         </li>
-
+ 
         <li class="nav-item mb-2">
           <a class="nav-link" [routerLink]="['/placement']">
             <i class="fas fa-folder-open text-danger"></i> Placement
           </a>
         </li>
-
+ 
         <!-- <li class="nav-item mb-2">
           <a class="nav-link" [routerLink]="['/admin-blogs']">
             <i class="fas fa-folder-open text-danger"></i> Blogs
@@ -72,13 +77,11 @@
         </li> -->
       </ul>
     </nav>
-
+ 
     <!-- Main content -->
     <div class="col-8 col-md-8 col-lg-10 p-0">
-    
-
       <!-- internship.component.html -->
-
+ 
       <div class="container">
         <h2>Manage Internships</h2>
         <form
@@ -105,7 +108,12 @@
           </div>
           <div>
             <label>Stipend</label>
-            <input type="text" formControlName="stipend" />
+            <input
+              type="text"
+              formControlName="stipend"
+              min="0"
+              (input)="validateNonNegative('stipend')"
+            />
           </div>
           <div>
             <label>Qualifications</label>
@@ -137,7 +145,12 @@
           </div>
           <div>
             <label>Number of Openings</label>
-            <input type="number" formControlName="numberOfOpenings" />
+            <input
+              type="number" 
+              formControlName="numberOfOpenings"
+              min="0"
+              (input)="validateNonNegative('numberOfOpenings')"
+            />
           </div>
           <div>
             <label>Perks</label>
@@ -147,41 +160,37 @@
             <label>Company Description</label>
             <textarea formControlName="companyDescription"></textarea>
           </div>
-          <button type="submit">
+          <button type="submit" class="submit">
             {{ selectedInternship ? "Update" : "Create" }}
           </button>
-          <button type="button" (click)="resetForm()">Reset</button>
+          <button type="button" class="reset" (click)="resetForm()">Reset</button>
         </form>
-
-        
       </div>
     </div>
   </div>
 </div>
-
+ 
 <div class="tab-body">
-        <h3>Internships</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Company</th>
-              <th>Location</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let internship of internships">
-              <td>{{ internship.title }}</td>
-              <td>{{ internship.company }}</td>
-              <td>{{ internship.location }}</td>
-              <td>
-                <button (click)="selectInternship(internship)">Edit</button>
-                <button (click)="deleteInternship(internship.id)">
-                  Delete
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+  <h3>Internships</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Company</th>
+        <th>Location</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let internship of internships">
+        <td>{{ internship.title }}</td>
+        <td>{{ internship.company }}</td>
+        <td>{{ internship.location }}</td>
+        <td>
+          <button (click)="selectInternship(internship)">Edit</button>
+          <button (click)="deleteInternship(internship.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>

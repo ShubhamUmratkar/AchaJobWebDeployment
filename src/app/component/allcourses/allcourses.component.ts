@@ -10,6 +10,9 @@ export class AllcoursesComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+      // Reset scroll to the top without animations
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
   }
 
 }

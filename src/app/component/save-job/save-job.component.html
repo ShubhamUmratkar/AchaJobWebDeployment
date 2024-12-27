@@ -1,21 +1,30 @@
 <div class="container-fluid" [class.sidebar-open-content]="sidebarOpen">
   <div class="row">
     <!-- Sidebar -->
-    <nav class="col-4 col-md-4 col-lg-2 sidebar sticky-top" [class.sidebar-open]="sidebarOpen">
+    <nav
+      class="col-4 col-md-4 col-lg-2 sidebar sticky-top"
+      [class.sidebar-open]="sidebarOpen"
+    >
       <div class="text-center my-3">
         <img src="../../../assets/AchaJobs.png" width="120" alt="" />
       </div>
-      
+ 
       <!-- Edit Admin Button in Sidebar -->
       <div class="d-flex justify-content-center my-1">
-        <button class="btn btn-primary" [routerLink]="['/editadmin', adminId]">Edit Admin</button>
+        <button class="btn btn-primary" [routerLink]="['/editadmin', adminId]">
+          Edit Admin
+        </button>
       </div>
-      
+ 
       <hr />
-      
+ 
       <ul class="nav flex-column mx-0">
         <li class="nav-item mb-1">
-          <a class="nav-link" [routerLink]="['/save-job']" routerLinkActive="router-link-active">
+          <a
+            class="nav-link"
+            [routerLink]="['/save-job']"
+            routerLinkActive="router-link-active"
+          >
             <i class="fa fa-briefcase text-warning"></i> Job's
           </a>
         </li>
@@ -51,25 +60,23 @@
         </li>
       </ul>
     </nav>
-
+ 
     <!-- Main content -->
     <div class="col-8 col-md-8 col-lg-10 p-0">
-      
-
       <div class="form-container">
         <!-- Success Message
         <div *ngIf="successMessage" class="alert alert-success">
           {{ successMessage }}
         </div>
-
-
+ 
+ 
         <div *ngIf="errorMessage" class="alert alert-danger">
           {{ errorMessage }}
         </div> -->
-
+ 
         <form #jobForm="ngForm" (ngSubmit)="saveJob(jobForm)">
           <!-- Existing fields -->
-
+ 
           <label for="title">Title:</label>
           <input
             id="title"
@@ -78,7 +85,7 @@
             name="title"
             required
           />
-
+ 
           <label for="category">Category:</label>
           <input
             id="category"
@@ -87,7 +94,7 @@
             name="category"
             required
           />
-
+ 
           <label for="location">Location:</label>
           <input
             id="location"
@@ -96,7 +103,7 @@
             name="location"
             required
           />
-
+ 
           <label for="employmentType">Employment Type:</label>
           <select
             id="employmentType"
@@ -107,7 +114,7 @@
             <option value="Full Time">Full Time</option>
             <option value="Part Time">Part Time</option>
           </select>
-
+ 
           <label for="workModel">Work Model:</label>
           <select
             id="workModel"
@@ -120,7 +127,7 @@
             <option value="Hybrid">Hybrid</option>
             <option value="Remote">Remote</option>
           </select>
-
+ 
           <label for="experience">Experience:</label>
           <input
             id="experience"
@@ -129,23 +136,25 @@
             name="experience"
             required
           />
-
+ 
           <label for="salary">Salary:</label>
           <input
             id="salary"
-            type="number"
+            type="text"
             [(ngModel)]="job.salary"
             name="salary"
             required
+            min="0"
+            (input)="validatePositiveValue('salary')"
           />
           <!-- <input type="number" name="salary" id="salary" placeholder="Enter Salary" min="0" oninput="this.value = Math.abs(this.value)"/> -->
-
+ 
           <label for="status">Status:</label>
           <select id="status" [(ngModel)]="job.status" name="status" required>
             <option value="Active">Active</option>
             <option value="Deactive">Deactive</option>
           </select>
-
+ 
           <label for="jobDescription">Job Description:</label>
           <textarea
             id="jobDescription"
@@ -154,7 +163,7 @@
             rows="4"
             required
           ></textarea>
-
+ 
           <label for="skills">Skills:</label>
           <input
             id="skills"
@@ -164,7 +173,7 @@
             placeholder="Comma-separated skills"
             required
           />
-
+ 
           <label for="company">Company:</label>
           <input
             id="company"
@@ -173,7 +182,7 @@
             name="company"
             required
           />
-
+ 
           <!-- New fields -->
           <label for="openingStartDate">Opening Start Date:</label>
           <input
@@ -184,7 +193,7 @@
             required
             [min]="today"
           />
-
+ 
           <label for="lastApplyDate">Last Apply Date:</label>
           <input
             id="lastApplyDate"
@@ -194,16 +203,18 @@
             required
             [min]="today"
           />
-
+ 
           <label for="numberOfOpenings">Number of Openings:</label>
           <input
             id="numberOfOpenings"
-            type="number"
+            type="text"
             [(ngModel)]="job.numberOfOpenings"
             name="numberOfOpenings"
             required
+            min="0"
+            (input)="validatePositiveValue('numberOfOpenings')"
           />
-
+ 
           <label for="perks">Perks:</label>
           <textarea
             id="perks"
@@ -211,7 +222,7 @@
             name="perks"
             rows="2"
           ></textarea>
-
+ 
           <label for="companyDescription">Company Description:</label>
           <textarea
             id="companyDescription"
@@ -219,7 +230,7 @@
             name="companyDescription"
             rows="4"
           ></textarea>
-
+ 
           <button type="submit" [disabled]="!jobForm.valid">Save Job</button>
           <button type="button" (click)="updateJob()" [disabled]="!job.id">
             Update Job
@@ -229,9 +240,9 @@
     </div>
   </div>
 </div>
-
+ 
 <hr />
-
+ 
 <div class="jobs-list">
   <h3>Saved Jobs</h3>
   <table>

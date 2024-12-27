@@ -103,7 +103,6 @@ body {
   color: #fff;
   transition: background-color 0.3s ease, transform 0.2s ease;
   margin-right: 10px; /* Add space between Approve and Disable buttons */
-
 }
 
 .btn-success:disabled {
@@ -151,7 +150,6 @@ body {
   }
 }
 
-
 .card {
   border-radius: 8px;
   transition: box-shadow 0.3s;
@@ -173,4 +171,13 @@ body {
 .btn-sm {
   font-size: 12px;
   padding: 6px 10px;
+}
+
+/* Status Colors */
+.text-success {
+  color: #28a745 !important;  /* Green for approved */
+}
+
+.text-danger {
+  color: #dc3545 !important;  /* Red for disabled */
 }

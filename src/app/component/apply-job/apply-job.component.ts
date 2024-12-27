@@ -41,6 +41,9 @@ export class ApplyJobComponent implements OnInit {
       this.jobId = +params['id'];  // Convert the id parameter to a number
       console.log("JOB ID@@@@@@@@@@@@@@@@@@@@@@@@@", this.jobId); // Debugging output
     });
+      // Reset scroll to the top without animations
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
   }
 
 

@@ -213,7 +213,7 @@ export class NavbarComponent implements OnInit, AfterViewInit{
         isOpen: false,
         categories: [
           {
-            title: 'Blog',
+            title: 'Blog' ,
             items: [
               { name: 'Internship Tips', link: '' },
               { name: 'Skills Development', link: '' },

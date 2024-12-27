@@ -24,14 +24,24 @@ export class SuperAdminComponent implements OnInit {
   loadAdmins(): void {
     this.superAdminService.getAllAdmins().subscribe(
       (admins) => {
-        this.admins = admins;
+        this.admins = admins.map((admin) => {
+          // Set the status based on `approved` and `enabled` flags
+          if (admin.approved && admin.enabled) {
+            admin.status = 'Approved';
+          } else {
+            admin.status = 'Disabled';
+          }
+          return admin;
+        });
         console.log('Admin list after loading:', admins);
       },
       (error) => {
         console.error('Error loading admins:', error);
         alert('Failed to load admins.');
-      });
+      }
+    );
   }
+  
 
   approveAdmin(adminId: number): void {
     console.log(adminId,"AdminId in Approve state");
@@ -48,6 +58,7 @@ export class SuperAdminComponent implements OnInit {
       (error) => {
         console.error('Error approving admin:', error);
         alert('Admin approved.');
+        this.loadAdmins();
       });
   }
  

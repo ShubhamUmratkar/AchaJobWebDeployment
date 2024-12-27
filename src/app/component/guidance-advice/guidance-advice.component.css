@@ -6,82 +6,83 @@ body {
     font-family: 'Arial', sans-serif;
     background-color: #f8f9fa;
     color: #333;
-}
+  }
 
-.body {
+  .body{
     background-color: white;
-}
-
-/* Container Styling */
-.career-guidance-container {
+  }
+  
+  /* Container Styling */
+  .career-guidance-container {
     max-width: 900px;
     margin: 30px auto;
     padding: 20px;
     background: #ffffff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Heading Styles */
-.career-guidance-container h1 {
+  }
+  
+  /* Heading Styles */
+  .career-guidance-container h1 {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 30px;
     color: #2c3e50;
-}
-
-.career-guidance-container h2 {
+  }
+  
+  .career-guidance-container h2 {
     font-size: 1.8rem;
     margin-bottom: 10px;
     color: #433d3d;
     border-bottom: 2px solid #3498db;
     padding-bottom: 5px;
-}
-
-/* List Styling */
-.career-guidance-section ul {
+  }
+  
+  /* List Styling */
+  .career-section ul {
     margin: 10px 0 20px 20px;
     padding: 0;
     list-style-type: disc;
-}
-
-.career-guidance-section ul li {
+  }
+  
+  .career-section ul li {
     margin: 10px 0;
     line-height: 1.6;
     font-size: 1rem;
     color: #555;
-}
-
-/* Section Styling */
-.career-guidance-section {
+  }
+  
+  /* Section Styling */
+  .career-section {
     margin-bottom: 30px;
     padding: 15px;
-    border-left: 4px solid #3498db; /* Blue border for each section */
-    background: #98b1c0; /* Light blue background */
+    border-left: 4px solid #3498db;
+    background: #f4f9fc;
     border-radius: 4px;
     transition: transform 0.3s, background-color 0.3s;
-}
-
-.career-guidance-section:hover {
+  }
+  
+  .career-section:hover {
     transform: translateY(-3px);
-    background-color: #d4eafc; /* Slightly darker blue on hover */
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
+    background-color: #eaf5fc;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
     .career-guidance-container {
-        padding: 15px;
+      padding: 15px;
     }
-
+  
     .career-guidance-container h1 {
-        font-size: 2rem;
+      font-size: 2rem;
     }
-
+  
     .career-guidance-container h2 {
-        font-size: 1.5rem;
+      font-size: 1.5rem;
     }
-
-    .career-guidance-section ul li {
-        font-size: 0.9rem;
+  
+    .career-section ul li {
+      font-size: 0.9rem;
     }
-}
+  }
+  

@@ -53,6 +53,10 @@ shareUrl: string = '';
         window.scrollTo(0, 0);
       }
     });
+
+      // Reset scroll to the top without animations
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
   }
 
   fetchJobDetails(id: number): void {
